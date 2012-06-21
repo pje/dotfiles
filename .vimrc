@@ -23,7 +23,7 @@ set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
 
 "set list             " alternate: set listchars+=tab:▸\ ,eol¬
-"set listchars=tab:»· 
+"set listchars=tab:»·
 "set listchars+=trail:·
 "set listchars+=precedes:<,extends:>
 
@@ -118,4 +118,3 @@ let g:indent_guides_enable_on_vim_startup = 0
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
-
