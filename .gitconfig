@@ -1,0 +1,45 @@
+[user]
+  email = patrick@soundcloud.com
+	name = Patrick Ellis
+[github]
+	user = pje
+  password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  gemver = !v=`ruby -e \"puts eval(File.read(Dir.glob(%(*.gemspec)).first)).version.to_s\"` && git tag -a v$v -m \"tagging v$v\"
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; mate `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  newbranch = "!sh -c 'git checkout -b $1 && git push -u origin $1' -"
+  changes-in = !sh -c 'git log \"..$1\" --no-merges --format=\"%h | Author: %an | %ad | %s\" --date=local' -
+  changes-out = !sh -c 'git log \"$1\".. --no-merges --format=\"%h | Author: %an | %ad | %s\" --date=local' -
+[apply]
+  whitespace = nowarn
+[gist]
+  private = yes
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = tracking
+[credential]
+	helper = osxkeychain

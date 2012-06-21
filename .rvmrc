@@ -1,0 +1,10 @@
+# Load RVM into a shell session *as a function*
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  source "/usr/local/rvm/scripts/rvm"
+else
+  echo "ERROR: An RVM installation was not found.\n" &2>
+fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
