@@ -6,3 +6,4 @@ cp -i .bashrc ~/.bashrc
 cp -i .profile ~/.profile
 cp -i .gitconfig ~/.gitconfig
 cp -i .rvmrc ~/.rvmrc
+cp -i .vimrc ~/.vimrc
