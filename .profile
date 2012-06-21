@@ -1,4 +1,4 @@
-# [ -f ~/.rvmrc ] && source ~/.rvmrc
+`which rvm` && [ -f ~/.rvmrc ] && source ~/.rvmrc
 [ -f ~/.scrc ] && source ~/.scrc
 
 export PATH=/usr/bin:$PATH
