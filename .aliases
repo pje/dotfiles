@@ -1,1 +1,0 @@
-alias gst="git status"
