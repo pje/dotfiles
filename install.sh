@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-dotfiles=".bash_login .bashrc .gitconfig .profile .vimrc"
+dotfiles=".ackrc .bash_login .bashrc .gitconfig .profile .vimrc com.googlecode.iterm2.plist"
 
 read -r -p "overwrite dotfiles in $HOME ? "
 
