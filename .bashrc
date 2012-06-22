@@ -1,6 +1,6 @@
 source ~/.profile
 
-gcb='/usr/local/etc/bash_completion.d/git-completion.bash'
+gcb="`brew --prefix`/etc/bash_completion"
 
 [[ -f $gcb ]] && . $gcb
 
