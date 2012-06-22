@@ -1,5 +1,4 @@
 set -e
-# vim & plugins
 
 # [ -f `which brew` ] || echo 'no brew' >&2
 # [ -f `which brew` ] || echo '/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"' >&2
