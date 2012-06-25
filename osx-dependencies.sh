@@ -33,3 +33,9 @@ name="command-t"
 dest=~/.vim/bundle/$name
 repo="git://git.wincent.com/command-t.git"
 [ -d $dest ] || (git clone $repo $dest && cd $dest && bundle install && rake make)
+
+name="git-vim"
+dest=~/.vim/bundle/$name
+repo="https://github.com/motemen/git-vim"
+[-d $dest ] || (git clone $repo $dest)
+
