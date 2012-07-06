@@ -5,9 +5,9 @@ dotfiles=".ackrc .bash_login .bashrc .ghci .gitconfig .gitignore .profile .vimrc
 
 read -r -p "overwrite dotfiles in $HOME ? "
 
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
+if [[ $REPLY =~ ^[Yy](es)?$ ]] ; then
   for f in $dotfiles ; do
-    cp -f ./$f ~/
+    ln -sf `pwd`/$f $HOME/$f
   done
 else
   echo -e "cancelling installation"
