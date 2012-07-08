@@ -15,12 +15,13 @@ set softtabstop=2
 set expandtab
 set backspace=2
 set autoindent
-set smartindent
-set smarttab
-set nowrap
+" set smartindent
+" set smarttab
+" set nowrap
 set nofoldenable
 set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
+set showbreak=…
 
 "set list             " alternate: set listchars+=tab:▸\ ,eol¬
 "set listchars=tab:»·
@@ -80,9 +81,9 @@ filetype plugin on
 filetype indent on
 
 " Colors
-" if $TERM == "rxvt-unicode"
-"   set t_Co=256
-" endif
+if $TERM == "rxvt-unicode"
+ set t_Co=256
+endif
 
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
@@ -101,7 +102,6 @@ syntax enable
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>a :Ack
 
-
 "" Bash out extra whitespace
 highlight StatusLine ctermbg=234
 highlight StatusLineNC ctermbg=232 ctermfg=8
@@ -118,3 +118,4 @@ let g:indent_guides_enable_on_vim_startup = 0
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
+
