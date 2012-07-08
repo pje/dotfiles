@@ -17,7 +17,7 @@ set backspace=2
 set autoindent
 " set smartindent
 " set smarttab
-" set nowrap
+set nowrap
 set nofoldenable
 set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
