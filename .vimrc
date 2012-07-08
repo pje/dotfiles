@@ -21,7 +21,6 @@ set nowrap
 set nofoldenable
 set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
-set showbreak=…
 
 "set list             " alternate: set listchars+=tab:▸\ ,eol¬
 "set listchars=tab:»·
