@@ -15,17 +15,10 @@ set softtabstop=2
 set expandtab
 set backspace=2
 set autoindent
-" set smartindent
-" set smarttab
 set nowrap
 set nofoldenable
 set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
-
-"set list             " alternate: set listchars+=tab:▸\ ,eol¬
-"set listchars=tab:»·
-"set listchars+=trail:·
-"set listchars+=precedes:<,extends:>
 
 :set et sw=2 ts=2 sts=2
 :highlight ExtraWhitespace ctermfg=15 ctermbg=4 guifg=#CF6A4C guibg=#420E09
@@ -56,6 +49,9 @@ set showmatch
 set visualbell
 set winminheight=0
 set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
+
+" System Pasteboard
+set clipboard=unnamed
 
 " Files/Paths/Buffers
 set hidden
