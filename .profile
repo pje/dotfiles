@@ -11,6 +11,7 @@ function current_git_branch {
 
 alias gst="git status"
 
-source ~/.scrc
+[[ -f ~/.scrc ]] && source ~/.scrc
 
-[ -f `which rbenv` ] && eval "$(rbenv init -)"
+[[ -f `which rbenv` ]] && eval "$(rbenv init -)"
+
