@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 # [ -f `which brew` ] || echo 'no brew' >&2
@@ -5,8 +6,6 @@ set -e
 brew -v
 
 [ -d /Applications/Sublime Text 2.app ] && (which subl || ln -fs "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-
-[ -f `which ack` ] || brew install ack
 
 vim --version | grep '+ruby' || (echo 'vim compiled without ruby support' >&2 && exit 1)
 
@@ -19,14 +18,14 @@ mkdir -p ~/.vim/bundle/
 curl -so ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-name="vim-colors-solarized"
-dest=~/.vim/bundle/$name
-repo="git://github.com/altercation/vim-colors-solarized.git"
-[ -d $dest ] || (git clone $repo $dest)
-
 name="ack"
 dest=~/.vim/bundle/$name
 repo="https://github.com/mileszs/ack.vim.git"
+[ -d $dest ] || (git clone $repo $dest)
+
+name="vim-colors-solarized"
+dest=~/.vim/bundle/$name
+repo="git://github.com/altercation/vim-colors-solarized.git"
 [ -d $dest ] || (git clone $repo $dest)
 
 name="command-t"
@@ -38,4 +37,3 @@ name="git-vim"
 dest=~/.vim/bundle/$name
 repo="https://github.com/motemen/git-vim"
 [-d $dest ] || (git clone $repo $dest)
-
