@@ -19,4 +19,3 @@ alias gst="git status"
 [[ -f ~/.scrc ]] && source ~/.scrc
 
 [[ -f `which rbenv` ]] && eval "$(rbenv init -)"
-

@@ -15,7 +15,7 @@ IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:AUTO_INDENT] = true
 
-IRB.conf[:PROMPT][:CLOUD] = { 
+IRB.conf[:PROMPT][:CLOUD] = {
   :PROMPT_I => "#{ANSI_PURPLE}%N>#{ANSI_RESET}\n ",   # normal prompt
   :PROMPT_S => "#{ANSI_PURPLE}%N%l#{ANSI_RESET}\n ",  # prompt for continuing strings
   :PROMPT_C => "#{ANSI_PURPLE}%N*#{ANSI_RESET}\n ",   # prompt for continuing statement
@@ -24,4 +24,3 @@ IRB.conf[:PROMPT][:CLOUD] = {
 }
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-

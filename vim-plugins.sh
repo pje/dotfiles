@@ -29,4 +29,3 @@ name="git-vim"
 dest=~/.vim/bundle/$name
 repo="https://github.com/motemen/git-vim"
 [ -d $dest ] || (git clone $repo $dest)
-

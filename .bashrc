@@ -4,4 +4,3 @@ source ~/.profile
 [[ -f $gcb ]] && . $gcb
 
 export PS1='\u@\h:\w$(vcprompt -f " (%b%m%u)" ) ∫ '
-
