@@ -15,7 +15,8 @@ function current_git_branch {
 }
 
 function g {
-  if [[ $# -eq 0 ]] ; then
+  if [[ $# -eq 0 ]]
+    then
     git status
   else
     git $@
