@@ -14,7 +14,13 @@ function current_git_branch {
   git branch 2> /dev/null | ack '^\* (.*?)$' --output '$1' -h
 }
 
-alias gst="git status"
+function g {
+  if [[ $# -eq 0 ]] ; then
+    git status
+  else
+    git $@
+  fi
+}
 
 [[ -f ~/.scrc ]] && source ~/.scrc
 
