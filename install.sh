@@ -3,7 +3,7 @@ set -e
 
 dotfiles=".ackrc .bash_login .bashrc .ghci .gitconfig .gitignore .irbrc .profile .vimrc com.googlecode.iterm2.plist"
 
-read -r -p "overwrite dotfiles in $HOME ? "
+read -r -p "overwrite dotfiles in $HOME? "
 
 if [[ $REPLY =~ ^[Yy](es)?$ ]] ; then
   for f in $dotfiles ; do
