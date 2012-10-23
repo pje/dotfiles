@@ -1,8 +1,5 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
-require 'open-uri'
-require 'json'
-require 'cgi'
 
 ANSI_YELLOW   = "\e[33m"
 ANSI_PURPLE   = "\033[35m"
