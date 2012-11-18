@@ -1,13 +1,10 @@
 {
-  "use_simple_full_screen": true,
-  "shift_tab_unindent": true,
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
 	"font_face": "Consolas",
-	"font_size": 13,
-	"ignored_packages": [ "SublimeLinter", "Vintage" ],
+	"font_size": 13.0,
+	"shift_tab_unindent": true,
 	"tab_size": 2,
-	"trailing_spaces_highlight_color": "background",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"ensure_newline_at_eof_on_save": true
+	"use_simple_full_screen": true
 }
