@@ -3,7 +3,6 @@
   name = Patrick Ellis
 [github]
   user = pje
-  password = !security 2>&1 >/dev/null find-generic-password -gs github.password | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
 [color]
   branch = auto
   diff = auto
