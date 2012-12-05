@@ -31,7 +31,7 @@ repo="git://github.com/altercation/vim-colors-solarized.git"
 name="command-t"
 dest=~/.vim/bundle/$name
 repo="git://git.wincent.com/command-t.git"
-[ -d $dest ] || (git clone $repo $dest && cd $dest && bundle install && rake make)
+[ -d $dest ] || (git clone $repo $dest && cd $dest/ruby/command-t && ruby extconf.rb && rake make)
 
 name="git-vim"
 dest=~/.vim/bundle/$name
