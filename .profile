@@ -15,4 +15,3 @@ alias bzk="bazooka"
 [[ -r ~/.scrc ]] && source ~/.scrc
 
 [[ -f `which rbenv` ]] && eval "$(rbenv init -)"
-
