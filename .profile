@@ -11,6 +11,7 @@ function current_git_branch {
 
 alias g="git"
 alias bzk="bazooka"
+alias pf="panzerfaust"
 
 [[ -r ~/.scrc ]] && source ~/.scrc
 
