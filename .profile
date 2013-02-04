@@ -10,6 +10,7 @@ function current_git_branch {
 }
 
 alias g="git"
+alias be="bundle exec"
 alias bzk="bazooka"
 alias pf="panzerfaust"
 
