@@ -1,43 +1,26 @@
 [user]
   email = patrick@soundcloud.com
   name = Patrick Ellis
-[github]
-  user = pje
-[color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-  [color "diff"]
-    meta = yellow
-    frag = blue
-    old = red
-    new = green
-  [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = simple
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+  rebase = true
+[rerere]
+  enabled = true
 [alias]
   st = status
   ci = commit
   co = checkout
   br = branch
-[apply]
-  whitespace = nowarn
-[gist]
-  private = yes
-[core]
-  excludesfile = ~/.gitignore
-[push]
-  default = tracking
+[color]
+  ui = true
 [credential]
   helper = osxkeychain
-[branch "master"]
-  remote = origin
-  merge = refs/heads/master
-  rebase = true
-
+[github]
+  user = pje
+[gist]
+  private = yes
