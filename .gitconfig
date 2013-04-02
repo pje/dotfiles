@@ -4,7 +4,7 @@
 [core]
   excludesfile = ~/.gitignore
 [push]
-  default = tracking
+  default = current
 [branch "master"]
   remote = origin
   merge = refs/heads/master
