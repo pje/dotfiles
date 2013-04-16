@@ -1,3 +1,6 @@
-###dotfiles
+dotfiles
+===
 
-~/.*
+```bash
+$ make
+```
