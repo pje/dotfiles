@@ -1,4 +1,4 @@
-all: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
+all: link-dotfiles run-config-scripts
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
@@ -30,5 +30,12 @@ $(HOME)/.vimrc: $(CURDIR)/.vimrc
 $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
-.PHONY: all
+link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
+
+osx:
+	./osx.sh
+
+run-config-scripts: osx
+
+.PHONY: all run-config-scripts osx
 .DEFAULT: all
