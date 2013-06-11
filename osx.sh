@@ -69,7 +69,7 @@ defaults write com.apple.menuextra.battery ShowTime -string "YES"
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 ###############################################################################
 # Annoying Warnings
@@ -238,17 +238,17 @@ chflags nohidden ~/Library
 # Dock
 ###############################################################################
 
-# Set the icon size of Dock items to 37 pixels
-defaults write com.apple.dock tilesize -int 37
+# Set the icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+# Shorten the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0.05
 
-# Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+# Shorten the animation when hiding/showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0.25
 
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true
