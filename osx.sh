@@ -66,7 +66,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # hide the useless Time Machine and Volume icons
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu"
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
@@ -88,7 +88,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Trackpad, Mouse
 ###############################################################################
 
-# enable tap to click for this user and for the login screen
+# enable tap-to-click everywhere
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -101,14 +101,25 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 # Set a faster doubleclick threshold
 defaults write NSGlobalDomain com.apple.mouse.doubleClickThreshold -float 0.8
 
-# TODO: comment
-defaults write NSGlobalDomain com.apple.mouse.scaling -float 1.5
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 2
-defaults write NSGlobalDomain com.apple.scrollwheel.scaling -float 0.5
-defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
-defaults write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# global mouse tracking speed (1...5)
+defaults write NSGlobalDomain com.apple.mouse.scaling -float 2
+
+# global trackpad tracking speed (1...5)
 defaults write NSGlobalDomain com.apple.trackpad.scaling -int 2
+
+# global scrolling speed (1...5)
+defaults write NSGlobalDomain com.apple.scrollwheel.scaling -float 0.5
+
+# stop all those damn noises
+defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
+
+# use "natural" lion-style scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
+# enable secondary click on the trackpad
+defaults write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+
+# allow two-finger, 2D scrolling
 defaults write NSGlobalDomain com.apple.trackpad.scrollBehavior -int 2
 defaults write NSGlobalDomain com.apple.trackpad.scrolling -int 3
 
