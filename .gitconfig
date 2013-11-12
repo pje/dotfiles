@@ -3,10 +3,12 @@
   name = Patrick Ellis
 [core]
   excludesfile = ~/.gitignore
+  whitespace=fix,indent-with-non-tab,trailing-space,cr-at-eol
 [push]
   default = current
+[branch]
+  autosetuprebase = always
 [branch "master"]
-  remote = origin
   merge = refs/heads/master
   rebase = true
 [rerere]
