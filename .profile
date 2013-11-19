@@ -14,7 +14,6 @@ alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
 
-[[ -r ~/.scrc ]] && source ~/.scrc
 
 [[ -f `which rbenv` ]] && eval "$(rbenv init -)"
 [[ -f `which pyenv` ]] && eval "$(pyenv init -)"
