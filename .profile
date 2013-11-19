@@ -16,5 +16,5 @@ alias bzk="bazooka"
 
 
 [[ -f `which rbenv` ]] && eval "$(rbenv init -)"
-[[ -f `which pyenv` ]] && eval "$(pyenv init -)"
+[[ -f `which pyenv` ]] && export PYENV_ROOT=/usr/local/opt/pyenv && eval "$(pyenv init -)"
 
