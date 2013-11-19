@@ -239,9 +239,6 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Default to list view in Finder windows (others: `icnv`, `clmv`, `Flwv`)
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Empty Trash securely
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
