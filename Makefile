@@ -37,5 +37,5 @@ osx:
 
 run-config-scripts: osx
 
-.PHONY: all run-config-scripts osx
+.PHONY: all link-dotfiles osx run-config-scripts
 .DEFAULT: all
