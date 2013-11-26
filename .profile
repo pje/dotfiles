@@ -3,7 +3,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=~/.pyenv/bin:$PATH
 export PATH=~/bin:$PATH
 
 function current_git_branch {
@@ -13,6 +12,4 @@ function current_git_branch {
 alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
-
-[[ -f `which pyenv` ]] && export PYENV_ROOT=/usr/local/opt/pyenv && eval "$(pyenv init -)"
 
