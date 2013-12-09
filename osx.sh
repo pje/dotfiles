@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+which brew || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+
+brew cask || brew tap phinze/homebrew-cask && brew install brew-cask
+
+brew cask install adium
+brew cask install alfred
+brew cask install arduino
+brew cask install betterzipql
+brew cask install bittorrent-sync
+brew cask install f-lux
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install jumpcut
+brew cask install lastfm
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install quicklook-csv
+brew cask install quicklook-json
+brew cask install sequel-pro
+brew cask install skype
+brew cask install transmission
+brew cask install xld
+
+ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
+
 # adapted from:
 # - https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 # - http://www.defaults-write.com
