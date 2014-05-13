@@ -23,6 +23,6 @@
 [github]
   user = pje
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [gist]
   private = yes
