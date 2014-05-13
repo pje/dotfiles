@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-which brew || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 brew cask || brew tap phinze/homebrew-cask && brew install brew-cask
 
