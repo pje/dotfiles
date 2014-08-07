@@ -383,7 +383,7 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 # Kill affected applications
 ###############################################################################
 
-"Activity Monitor" "cfprefsd" "Disk Utility" "Dock" "Finder" "SystemUIServer" "TextEdit" "Transmission" ; do
+for app in "Activity Monitor" "cfprefsd" "Disk Utility" "Dock" "Finder" "SystemUIServer" "TextEdit" "Transmission" ; do
   killall "$app" > /dev/null 2>&1
 done
 
