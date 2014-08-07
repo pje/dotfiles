@@ -18,6 +18,7 @@
   st = status
   co = checkout
   fx = !sh -c 'git commit --fixup=$1' -
+  sha = !sh -c 'git rev-parse --short HEAD'
 [color]
   ui = true
 [github]
