@@ -9,7 +9,6 @@ brew cask install alfred
 brew cask install arduino
 brew cask install betterzipql
 brew cask install bittorrent-sync
-brew cask install cheatsheet
 brew cask install f-lux
 brew cask install google-chrome
 brew cask install iterm2
