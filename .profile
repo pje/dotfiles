@@ -6,6 +6,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/bin:$PATH
 
 export EDITOR=vim
+export GOPATH=~/go
 
 function current_git_branch {
   git branch 2> /dev/null | ack '^\* (.*?)$' --output '$1' -h
