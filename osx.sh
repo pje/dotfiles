@@ -2,7 +2,7 @@
 
 which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-brew cask || brew tap phinze/homebrew-cask && brew install brew-cask
+brew cask || brew install caskroom/cask/brew-cask
 
 brew cask install adium
 brew cask install alfred
