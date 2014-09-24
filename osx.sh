@@ -19,7 +19,7 @@ brew cask install qlstephen
 brew cask install quicklook-csv
 brew cask install quicklook-json
 brew cask install sequel-pro
-brew cask install spectacle
+brew cask install slate
 brew cask install transmission
 brew cask install vlc
 brew cask install xld
