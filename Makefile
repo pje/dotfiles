@@ -24,13 +24,16 @@ $(HOME)/.irbrc: $(CURDIR)/.irbrc
 $(HOME)/.profile: $(CURDIR)/.profile
 	ln -sf $< $@
 
+$(HOME)/.slate: $(CURDIR)/.slate
+	ln -sf $< $@
+
 $(HOME)/.vimrc: $(CURDIR)/.vimrc
 	ln -sf $< $@
 
 $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
-link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
+link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.slate $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
 
 osx:
 	./osx.sh
