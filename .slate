@@ -3,11 +3,11 @@ config defaultToCurrentScreen true
 alias push-l-50 push left bar-resize:screenSizeX/2
 alias push-r-50 push right bar-resize:screenSizeX/2
 
-alias push-l-33 push left bar-resize:screenSizeX/3
-alias push-r-33 push right bar-resize:screenSizeX/3
+alias push-l-40 push left bar-resize:screenSizeX*0.4
+alias push-r-40 push right bar-resize:screenSizeX*0.4
 
-alias push-l-25 push left bar-resize:screenSizeX/4
-alias push-r-25 push right bar-resize:screenSizeX/4
+alias push-l-60 push left bar-resize:screenSizeX*0.6
+alias push-r-60 push right bar-resize:screenSizeX*0.6
 
 alias push-t-50 corner top-left resize:screenSizeX;screenSizeY/2
 alias push-b-50 corner bottom-left resize:screenSizeX;screenSizeY/2
@@ -17,8 +17,8 @@ alias quarter-t-r corner top-right resize:screenSizeX/2;screenSizeY/2
 alias quarter-b-l corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias quarter-b-r corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
-bind left:alt;ctrl chain ${push-l-50} | ${push-l-33} | ${push-l-25}
-bind right:alt;ctrl chain ${push-r-50} | ${push-r-33} | ${push-r-25}
+bind left:alt;ctrl chain ${push-l-50} | ${push-l-40} | ${push-l-60}
+bind right:alt;ctrl chain ${push-r-50} | ${push-r-40} | ${push-r-60}
 
 bind up:alt;ctrl chain ${quarter-t-l} | ${quarter-t-r} | ${push-t-50}
 bind down:alt;ctrl chain ${quarter-b-l} | ${quarter-b-r} | ${push-b-50}
