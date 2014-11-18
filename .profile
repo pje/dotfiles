@@ -5,6 +5,8 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/bin:$PATH
 
+export JAVA_HOME="`/usr/libexec/java_home`"
+
 export EDITOR=vim
 export GOPATH=~/go
 
