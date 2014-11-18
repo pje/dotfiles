@@ -8,6 +8,8 @@ set nocompatible
 
 call pathogen#infect()
 
+set formatoptions+=t
+set textwidth=70
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
