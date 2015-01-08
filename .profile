@@ -14,8 +14,20 @@ function current_git_branch {
   git branch 2> /dev/null | ack '^\* (.*?)$' --output '$1' -h
 }
 
+function filenames_of_git_changes {
+  cat <( git ls-files --others --exclude-standard ) <( git diff --name-only HEAD )
+}
+
+function cwd_sublime_project {
+  find . -name '*.sublime-project' -depth 1 | head -n1
+}
+
 function sublp {
-  find . -name '*.sublime-project' -depth 1 | head -n1 | xargs subl --project
+  subl --project `cwd_sublime_project`
+}
+
+function sublch {
+  filenames_of_git_changes | xargs subl --project `cwd_sublime_project`
 }
 
 alias g="git"
