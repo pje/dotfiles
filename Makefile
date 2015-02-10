@@ -38,7 +38,24 @@ link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci 
 osx:
 	./osx.sh
 
-run-config-scripts: osx
+VIM_BUNDLE_DIR=$(HOME)/.vim/bundle
+THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
 
-.PHONY: all link-dotfiles osx run-config-scripts
+vim: $(VIM_BUNDLE_DIR) vim_bundles
+
+vim_bundles: $(VIM_BUNDLE_DIR)/command-t $(VIM_BUNDLE_DIR)/vim-colors-solarized
+
+$(VIM_BUNDLE_DIR):
+	mkdir -p $@
+
+$(VIM_BUNDLE_DIR)/command-t:
+	git clone git://git.wincent.com/command-t.git $@
+	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) extconf.rb && make
+
+$(VIM_BUNDLE_DIR)/vim-colors-solarized:
+	git clone git://github.com/altercation/vim-colors-solarized.git $@
+
+run-config-scripts: osx vim
+
+.PHONY: all link-dotfiles osx run-config-scripts vim vim_bundles
 .DEFAULT: all
