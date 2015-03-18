@@ -1,4 +1,4 @@
-all: link-dotfiles run-config-scripts
+all: bins link-dotfiles run-config-scripts
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
@@ -35,6 +35,16 @@ $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 
 link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.slate $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
 
+$(HOME)/bin:
+	mkdir -p $@
+
+$(HOME)/bin/vcprompt: $(HOME)/bin
+	mkdir -p ~/bin
+	curl -sL https://raw.githubusercontent.com/djl/vcprompt/v1.0.1/bin/vcprompt > ~/bin/vcprompt
+	chmod 755 ~/bin/vcprompt
+
+bins: $(HOME)/bin/vcprompt
+
 osx:
 	./osx.sh
 
@@ -57,5 +67,5 @@ $(VIM_BUNDLE_DIR)/vim-colors-solarized:
 
 run-config-scripts: osx vim
 
-.PHONY: all link-dotfiles osx run-config-scripts vim vim_bundles
+.PHONY: all bins link-dotfiles osx run-config-scripts vim vim_bundles
 .DEFAULT: all
