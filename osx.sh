@@ -4,7 +4,6 @@ which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/
 
 brew cask || brew install caskroom/cask/brew-cask
 
-brew cask install adium
 brew cask install alfred
 brew cask install arduino
 brew cask install betterzipql
@@ -12,7 +11,7 @@ brew cask install bittorrent-sync
 brew cask install f-lux
 brew cask install google-chrome
 brew cask install iterm2
-brew cask install jumpcut
+brew cask install flycut
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlstephen
