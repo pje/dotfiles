@@ -84,7 +84,7 @@ endfun
 autocmd BufWritePre *.h :call <SID>StripTrailingWhitespaces()
 
 colorscheme solarized
-set background=light
+set background=dark
 
 syntax enable
 
