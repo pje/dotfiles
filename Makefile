@@ -42,7 +42,21 @@ $(HOME)/.atom/config.cson: $(CURDIR)/.atom/config.cson
 $(HOME)/.atom/keymap.cson: $(CURDIR)/.atom/keymap.cson
 	ln -sf $< $@
 
-link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.slate $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist $(HOME)/.atom $(HOME)/.atom/config.cson $(HOME)/.atom/keymap.cson
+link-dotfiles: \
+		$(HOME)/com.googlecode.iterm2.plist \
+		$(HOME)/.ackrc \
+		$(HOME)/.bash_login \
+		$(HOME)/.bashrc \
+		$(HOME)/.ghci \
+		$(HOME)/.gitconfig \
+		$(HOME)/.gitignore \
+		$(HOME)/.irbrc\
+		$(HOME)/.profile \
+		$(HOME)/.slate \
+		$(HOME)/.vimrc \
+		$(HOME)/.atom \
+		$(HOME)/.atom/config.cson \
+		$(HOME)/.atom/keymap.cson
 
 $(HOME)/bin:
 	mkdir -p $@
