@@ -1,0 +1,21 @@
+"*":
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-solarized-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    audioBeep: false
+    disabledPackages: [
+      "symbols-view"
+    ]
+  editor:
+    invisibles:
+      {}
+    fontFamily: "Consolas"
+    fontSize: 12
+    showIndentGuide: true
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+    buildTimeout: 60000

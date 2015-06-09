@@ -33,7 +33,16 @@ $(HOME)/.vimrc: $(CURDIR)/.vimrc
 $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
-link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.slate $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist
+$(HOME)/.atom: $(CURDIR)/.atom
+	mkdir $<
+
+$(HOME)/.atom/config.cson: $(CURDIR)/.atom/config.cson
+	ln -sf $< $@
+
+$(HOME)/.atom/keymap.cson: $(CURDIR)/.atom/keymap.cson
+	ln -sf $< $@
+
+link-dotfiles: $(HOME)/.ackrc $(HOME)/.bash_login $(HOME)/.bashrc $(HOME)/.ghci $(HOME)/.gitconfig $(HOME)/.gitignore $(HOME)/.irbrc $(HOME)/.profile $(HOME)/.slate $(HOME)/.vimrc $(HOME)/com.googlecode.iterm2.plist $(HOME)/.atom $(HOME)/.atom/config.cson $(HOME)/.atom/keymap.cson
 
 $(HOME)/bin:
 	mkdir -p $@
