@@ -34,7 +34,7 @@ $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
 $(HOME)/.atom: $(CURDIR)/.atom
-	mkdir $<
+	mkdir -p $<
 
 $(HOME)/.atom/config.cson: $(CURDIR)/.atom/config.cson
 	ln -sf $< $@
