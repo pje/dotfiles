@@ -6,10 +6,10 @@
       "atom-solarized-dark-ui"
       "solarized-dark-syntax"
     ]
-    audioBeep: false
     disabledPackages: [
       "symbols-view"
     ]
+    audioBeep: false
   editor:
     invisibles:
       {}
