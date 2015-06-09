@@ -58,6 +58,28 @@ link-dotfiles: \
 		$(HOME)/.atom/config.cson \
 		$(HOME)/.atom/keymap.cson
 
+atom-packages: \
+	$(HOME)/.atom/packages/atom-alignment \
+	$(HOME)/.atom/packages/atom-ctags \
+	$(HOME)/.atom/packages/atom-solarized-dark-ui \
+	$(HOME)/.atom/packages/change-case \
+	$(HOME)/.atom/packages/pretty-json
+
+$(HOME)/.atom/packages/atom-alignment:
+	apm list --installed | grep $< || apm install $<
+
+$(HOME)/.atom/packages/atom-ctags:
+	apm list --installed | grep $< || apm install $<
+
+$(HOME)/.atom/packages/atom-solarized-dark-ui:
+	apm list --installed | grep $< || apm install $<
+
+$(HOME)/.atom/packages/change-case:
+	apm list --installed | grep $< || apm install $<
+
+$(HOME)/.atom/packages/pretty-json:
+	apm list --installed | grep $< || apm install $<
+
 $(HOME)/bin:
 	mkdir -p $@
 
@@ -90,5 +112,5 @@ $(VIM_BUNDLE_DIR)/vim-colors-solarized:
 
 run-config-scripts: osx vim
 
-.PHONY: all bins link-dotfiles osx run-config-scripts vim vim_bundles
+.PHONY: all atom-packages bins link-dotfiles osx run-config-scripts vim vim_bundles
 .DEFAULT: all
