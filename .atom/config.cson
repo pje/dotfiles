@@ -20,4 +20,3 @@
   "atom-ctags":
     autoBuildTagsWhenActive: true
     buildTimeout: 60000
-
