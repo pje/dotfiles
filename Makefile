@@ -63,7 +63,11 @@ atom-packages: \
 	$(HOME)/.atom/packages/atom-ctags \
 	$(HOME)/.atom/packages/atom-solarized-dark-ui \
 	$(HOME)/.atom/packages/change-case \
-	$(HOME)/.atom/packages/pretty-json
+	$(HOME)/.atom/packages/highlight-selected \
+	$(HOME)/.atom/packages/pretty-json \
+	$(HOME)/.atom/packages/sort-lines \
+	$(HOME)/.atom/packages/tree-ignore
+
 
 $(HOME)/.atom/packages/atom-alignment:
 	apm list --installed | grep $< || apm install $<
