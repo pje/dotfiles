@@ -8,6 +8,7 @@
     ]
     disabledPackages: [
       "symbols-view"
+      "metrics"
     ]
     audioBeep: false
   editor:
@@ -19,3 +20,4 @@
   "atom-ctags":
     autoBuildTagsWhenActive: true
     buildTimeout: 60000
+
