@@ -11,6 +11,7 @@
       "metrics"
     ]
     audioBeep: false
+    excludeVcsIgnoredPaths: true
   editor:
     invisibles:
       {}
@@ -20,3 +21,13 @@
   "atom-ctags":
     autoBuildTagsWhenActive: true
     buildTimeout: 60000
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  linter:
+    lintOnChange: false
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
+    hideIgnoredNames: true
+    sortFoldersBeforeFiles: false
