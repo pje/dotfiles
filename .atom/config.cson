@@ -9,25 +9,34 @@
     disabledPackages: [
       "symbols-view"
       "metrics"
+      "autocomplete-plus"
     ]
     audioBeep: false
     excludeVcsIgnoredPaths: true
   editor:
-    invisibles:
-      {}
+    invisibles: {}
     fontFamily: "Consolas"
     fontSize: 12
     showIndentGuide: true
   "atom-ctags":
     autoBuildTagsWhenActive: true
     buildTimeout: 60000
+    goToOnAltClick: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
   linter:
     lintOnChange: false
+    lintOnFly: false
+    showErrorInline: false
+    showErrorTabFile: false
+    showErrorTabProject: false
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
   "tree-view":
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
     sortFoldersBeforeFiles: false
+  "custom-title": {}
+  "atom-alignment": {}
+  "autocomplete-plus":
+    enableAutoActivation: false
