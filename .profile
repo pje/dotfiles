@@ -10,6 +10,8 @@ export PATH=~/bin:$PATH
 export EDITOR=vim
 export GOPATH=~/go
 
+eval $(boot2docker shellinit 2>/dev/null)
+
 function current_git_branch {
   git branch 2> /dev/null | ack '^\* (.*?)$' --output '$1' -h
 }
