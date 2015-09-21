@@ -61,12 +61,8 @@ link-dotfiles: \
 $(HOME)/bin:
 	mkdir -p $@
 
-$(HOME)/bin/vcprompt: $(HOME)/bin
-	mkdir -p ~/bin
-	curl -sL https://raw.githubusercontent.com/djl/vcprompt/v1.0.1/bin/vcprompt > ~/bin/vcprompt
-	chmod 755 ~/bin/vcprompt
-
-bins: $(HOME)/bin/vcprompt
+bins:
+	brew install michaeldfallen/formula/git-radar
 
 osx:
 	./osx.sh
@@ -154,9 +150,8 @@ $(HOME)/.atom/packages/sort-lines:
 VIM_BUNDLE_DIR=$(HOME)/.vim/bundle
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
 
-vim: $(VIM_BUNDLE_DIR) vim-bundles
-
 vim-bundles: \
+	$(VIM_BUNDLE_DIR) \
 	$(VIM_BUNDLE_DIR)/command-t \
 	$(VIM_BUNDLE_DIR)/vim-colors-solarized \
 	$(VIM_BUNDLE_DIR)/gruvbox \
@@ -178,7 +173,7 @@ $(VIM_BUNDLE_DIR)/gruvbox:
 $(VIM_BUNDLE_DIR)/vim-clojure-static:
 	git clone git@github.com:guns/vim-clojure-static.git $@
 
-run-config-scripts: osx vim
+run-config-scripts: osx vim-bundles
 
-.PHONY: all atom atom-packages bins link-dotfiles osx run-config-scripts vim vim-bundles
+.PHONY: all atom atom-packages bins link-dotfiles osx run-config-scripts vim-bundles
 .DEFAULT: all
