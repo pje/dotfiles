@@ -3,20 +3,19 @@
     showOnStartup: false
   core:
     themes: [
-      "atom-solarized-dark-ui"
-      "solarized-dark-syntax"
+      "atom-dark-ui"
+      "gruvbox"
     ]
     disabledPackages: [
       "symbols-view"
       "metrics"
-      "autocomplete-plus"
     ]
     audioBeep: false
     excludeVcsIgnoredPaths: true
   editor:
     invisibles: {}
     fontFamily: "Consolas"
-    fontSize: 12
+    fontSize: 13
     showIndentGuide: true
   "atom-ctags":
     autoBuildTagsWhenActive: true
@@ -24,19 +23,8 @@
     goToOnAltClick: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
-  linter:
-    lintOnChange: false
-    lintOnFly: false
-    showErrorInline: false
-    showErrorTabFile: false
-    showErrorTabProject: false
-  "linter-eslint":
-    disableWhenNoEslintrcFileInPath: true
   "tree-view":
-    hideVcsIgnoredFiles: true
     hideIgnoredNames: true
     sortFoldersBeforeFiles: false
   "custom-title": {}
   "atom-alignment": {}
-  "autocomplete-plus":
-    enableAutoActivation: false
