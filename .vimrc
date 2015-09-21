@@ -83,10 +83,11 @@ endfun
 
 autocmd BufWritePre *.h :call <SID>StripTrailingWhitespaces()
 
-colorscheme solarized
+colorscheme gruvbox
 set background=dark
 
 syntax enable
+syntax on
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>a :Ack
