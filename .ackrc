@@ -4,3 +4,5 @@
 --type-set=coffee=.coffee
 --type-set=js=.js,.json
 
+--ignore-file=is:.tags
+
