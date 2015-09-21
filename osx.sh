@@ -4,11 +4,10 @@ which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/
 
 brew cask || brew install caskroom/cask/brew-cask
 
-brew cask install alfred
 brew cask install arduino
 brew cask install betterzipql
 brew cask install bittorrent-sync
-brew cask install f-lux
+brew cask install flux
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install flycut
@@ -43,8 +42,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # System-wide UI / Behavior
 ###############################################################################
 
-# default to graphite icon set instead of blue
-defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+# use blue icon set (instead of graphite (blue is the default))
+defaults write NSGlobalDomain AppleAquaColorVariant -int 1
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -63,7 +62,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Disabling automatic termination of inactive apps 
+# Disabling automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Set Help Viewer windows to non-floating mode
