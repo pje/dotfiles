@@ -9,6 +9,9 @@ $(HOME)/.bash_login: $(CURDIR)/.bash_login
 $(HOME)/.bashrc: $(CURDIR)/.bashrc
 	ln -sf $< $@
 
+$(HOME)/.ctags: $(CURDIR)/.ctags
+	ln -sf $< $@
+
 $(HOME)/.ghci: $(CURDIR)/.ghci
 	ln -sf $< $@
 
@@ -47,6 +50,7 @@ link-dotfiles: \
 		$(HOME)/.ackrc \
 		$(HOME)/.bash_login \
 		$(HOME)/.bashrc \
+		$(HOME)/.ctags \
 		$(HOME)/.ghci \
 		$(HOME)/.gitconfig \
 		$(HOME)/.gitignore \
