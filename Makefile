@@ -71,11 +71,10 @@ bins:
 osx:
 	./osx.sh
 
-atom:
+/usr/local/bin/atom:
 	brew cask list | grep atom || brew cask install atom
 
-atom-packages: \
-	atom \
+atom-packages: /usr/local/bin/atom \
 	$(HOME)/.atom/config.cson \
 	$(HOME)/.atom/keymap.cson \
 	$(HOME)/.atom/packages/atom-alignment \
@@ -179,5 +178,5 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static:
 
 run-config-scripts: osx vim-bundles
 
-.PHONY: all atom atom-packages bins link-dotfiles osx run-config-scripts vim-bundles
+.PHONY: all atom-packages bins link-dotfiles osx run-config-scripts vim-bundles
 .DEFAULT: all
