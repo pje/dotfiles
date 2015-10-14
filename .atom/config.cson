@@ -28,3 +28,6 @@
     sortFoldersBeforeFiles: false
   "custom-title": {}
   "atom-alignment": {}
+  "find-and-replace": {}
+  "proto-repl":
+    leinPath: "/usr/local/bin/lein"
