@@ -168,7 +168,6 @@ THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framewor
 vim-bundles: \
 	$(VIM_BUNDLE_DIR) \
 	$(VIM_BUNDLE_DIR)/command-t \
-	$(VIM_BUNDLE_DIR)/vim-colors-solarized \
 	$(VIM_BUNDLE_DIR)/gruvbox \
 	$(VIM_BUNDLE_DIR)/vim-clojure-static
 
@@ -178,9 +177,6 @@ $(VIM_BUNDLE_DIR):
 $(VIM_BUNDLE_DIR)/command-t:
 	git clone git://git.wincent.com/command-t.git $@
 	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) extconf.rb && make
-
-$(VIM_BUNDLE_DIR)/vim-colors-solarized:
-	git clone git://github.com/altercation/vim-colors-solarized.git $@
 
 $(VIM_BUNDLE_DIR)/gruvbox:
 	git clone git@github.com:morhetz/gruvbox.git $@
