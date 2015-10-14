@@ -91,72 +91,76 @@ atom-packages: /usr/local/bin/atom \
 	$(HOME)/.atom/packages/atom-solarized-dark-ui \
 	$(HOME)/.atom/packages/change-case \
 	$(HOME)/.atom/packages/custom-title \
+	$(HOME)/.atom/packages/expand-region \
 	$(HOME)/.atom/packages/gruvbox \
 	$(HOME)/.atom/packages/highlight-selected \
 	$(HOME)/.atom/packages/language-arduino \
 	$(HOME)/.atom/packages/language-clojure \
 	$(HOME)/.atom/packages/language-docker \
-	$(HOME)/.atom/packages/language-lua \
 	$(HOME)/.atom/packages/language-protobuf \
 	$(HOME)/.atom/packages/language-scala \
 	$(HOME)/.atom/packages/lines \
-	$(HOME)/.atom/packages/nrepl \
 	$(HOME)/.atom/packages/pretty-json \
-	$(HOME)/.atom/packages/sort-lines
+	$(HOME)/.atom/packages/proto-repl \
+	$(HOME)/.atom/packages/sort-lines \
+	$(HOME)/.atom/packages/xml-formatter
 
 $(HOME)/.atom/packages/atom-alignment:
-	apm install $<
+	apm install atom-alignment
 
 $(HOME)/.atom/packages/atom-ctags:
-	apm install $<
+	apm install atom-ctags
 
 $(HOME)/.atom/packages/atom-macros:
-	apm install $<
+	apm install atom-macros
 
 $(HOME)/.atom/packages/atom-solarized-dark-ui:
-	apm install $<
+	apm install atom-solarized-dark-ui
 
 $(HOME)/.atom/packages/change-case:
-	apm install $<
+	apm install change-case
 
 $(HOME)/.atom/packages/custom-title:
-	apm install $<
+	apm install custom-title
+
+$(HOME)/.atom/packages/expand-region:
+	apm install expand-region
 
 $(HOME)/.atom/packages/gruvbox:
-	apm install $<
+	apm install gruvbox
 
 $(HOME)/.atom/packages/highlight-selected:
-	apm install $<
+	apm install highlight-selected
 
 $(HOME)/.atom/packages/language-arduino:
-	apm install $<
+	apm install language-arduino
 
 $(HOME)/.atom/packages/language-clojure:
-	apm install $<
+	apm install language-clojure
 
 $(HOME)/.atom/packages/language-docker:
-	apm install $<
-
-$(HOME)/.atom/packages/language-lua:
-	apm install $<
+	apm install language-docker
 
 $(HOME)/.atom/packages/language-protobuf:
-	apm install $<
+	apm install language-protobuf
 
 $(HOME)/.atom/packages/language-scala:
-	apm install $<
+	apm install language-scala
 
 $(HOME)/.atom/packages/lines:
-	apm install $<
-
-$(HOME)/.atom/packages/nrepl:
-	apm install $<
+	apm install lines
 
 $(HOME)/.atom/packages/pretty-json:
-	apm install $<
+	apm install pretty-json
+
+$(HOME)/.atom/packages/proto-repl:
+	apm install proto-repl
 
 $(HOME)/.atom/packages/sort-lines:
-	apm install $<
+	apm install sort-lines
+
+$(HOME)/.atom/packages/xml-formatter:
+	apm install xml-formatter
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/bundle
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
