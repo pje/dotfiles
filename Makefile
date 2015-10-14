@@ -24,6 +24,12 @@ $(HOME)/.gitignore: $(CURDIR)/.gitignore
 $(HOME)/.irbrc: $(CURDIR)/.irbrc
 	ln -sf $< $@
 
+$(HOME)/.lein: $(CURDIR)/.lein
+	mkdir -p $<
+
+$(HOME)/.lein/profiles.clj: $(CURDIR)/.lein/profiles.clj
+	ln -sf $< $@
+
 $(HOME)/.profile: $(CURDIR)/.profile
 	ln -sf $< $@
 
@@ -55,6 +61,8 @@ link-dotfiles: \
 		$(HOME)/.gitconfig \
 		$(HOME)/.gitignore \
 		$(HOME)/.irbrc\
+		$(HOME)/.lein \
+		$(HOME)/.lein/profiles.clj \
 		$(HOME)/.profile \
 		$(HOME)/.slate \
 		$(HOME)/.vimrc \
