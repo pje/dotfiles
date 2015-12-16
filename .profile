@@ -15,3 +15,4 @@ eval $(boot2docker shellinit 2>/dev/null)
 alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
+alias idea="/Applications/IntelliJ\ IDEA\ 15\ CE.app/Contents/MacOS/idea"
