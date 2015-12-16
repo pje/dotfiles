@@ -12,26 +12,6 @@ export GOPATH=~/go
 
 eval $(boot2docker shellinit 2>/dev/null)
 
-function current_git_branch {
-  git branch 2> /dev/null | ack '^\* (.*?)$' --output '$1' -h
-}
-
-function filenames_of_git_changes {
-  cat <( git ls-files --others --exclude-standard ) <( git diff --name-only HEAD )
-}
-
-function cwd_sublime_project {
-  find . -name '*.sublime-project' -depth 1 | head -n1
-}
-
-function sublp {
-  subl --project `cwd_sublime_project`
-}
-
-function sublch {
-  filenames_of_git_changes | xargs subl --project `cwd_sublime_project`
-}
-
 alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
