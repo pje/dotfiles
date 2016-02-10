@@ -82,6 +82,9 @@ osx:
 /usr/local/bin/atom:
 	brew cask list | grep atom || brew cask install atom
 
+/usr/local/bin/diff-so-fancy:
+	npm install -g diff-so-fancy
+
 atom-packages: /usr/local/bin/atom \
 	$(HOME)/.atom/config.cson \
 	$(HOME)/.atom/keymap.cson \
