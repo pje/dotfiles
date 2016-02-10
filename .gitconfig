@@ -4,6 +4,7 @@
 [core]
   excludesfile = ~/.gitignore
   whitespace=fix,trailing-space,cr-at-eol
+  pager="diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
 [push]
   default = current
 [branch]
