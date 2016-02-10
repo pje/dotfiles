@@ -14,3 +14,8 @@ export GOPATH=~/go
 alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
+
+function init-docker-machine-env {
+  [[ `docker-machine status default` == 'Running' ]] || docker-machine start default
+  eval "$(docker-machine env default)"
+}
