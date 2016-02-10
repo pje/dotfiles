@@ -1,33 +1,37 @@
 "*":
-  welcome:
-    showOnStartup: false
-  core:
-    themes: [
-      "atom-dark-ui"
-      "gruvbox"
-    ]
-    disabledPackages: [
-      "symbols-view"
-      "metrics"
-    ]
-    audioBeep: false
-    excludeVcsIgnoredPaths: true
-  editor:
-    invisibles: {}
-    fontFamily: "Consolas"
-    fontSize: 13
-    showIndentGuide: true
+  "atom-alignment": {}
   "atom-ctags":
     autoBuildTagsWhenActive: true
     buildTimeout: 60000
     goToOnAltClick: false
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "symbols-view"
+      "metrics"
+    ]
+    excludeVcsIgnoredPaths: true
+    themes: [
+      "atom-dark-ui"
+      "gruvbox"
+    ]
+  "custom-title": {}
+  editor:
+    fontFamily: "Fira Code"
+    fontSize: 13
+    invisibles: {}
+    showIndentGuide: true
+  "find-and-replace": {}
+  "lisp-paredit":
+    enabled: false
+    strict: false
+  "proto-repl":
+    leinPath: "/usr/local/bin/lein"
   "tree-view":
     hideIgnoredNames: true
     sortFoldersBeforeFiles: false
-  "custom-title": {}
-  "atom-alignment": {}
-  "find-and-replace": {}
-  "proto-repl":
-    leinPath: "/usr/local/bin/lein"
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    ignoreWhitespaceOnCurrentLine: false
