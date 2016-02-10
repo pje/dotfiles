@@ -11,8 +11,6 @@ export PATH=~/bin:$PATH
 export EDITOR=vim
 export GOPATH=~/go
 
-eval $(boot2docker shellinit 2>/dev/null)
-
 alias g="git"
 alias be="bundle exec"
 alias bzk="bazooka"
