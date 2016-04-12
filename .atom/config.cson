@@ -17,8 +17,7 @@
     ]
   "custom-title": {}
   editor:
-    fontFamily: "Fira Code"
-    fontSize: 13
+    fontFamily: "Consolas"
     invisibles: {}
     showIndentGuide: true
   "find-and-replace": {}
