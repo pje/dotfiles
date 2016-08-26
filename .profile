@@ -15,7 +15,3 @@ alias be="bundle exec"
 alias bzk="bazooka"
 alias idea="/Applications/IntelliJ\ IDEA\ 15\ CE.app/Contents/MacOS/idea"
 
-function init-docker-machine-env {
-  [[ `docker-machine status default` == 'Running' ]] || docker-machine start default
-  eval "$(docker-machine env default)"
-}
