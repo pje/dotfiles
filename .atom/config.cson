@@ -9,8 +9,9 @@
     disabledPackages: [
       "symbols-view"
       "metrics"
+      "lisp-paredit"
+      "proto-repl"
     ]
-    excludeVcsIgnoredPaths: true
     themes: [
       "atom-dark-ui"
       "gruvbox"
@@ -18,12 +19,11 @@
   "custom-title": {}
   editor:
     fontFamily: "Consolas"
+    fontSize: 15
     invisibles: {}
     showIndentGuide: true
   "find-and-replace": {}
-  "lisp-paredit":
-    enabled: false
-    strict: false
+  "lisp-paredit": {}
   "proto-repl":
     leinPath: "/usr/local/bin/lein"
   "tree-view":

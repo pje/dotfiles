@@ -51,6 +51,9 @@ $(HOME)/.atom/config.cson: $(CURDIR)/.atom/config.cson
 $(HOME)/.atom/keymap.cson: $(CURDIR)/.atom/keymap.cson
 	ln -sf $< $@
 
+$(HOME)/.atom/styles.less: $(CURDIR)/.atom/styles.less
+	ln -sf $< $@
+
 link-dotfiles: \
 		$(HOME)/com.googlecode.iterm2.plist \
 		$(HOME)/.ackrc \
@@ -68,7 +71,8 @@ link-dotfiles: \
 		$(HOME)/.vimrc \
 		$(HOME)/.atom \
 		$(HOME)/.atom/config.cson \
-		$(HOME)/.atom/keymap.cson
+		$(HOME)/.atom/keymap.cson \
+		$(HOME)/.atom/styles.less
 
 $(HOME)/bin:
 	mkdir -p $@
