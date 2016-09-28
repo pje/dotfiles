@@ -23,6 +23,8 @@
     invisibles: {}
     showIndentGuide: true
   "find-and-replace": {}
+  linter:
+    lintOnFly: false
   "lisp-paredit": {}
   "proto-repl":
     leinPath: "/usr/local/bin/lein"
