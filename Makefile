@@ -89,8 +89,6 @@ osx:
 /usr/local/bin/diff-so-fancy:
 	npm install -g diff-so-fancy
 
-VIM_BUNDLE_DIR=$(HOME)/.vim/bundle
-THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
 atom-packages: /usr/local/bin/atom
 	apm install                \
 		atom-alignment           \
@@ -120,6 +118,9 @@ atom-packages: /usr/local/bin/atom
 		proto-repl               \
 		sort-lines               \
 		xml-formatter
+
+VIM_BUNDLE_DIR=$(HOME)/.vim/pack/bundle/start
+THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
 
 vim-bundles: \
 	$(VIM_BUNDLE_DIR) \
