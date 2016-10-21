@@ -84,93 +84,42 @@ osx:
 	./osx.sh
 
 /usr/local/bin/atom:
-	brew cask list | grep atom || brew cask install atom
+	brew cask install atom
 
 /usr/local/bin/diff-so-fancy:
 	npm install -g diff-so-fancy
 
-atom-packages: /usr/local/bin/atom \
-	$(HOME)/.atom/config.cson \
-	$(HOME)/.atom/keymap.cson \
-	$(HOME)/.atom/packages/atom-alignment \
-	$(HOME)/.atom/packages/atom-ctags \
-	$(HOME)/.atom/packages/atom-macros \
-	$(HOME)/.atom/packages/atom-solarized-dark-ui \
-	$(HOME)/.atom/packages/change-case \
-	$(HOME)/.atom/packages/custom-title \
-	$(HOME)/.atom/packages/expand-region \
-	$(HOME)/.atom/packages/gruvbox \
-	$(HOME)/.atom/packages/highlight-selected \
-	$(HOME)/.atom/packages/language-arduino \
-	$(HOME)/.atom/packages/language-clojure \
-	$(HOME)/.atom/packages/language-docker \
-	$(HOME)/.atom/packages/language-protobuf \
-	$(HOME)/.atom/packages/language-scala \
-	$(HOME)/.atom/packages/lines \
-	$(HOME)/.atom/packages/pretty-json \
-	$(HOME)/.atom/packages/proto-repl \
-	$(HOME)/.atom/packages/sort-lines \
-	$(HOME)/.atom/packages/xml-formatter
-
-$(HOME)/.atom/packages/atom-alignment:
-	apm install atom-alignment
-
-$(HOME)/.atom/packages/atom-ctags:
-	apm install atom-ctags
-
-$(HOME)/.atom/packages/atom-macros:
-	apm install atom-macros
-
-$(HOME)/.atom/packages/atom-solarized-dark-ui:
-	apm install atom-solarized-dark-ui
-
-$(HOME)/.atom/packages/change-case:
-	apm install change-case
-
-$(HOME)/.atom/packages/custom-title:
-	apm install custom-title
-
-$(HOME)/.atom/packages/expand-region:
-	apm install expand-region
-
-$(HOME)/.atom/packages/gruvbox:
-	apm install gruvbox
-
-$(HOME)/.atom/packages/highlight-selected:
-	apm install highlight-selected
-
-$(HOME)/.atom/packages/language-arduino:
-	apm install language-arduino
-
-$(HOME)/.atom/packages/language-clojure:
-	apm install language-clojure
-
-$(HOME)/.atom/packages/language-docker:
-	apm install language-docker
-
-$(HOME)/.atom/packages/language-protobuf:
-	apm install language-protobuf
-
-$(HOME)/.atom/packages/language-scala:
-	apm install language-scala
-
-$(HOME)/.atom/packages/lines:
-	apm install lines
-
-$(HOME)/.atom/packages/pretty-json:
-	apm install pretty-json
-
-$(HOME)/.atom/packages/proto-repl:
-	apm install proto-repl
-
-$(HOME)/.atom/packages/sort-lines:
-	apm install sort-lines
-
-$(HOME)/.atom/packages/xml-formatter:
-	apm install xml-formatter
-
 VIM_BUNDLE_DIR=$(HOME)/.vim/bundle
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
+atom-packages: /usr/local/bin/atom
+	apm install                \
+		atom-alignment           \
+		atom-beautify            \
+		atom-ctags               \
+		atom-macros              \
+		atom-solarized-dark-ui   \
+		change-case              \
+		copy-path                \
+		custom-title             \
+		expand-region            \
+		gruvbox                  \
+		highlight-selected       \
+		increment-selection      \
+		language-arduino         \
+		language-bnf             \
+		language-docker          \
+		language-haskell         \
+		language-javascript-jsx  \
+		language-protobuf        \
+		language-scala           \
+		lines                    \
+		linter                   \
+		linter-eslint            \
+		lisp-paredit             \
+		pretty-json              \
+		proto-repl               \
+		sort-lines               \
+		xml-formatter
 
 vim-bundles: \
 	$(VIM_BUNDLE_DIR) \
