@@ -6,9 +6,10 @@ source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 export PATH="$HOME/.git-radar:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 
-HISTSIZE=5000
-HISTFILESIZE=10000
-shopt -s histappend
+HISTSIZE=100000
+HISTFILESIZE=100000
+shopt -s histappend # append to history instead of overwriting it
+PROMPT_COMMAND='history -a' # save history after each command instead of session exit
 
 # Black       0;30     Dark Gray     1;30
 # Red         0;31     Light Red     1;31
