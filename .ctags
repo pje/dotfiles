@@ -12,3 +12,5 @@
 --regex-clojure=/[ \t]*defstruct[ \t]+([-[:alnum:]*+!_\/?<>][-[:alnum:]*+!_\/?<>:.]*)/\1/s,struct/
 --regex-clojure=/[ \t]*intern[ \t]+([-[:alnum:]*+!_\/?<>][-[:alnum:]*+!_\/?<>:.]*)/\1/v,intern/
 --regex-clojure=/[ \t]*ns[ \t]+([-[:alnum:]*+!_\/?<>][-[:alnum:]*+!_\/?<>:.]*)/\1/n,namespace/
+--regex-ruby=/(^|;)[ \t]*(class|module)[\t]+([A-Z][[:alnum:]_]+(::[A-Z][[:alnum:]_]+)+)/\3/c,class,constant/
+
