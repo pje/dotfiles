@@ -2,9 +2,8 @@
   'cmd-k cmd-p': 'change-case:pascal'
   'cmd-ctrl-j': 'pretty-json:prettify'
 
-'atom-text-editor':
-  'alt-up': 'expand-region:expand'
-  'alt-down': 'expand-region:shrink'
-
 'atom-text-editor:not([mini])':
   'ctrl-shift-C': 'copy-path:copy-project-relative-path'
+  'cmd-shift-I': 'editor:auto-indent'
+  'alt-up': 'expand-region:expand'
+  'alt-down': 'expand-region:shrink'
