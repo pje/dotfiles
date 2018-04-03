@@ -12,6 +12,7 @@
       "lisp-paredit"
       "proto-repl"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-dark-ui"
       "gruvbox"
