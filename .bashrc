@@ -4,7 +4,6 @@ source $(brew --prefix)/etc/bash_completion
 source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
 export PATH="$HOME/.git-radar:$PATH"
-export PATH="/usr/local/heroku/bin:$PATH"
 
 HISTSIZE=100000
 HISTFILESIZE=100000
