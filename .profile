@@ -12,6 +12,4 @@ export GOPATH=~/go
 
 alias g="git"
 alias be="bundle exec"
-alias bzk="bazooka"
 alias idea="/Applications/IntelliJ\ IDEA\ 15\ CE.app/Contents/MacOS/idea"
-
