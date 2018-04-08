@@ -103,3 +103,5 @@ let g:indent_guides_enable_on_vim_startup = 0
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
+
+au FileType gitcommit set tw=72 " auto-wrap at 72 chars for git commits
