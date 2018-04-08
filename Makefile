@@ -119,7 +119,7 @@ atom-packages: /usr/local/bin/atom
 		sort-lines               \
 		xml-formatter
 
-VIM_BUNDLE_DIR=$(HOME)/.vim/pack/bundle/start
+VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
 
 vim-bundles: \
