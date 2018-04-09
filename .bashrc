@@ -73,3 +73,5 @@ function make_prompt {
     PS1+="${FG_RED}❯${FG_RESET} "
   fi
 }
+
+if [ -e ~/.ksr.rc ]; then source ~/.ksr.rc; fi # Provisioned by ksr laptop script
