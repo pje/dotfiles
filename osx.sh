@@ -388,6 +388,14 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 ###############################################################################
+# Dictionary
+###############################################################################
+
+echo changeset >> ~/Library/Spelling/LocalDictionary
+
+killall AppleSpell
+
+###############################################################################
 # Kill affected applications
 ###############################################################################
 
