@@ -109,6 +109,7 @@ atom-packages: /usr/local/bin/atom
 		language-haskell         \
 		language-javascript-jsx  \
 		language-protobuf        \
+		language-rust            \
 		language-scala           \
 		lines                    \
 		linter                   \
@@ -116,6 +117,7 @@ atom-packages: /usr/local/bin/atom
 		lisp-paredit             \
 		pretty-json              \
 		proto-repl               \
+		sequential-number        \
 		sort-lines               \
 		xml-formatter
 
