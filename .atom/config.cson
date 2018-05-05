@@ -17,6 +17,7 @@
       "atom-dark-ui"
       "gruvbox"
     ]
+    titleBar: "hidden"
   "custom-title": {}
   editor:
     fontFamily: "Consolas"
