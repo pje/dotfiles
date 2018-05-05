@@ -2,27 +2,11 @@
 
 which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
+brew install ack advancecomp aspell astyle bash-completion cabal-install cloc crystal-lang ctags exiftool ffmpeg flac fswatch gdb gflags ghc gifsicle git go htop httpie imagemagick jack jpegoptim jq lame leiningen libao libogg libpng libsamplerate libsndfile libtiff libvorbis n netcat ngrep optipng parallel pdsh pkg-config pngcrush pwgen readline ruby rust sbt sox speex tesseract the_silver_searcher tmux tree valgrind vegeta vim vorbis-tools waon watch wget wireshark youtube-dl
+
 brew cask || brew install caskroom/cask/brew-cask
 
-brew cask install arduino
-brew cask install betterzipql
-brew cask install bittorrent-sync
-brew cask install flux
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install flycut
-brew cask install qlcolorcode
-brew cask install qlmarkdown
-brew cask install qlstephen
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install sequel-pro
-brew cask install slate
-brew cask install transmission
-brew cask install vlc
-brew cask install xld
-
-ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
+brew cask install betterzipql flux google-chrome iterm2 flycut qlcolorcode qlmarkdown qlstephen quicklook-csv quicklook-json sequel-pro slate transmission vlc xld
 
 # adapted from:
 # - https://github.com/mathiasbynens/dotfiles/blob/master/.osx
@@ -393,14 +377,13 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 echo changeset >> ~/Library/Spelling/LocalDictionary
 
-killall AppleSpell
+sort -o ~/Library/Spelling/LocalDictionary ~/Library/Spelling/LocalDictionary
 
 ###############################################################################
 # Kill affected applications
 ###############################################################################
+apps=$("Activity Monitor" AppleSpell cfprefsd "Disk Utility" Dock Finder SystemUIServer TextEdit Transmission)
 
-for app in "Activity Monitor" "cfprefsd" "Disk Utility" "Dock" "Finder" "SystemUIServer" "TextEdit" "Transmission" ; do
-  killall "$app" > /dev/null 2>&1
-done
+for app in "${apps[@]}"; do killall "$app" > /dev/null 2>&1 ; done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
