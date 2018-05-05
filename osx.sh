@@ -276,11 +276,14 @@ chflags nohidden ~/Library
 # Dock
 ###############################################################################
 
-# Set the icon size of Dock items to 32 pixels
-defaults write com.apple.dock tilesize -int 32
+# Put the dock on the bottom and autohide it like a civilized person
+defaults write com.apple.dock orientation -string "bottom"
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
+
+# Set the icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
 
 # Shorten the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0.05
