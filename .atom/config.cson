@@ -11,6 +11,7 @@
       "metrics"
       "lisp-paredit"
       "proto-repl"
+      "exception-reporting"
     ]
     telemetryConsent: "no"
     themes: [
@@ -25,8 +26,7 @@
     invisibles: {}
     showIndentGuide: true
   "find-and-replace": {}
-  linter:
-    lintOnFly: false
+  linter: {}
   "lisp-paredit": {}
   "proto-repl":
     leinPath: "/usr/local/bin/lein"
