@@ -21,6 +21,7 @@
   fx = !sh -c 'git commit --fixup=$1' -
   sha = !sh -c 'git rev-parse --short HEAD'
   dfc = diff --cached
+  changes-since = !sh -c 'git log --left-right --graph --cherry-pick --oneline $1...HEAD' -
 [color]
   ui = true
 [github]
