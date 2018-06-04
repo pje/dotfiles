@@ -14,3 +14,4 @@ export GOPATH=~/go
 alias g="git"
 alias be="bundle exec"
 alias idea="/Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS/idea"
+alias ccat='pygmentize -g'
