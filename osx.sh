@@ -77,6 +77,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # enable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
 
+# why would I want a spotlight icon in the menu bar? i know about cmd+space
+defaults write com.apple.Spotlight "NSStatusItem Visible Item-0" 0
+
 # show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
