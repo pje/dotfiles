@@ -1,0 +1,16 @@
+{
+  "atomKeymap.promptV3Features": true,
+  "editor.cursorStyle": "line-thin",
+  "editor.cursorWidth": 0,
+  "editor.fontFamily": "Consolas",
+  "editor.fontSize": 13,
+  "editor.formatOnPaste": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabSize": 2,
+  "window.nativeTabs": false,
+  "window.titleBarStyle": "custom",
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Gruvbox Dark (Hard)",
+  "workbench.statusBar.visible": false,
+}
