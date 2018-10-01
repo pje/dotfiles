@@ -8,9 +8,11 @@
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.tabSize": 2,
+  "tslint.autoFixOnSave": true,
   "window.nativeTabs": false,
   "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Gruvbox Dark (Hard)",
   "workbench.statusBar.visible": false,
+  "editor.formatOnSave": true,
 }
