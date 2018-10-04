@@ -1,0 +1,56 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+alt+down",
+    "command": "editor.action.goToDeclaration",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "cmd+k right",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+cmd+a",
+    "command": "xandeer.aligncode",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "editor.action.smartSelect.shrink",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+up",
+    "command": "editor.action.smartSelect.grow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+ctrl+c",
+    "command": "copyRelativePath"
+  },
+  {
+    "key": "cmd+alt+up",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "cmd+k cmd+c",
+    "command": "extension.changeCase.camel"
+  },
+  {
+    "key": "cmd+k cmd+p",
+    "command": "extension.changeCase.pascal"
+  },
+  {
+    "key": "cmd+k cmd+s",
+    "command": "extension.changeCase.snake"
+  },
+  {
+    "key": "cmd+k cmd+u",
+    "command": "extension.changeCase.upper"
+  },
+  {
+    "key": "shift+cmd+\\",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+    "when": "editorTextFocus"
+  }
+]

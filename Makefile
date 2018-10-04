@@ -57,6 +57,9 @@ $(HOME)/.atom/styles.less: $(CURDIR)/.atom/styles.less
 $(HOME)/Library/Application\ Support/Code/User/settings.json: $(CURDIR)/settings.json
 	ln -sf "$<" "$@"
 
+$(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/keybindings.json
+	ln -sf "$<" "$@"
+
 link-dotfiles: \
 		$(HOME)/com.googlecode.iterm2.plist \
 		$(HOME)/.ackrc \
@@ -76,7 +79,8 @@ link-dotfiles: \
 		$(HOME)/.atom/config.cson \
 		$(HOME)/.atom/keymap.cson \
 		$(HOME)/.atom/styles.less \
-		$(HOME)/Library/Application\ Support/Code/User/settings.json
+		$(HOME)/Library/Application\ Support/Code/User/settings.json \
+		$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
 $(HOME)/bin:
 	mkdir -p $@
