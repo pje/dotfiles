@@ -1,9 +1,22 @@
 'atom-workspace':
   'cmd-k cmd-p': 'change-case:pascal'
   'cmd-ctrl-j': 'pretty-json:prettify'
+  'f10': 'typescript:return-from-declaration'
+  'shift-f10': 'typescript:show-editor-position-history'
 
 'atom-text-editor:not([mini])':
   'ctrl-shift-C': 'copy-path:copy-project-relative-path'
   'cmd-shift-I': 'editor:auto-indent'
   'alt-up': 'expand-region:expand'
   'alt-down': 'expand-region:shrink'
+
+'atom-text-editor:not([mini]).typescript-editor':
+  'f2': 'typescript:rename-refactor'
+  'shift-f12': 'typescript:find-references'
+  'f6': 'typescript:build'
+  'alt-cmd-down': 'typescript:go-to-declaration'
+
+'.platform-darwin atom-text-editor:not([mini]).typescript-editor':
+  'alt-cmd-l': 'typescript:format-code'
+  'cmd-r': 'typescript:toggle-file-symbols'
+  'shift-cmd-r': 'typescript:toggle-project-symbols'
