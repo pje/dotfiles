@@ -9,7 +9,7 @@
   "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.minimap.enabled": false,
-  "editor.mouseWheelScrollSensitivity": 2,
+  "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
@@ -26,5 +26,8 @@
   "workbench.colorTheme": "Gruvbox Dark (Hard)",
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "window.zoomLevel": 0,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false
 }
