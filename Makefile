@@ -134,12 +134,19 @@ atom-packages: /usr/local/bin/atom
 		xml-formatter
 
 vscode-bundles:
-	code --install-extension eg2.tslint
-	code --install-extension esbenp.prettier-vscode
-	code --install-extension lehni.vscode-titlebar-less-macos
-	code --install-extension ms-vscode.atom-keybindings
-	code --install-extension rebornix.ruby
-	code --install-extension tomphilbin.gruvbox-themes
+		code --install-extension alexdima.copy-relative-path
+		code --install-extension eg2.tslint
+		code --install-extension esbenp.prettier-vscode
+		code --install-extension karunamurti.haml
+		code --install-extension kumar-harsh.graphql-for-vscode
+		code --install-extension lehni.vscode-titlebar-less-macos
+		code --install-extension miguel-savignano.ruby-symbols
+		code --install-extension mikestead.dotenv
+		code --install-extension ms-vscode.atom-keybindings
+		code --install-extension rebornix.ruby
+		code --install-extension tomphilbin.gruvbox-themes
+		code --install-extension wmaurer.change-case
+		code --install-extension xandeer.better-align
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
