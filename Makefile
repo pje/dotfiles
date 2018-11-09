@@ -21,6 +21,9 @@ $(HOME)/.gitconfig: $(CURDIR)/.gitconfig
 $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
+$(HOME)/.inputrc: $(CURDIR)/.inputrc
+	ln -sf $< $@
+
 $(HOME)/.irbrc: $(CURDIR)/.irbrc
 	ln -sf $< $@
 
@@ -69,6 +72,7 @@ link-dotfiles: \
 		$(HOME)/.ghci \
 		$(HOME)/.gitconfig \
 		$(HOME)/.gitignore \
+		$(HOME)/.inputrc \
 		$(HOME)/.irbrc\
 		$(HOME)/.lein \
 		$(HOME)/.lein/profiles.clj \
