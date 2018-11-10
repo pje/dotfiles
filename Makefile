@@ -1,4 +1,4 @@
-all: bins link-dotfiles run-config-scripts
+all: brew-packages link-dotfiles vim-packages node-packages vscode-packages macos
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
@@ -64,94 +64,58 @@ $(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/keybi
 	ln -sf "$<" "$@"
 
 link-dotfiles: \
-		$(HOME)/com.googlecode.iterm2.plist \
-		$(HOME)/.ackrc \
-		$(HOME)/.bash_login \
-		$(HOME)/.bashrc \
-		$(HOME)/.ctags \
-		$(HOME)/.ghci \
-		$(HOME)/.gitconfig \
-		$(HOME)/.gitignore \
-		$(HOME)/.inputrc \
-		$(HOME)/.irbrc\
-		$(HOME)/.lein \
-		$(HOME)/.lein/profiles.clj \
-		$(HOME)/.profile \
-		$(HOME)/.slate \
-		$(HOME)/.vimrc \
-		$(HOME)/.atom \
-		$(HOME)/.atom/config.cson \
-		$(HOME)/.atom/keymap.cson \
-		$(HOME)/.atom/styles.less \
-		$(HOME)/Library/Application\ Support/Code/User/settings.json \
-		$(HOME)/Library/Application\ Support/Code/User/keybindings.json
+	$(HOME)/com.googlecode.iterm2.plist \
+	$(HOME)/.ackrc \
+	$(HOME)/.bash_login \
+	$(HOME)/.bashrc \
+	$(HOME)/.ctags \
+	$(HOME)/.ghci \
+	$(HOME)/.gitconfig \
+	$(HOME)/.gitignore \
+	$(HOME)/.inputrc \
+	$(HOME)/.irbrc\
+	$(HOME)/.lein \
+	$(HOME)/.lein/profiles.clj \
+	$(HOME)/.profile \
+	$(HOME)/.slate \
+	$(HOME)/.vimrc \
+	$(HOME)/.atom \
+	$(HOME)/.atom/config.cson \
+	$(HOME)/.atom/keymap.cson \
+	$(HOME)/.atom/styles.less \
+	$(HOME)/Library/Application\ Support/Code/User/settings.json \
+	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
-$(HOME)/bin:
-	mkdir -p $@
+brew-packages:
+	which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	brew tap Homebrew/bundle
+	brew bundle check || brew bundle
 
-bins:
-	brew install michaeldfallen/formula/git-radar
+macos:
+	./macos.sh
 
-osx:
-	./osx.sh
+node-packages:
+	yarn global add diff-so-fancy --prefix /usr/local
 
-/usr/local/bin/atom:
-	brew cask install atom
-
-/usr/local/bin/diff-so-fancy:
-	npm install -g diff-so-fancy
-
-atom-packages: /usr/local/bin/atom
-	apm install                \
-		atom-alignment           \
-		atom-beautify            \
-		atom-ctags               \
-		atom-macros              \
-		atom-solarized-dark-ui   \
-		change-case              \
-		copy-path                \
-		custom-title             \
-		expand-region            \
-		gruvbox                  \
-		highlight-selected       \
-		increment-selection      \
-		language-arduino         \
-		language-bnf             \
-		language-docker          \
-		language-haskell         \
-		language-javascript-jsx  \
-		language-protobuf        \
-		language-rust            \
-		language-scala           \
-		lines                    \
-		linter                   \
-		linter-eslint            \
-		lisp-paredit             \
-		pretty-json              \
-		proto-repl               \
-		sequential-number        \
-		sort-lines               \
-		xml-formatter
-
-vscode-bundles:
-		code --install-extension alexdima.copy-relative-path
-		code --install-extension eg2.tslint
-		code --install-extension esbenp.prettier-vscode
-		code --install-extension karunamurti.haml
-		code --install-extension kumar-harsh.graphql-for-vscode
-		code --install-extension lehni.vscode-titlebar-less-macos
-		code --install-extension miguel-savignano.ruby-symbols
-		code --install-extension mikestead.dotenv
-		code --install-extension ms-vscode.atom-keybindings
-		code --install-extension rebornix.ruby
-		code --install-extension tomphilbin.gruvbox-themes
-		code --install-extension wmaurer.change-case
-		code --install-extension xandeer.better-align
+vscode-packages:
+	code --install-extension alexdima.copy-relative-path
+	code --install-extension eg2.tslint
+	code --install-extension esbenp.prettier-vscode
+	code --install-extension karunamurti.haml
+	code --install-extension kumar-harsh.graphql-for-vscode
+	code --install-extension lehni.vscode-titlebar-less-macos
+	code --install-extension miguel-savignano.ruby-symbols
+	code --install-extension mikestead.dotenv
+	code --install-extension ms-vscode.atom-keybindings
+	code --install-extension rebornix.ruby
+	code --install-extension tomphilbin.gruvbox-themes
+	code --install-extension wmaurer.change-case
+	code --install-extension xandeer.better-align
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
 
-vim-bundles: \
+vim-packages: \
 	$(VIM_BUNDLE_DIR) \
 	$(VIM_BUNDLE_DIR)/command-t \
 	$(VIM_BUNDLE_DIR)/gruvbox \
@@ -170,7 +134,5 @@ $(VIM_BUNDLE_DIR)/gruvbox:
 $(VIM_BUNDLE_DIR)/vim-clojure-static:
 	git clone git@github.com:guns/vim-clojure-static.git $@
 
-run-config-scripts: osx vim-bundles
-
-.PHONY: all atom-packages bins link-dotfiles osx run-config-scripts vim-bundles
+.PHONY: all brew-packages link-dotfiles macos node-packages vim-packages vscode-packages
 .DEFAULT: all

@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-brew install ack advancecomp aspell astyle bash-completion cabal-install cloc crystal-lang ctags exiftool ffmpeg flac fswatch gdb gflags ghc gifsicle git go htop httpie imagemagick jack jpegoptim jq lame leiningen libao libogg libpng libsamplerate libsndfile libtiff libvorbis n netcat ngrep optipng parallel pdsh pkg-config pngcrush pwgen readline ruby rust sbt sox speex tesseract the_silver_searcher tmux tree valgrind vegeta vim vorbis-tools waon watch wget wireshark youtube-dl
-
-brew cask || brew install caskroom/cask/brew-cask
-
-brew cask install betterzipql flux google-chrome iterm2 flycut qlcolorcode qlmarkdown qlstephen quicklook-csv quicklook-json sequel-pro slate transmission vlc xld
-
 # adapted from:
 # - https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 # - http://www.defaults-write.com
