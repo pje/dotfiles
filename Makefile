@@ -126,7 +126,8 @@ $(VIM_BUNDLE_DIR):
 
 $(VIM_BUNDLE_DIR)/command-t:
 	git clone git://git.wincent.com/command-t.git $@
-	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) extconf.rb && make
+	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) ext/command-t/extconf.rb && make
+	cd $@ && rake make
 
 $(VIM_BUNDLE_DIR)/gruvbox:
 	git clone git@github.com:morhetz/gruvbox.git $@
