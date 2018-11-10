@@ -57,10 +57,10 @@ $(HOME)/.atom/keymap.cson: $(CURDIR)/.atom/keymap.cson
 $(HOME)/.atom/styles.less: $(CURDIR)/.atom/styles.less
 	ln -sf $< $@
 
-$(HOME)/Library/Application\ Support/Code/User/settings.json: $(CURDIR)/settings.json
+$(HOME)/Library/Application\ Support/Code/User/settings.json: $(CURDIR)/vscode/settings.json
 	ln -sf "$<" "$@"
 
-$(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/keybindings.json
+$(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	ln -sf "$<" "$@"
 
 link-dotfiles: \
