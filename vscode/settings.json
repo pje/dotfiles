@@ -23,7 +23,7 @@
   "window.nativeTabs": false,
   "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Gruvbox Dark (Hard)",
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
   "workbench.statusBar.visible": false,
