@@ -11,6 +11,7 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.rulers": [80, 120],
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollBeyondLastLine": false,
