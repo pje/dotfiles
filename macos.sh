@@ -378,6 +378,57 @@ echo changeset >> ~/Library/Spelling/LocalDictionary
 sort -o ~/Library/Spelling/LocalDictionary ~/Library/Spelling/LocalDictionary
 
 ###############################################################################
+# set default editor app for common extensions
+###############################################################################
+
+extensions="
+ackrc
+bash_login
+bashrc
+c
+cc
+clj
+coffee
+cson
+css
+ctags
+erb
+ghci
+git
+gitconfig
+gitignore
+graphql
+haml
+html
+idx
+inputrc
+irbrc
+js
+json
+jsx
+lein
+lock
+make
+profile
+rake
+rb
+ru
+ruby
+scss
+sh
+sh
+slate
+sql
+tags
+ts
+tsx
+vimrc
+yaml
+yml
+"
+for e in "extensions"; do duti -s com.microsoft.VSCode "$e" all ; done
+
+###############################################################################
 # Kill affected applications
 ###############################################################################
 apps=$("Activity Monitor" AppleSpell cfprefsd "Disk Utility" Dock Finder SystemUIServer TextEdit Transmission)
