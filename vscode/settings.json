@@ -30,5 +30,6 @@
   "workbench.statusBar.visible": false,
   "window.zoomLevel": 0,
   "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "search.usePCRE2": true
 }
