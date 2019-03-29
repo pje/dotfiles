@@ -11,7 +11,7 @@
   },
   {
     "key": "ctrl+cmd+a",
-    "command": "xandeer.aligncode",
+    "command": "wwm.aligncode",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
