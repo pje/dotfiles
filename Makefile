@@ -36,6 +36,9 @@ $(HOME)/.lein/profiles.clj: $(CURDIR)/.lein/profiles.clj
 $(HOME)/.profile: $(CURDIR)/.profile
 	ln -sf $< $@
 
+$(HOME)/.pryrc: $(CURDIR)/.pryrc
+	ln -sf $< $@
+
 $(HOME)/.slate: $(CURDIR)/.slate
 	ln -sf $< $@
 
@@ -77,6 +80,7 @@ link-dotfiles: \
 	$(HOME)/.lein \
 	$(HOME)/.lein/profiles.clj \
 	$(HOME)/.profile \
+	$(HOME)/.pryrc \
 	$(HOME)/.slate \
 	$(HOME)/.vimrc \
 	$(HOME)/.atom \
