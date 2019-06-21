@@ -17,19 +17,27 @@
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
+  "explorer.sortOrder": "filesFirst",
   "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.rbi": "ruby"
+  },
+  "merge-conflict.codeLens.enabled": false,
+  "merge-conflict.decorators.enabled": false,
   "ruby.intellisense": "rubyLocate",
   "tslint.autoFixOnSave": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Dark (Hard)",
+  "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
   "workbench.statusBar.visible": false,
   "window.zoomLevel": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-  "search.usePCRE2": true
+  "search.usePCRE2": true,
+  "workbench.editor.showTabs": true,
+  "workbench.editor.enablePreviewFromQuickOpen": false
 }
