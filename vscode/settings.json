@@ -4,6 +4,7 @@
     "editor.formatOnPaste": false
   },
   "atomKeymap.promptV3Features": true,
+  "breadcrumbs.enabled": false,
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
   "editor.fontFamily": "Consolas",
