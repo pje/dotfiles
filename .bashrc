@@ -1,5 +1,8 @@
 source ~/.profile
 
+# in bash versions >= 4, this enabled zsh-like recursive globbing
+shopt -s globstar
+
 source $(brew --prefix)/etc/bash_completion
 source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
