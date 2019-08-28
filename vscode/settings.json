@@ -1,5 +1,8 @@
 {
-  "alignment.beforeSave": false,
+  "[ruby]": {
+    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
+    "editor.formatOnPaste": false
+  },
   "atomKeymap.promptV3Features": true,
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
@@ -11,22 +14,26 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [80, 120],
-  "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "filesFirst",
-  "files.associations": { "*.rbi": "ruby" },
+  "files.associations": {
+    "*.rake": "ruby",
+    "*.rbi": "ruby",
+    "Brewfile": "ruby",
+    "Capfile": "ruby"
+  },
   "files.trimTrailingWhitespace": true,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
   "ruby.intellisense": "rubyLocate",
-  "search.usePCRE2": true,
-  "tslint.autoFixOnSave": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.titleBarStyle": "custom",
