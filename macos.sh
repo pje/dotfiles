@@ -18,6 +18,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # System-wide UI / Behavior
 ###############################################################################
 
+# Enable dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
 # use blue icon set (instead of graphite (blue is the default))
 defaults write NSGlobalDomain AppleAquaColorVariant -int 1
 
@@ -71,6 +74,17 @@ defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
 
 # why would I want a spotlight icon in the menu bar? i know about cmd+space
 defaults write com.apple.Spotlight "NSStatusItem Visible Item-0" 0
+
+# Hide Siri
+defaults write com.apple.siri "StatusMenuVisible" 0
+defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" 0
+
+# Enable favorite menu extras
+defaults write com.apple.systemuiserver "menuExtras" -array \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
 # show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
@@ -154,6 +168,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a faster keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 20
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
@@ -416,7 +431,6 @@ ru
 ruby
 scss
 sh
-sh
 slate
 sql
 tags
@@ -431,8 +445,8 @@ for e in "extensions"; do duti -s com.microsoft.VSCode "$e" all ; done
 ###############################################################################
 # Kill affected applications
 ###############################################################################
-apps=$("Activity Monitor" AppleSpell cfprefsd "Disk Utility" Dock Finder SystemUIServer TextEdit Transmission)
+apps=("Activity Monitor" AppleSpell cfprefsd "Disk Utility" Dock Finder SystemUIServer TextEdit Transmission)
 
-for app in "${apps[@]}"; do killall "$app" > /dev/null 2>&1 ; done
+for app in "${apps[@]}"; do killall "$app" || true; done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
