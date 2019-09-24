@@ -7,6 +7,7 @@ export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.yarn/bin:$PATH
 export PATH=~/.config/yarn/global/node_modules/.bin:$PATH
 export PATH=~/bin:$PATH
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 
 [[ -x /usr/libexec/java_home ]] && export JAVA_HOME="`/usr/libexec/java_home`"
 
