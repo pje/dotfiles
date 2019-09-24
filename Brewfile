@@ -93,6 +93,7 @@ brew 'waon'
 brew 'watch'
 brew 'wget'
 brew 'wine'
+brew 'yarn'
 brew 'youtube-dl'
 
 cask '1password'
