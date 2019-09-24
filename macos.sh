@@ -393,6 +393,23 @@ echo changeset >> ~/Library/Spelling/LocalDictionary
 sort -o ~/Library/Spelling/LocalDictionary ~/Library/Spelling/LocalDictionary
 
 ###############################################################################
+# Flycut
+###############################################################################
+
+# launch on startup
+defaults write com.generalarcade.flycut loadOnStartup -int 1
+
+# Use the "Black Scissors" Icon
+defaults write com.generalarcade.flycut menuIcon -int 3
+
+# Set hotkey to ⌘⇧J
+defaults write com.generalarcade.flycut "ShortcutRecorder mainHotkey" -dict-add "keyCode" -int 38
+defaults write com.generalarcade.flycut "ShortcutRecorder mainHotkey" -dict-add "modifierFlags" -int 1179648
+
+# Store 100 clippings
+defaults write com.generalarcade.flycut "store" -dict-add "rememberNum" -int 100
+
+###############################################################################
 # set default editor app for common extensions
 ###############################################################################
 
