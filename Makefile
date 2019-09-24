@@ -1,4 +1,4 @@
-all: brew-packages link-dotfiles vim-packages node-packages vscode-packages macos
+all: brew-packages link-dotfiles node-packages vim-packages vscode-packages macos
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
@@ -114,7 +114,7 @@ vscode-packages:
 	code --install-extension rebornix.ruby
 	code --install-extension tomphilbin.gruvbox-themes
 	code --install-extension wmaurer.change-case
-	code --install-extension xandeer.better-align
+	code --install-extension wwm.better-align
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
