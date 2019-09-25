@@ -40,7 +40,7 @@ set ruler
 set modeline
 set modelines=5
 set laststatus=1
-set mouse=v
+set mouse=nicr " scrolls page up and down, like any sane person would expect
 set showcmd
 set showmatch
 set visualbell
@@ -87,10 +87,10 @@ set background=dark
 set termguicolors
 
 " override gruvbox background color to be darker (same as iterm bg)
-augroup vimrc
- autocmd!
- autocmd ColorScheme * highlight Normal guibg=#141414
-augroup END
+" augroup vimrc
+"  autocmd!
+"  autocmd ColorScheme * highlight Normal guibg=#141414
+" augroup END
 
 syntax enable
 syntax on
