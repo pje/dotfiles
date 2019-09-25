@@ -71,9 +71,18 @@ function make_prompt {
   PS1="\u@\h \w\$(git-radar --bash --fetch | sed 's/git://' | sed 's/30m/33m/g' | sed 's/1;/0;/g')\n"
 
   if [ $EXIT == 0 ]; then
-    PS1+="${FG_BROWN}⮑ ${FG_RESET} "
+    PS1+="${FG_BROWN}↪${FG_RESET} "
   else
-    PS1+="${FG_RED}⮑ ${FG_RESET} "
+    PS1+="${FG_RED}↪${FG_RESET} "
+  fi
+
+  # side-effect to set the title in iterm2
+  if [ $ITERM_SESSION_ID ]; then
+    local h=`uname -n | tr -d '.local'`
+    local u=`whoami`
+    local p=${PWD/#$HOME/'~'} # replace "/Users/pje" with "~"
+
+    echo -ne "\033];$u@$h:$p\007"
   fi
 }
 
