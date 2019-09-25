@@ -10,6 +10,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>CopySelection</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>gruvbox-dark</key>
@@ -1308,12 +1310,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{382, 856}</string>
+		<string>{713, 713}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>2C04E98C-09E1-46DE-816C-2A683B1EA3EA</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>12</integer>
+	<integer>14</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2051,6 +2053,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/pje</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -2075,10 +2079,16 @@
 	<integer>0</integer>
 	<key>UseBorder</key>
 	<false/>
+	<key>UseLionStyleFullscreen</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
 	<true/>
+	<key>WordCharacters</key>
+	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.3.4</string>
 </dict>
