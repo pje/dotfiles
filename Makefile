@@ -95,8 +95,11 @@ brew-packages:
 	brew tap Homebrew/bundle
 	brew bundle check || brew bundle
 
-macos:
+macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh
+
+$(HOME)/Library/Fonts/Consolas.ttf:
+	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
 	yarn global add diff-so-fancy --prefix /usr/local
