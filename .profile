@@ -6,6 +6,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.yarn/bin:$PATH
 export PATH=~/.config/yarn/global/node_modules/.bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 
