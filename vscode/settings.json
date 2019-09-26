@@ -37,6 +37,7 @@
   "ruby.intellisense": "rubyLocate",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
+  "window.nativeFullScreen": false,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
