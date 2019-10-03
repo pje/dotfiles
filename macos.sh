@@ -69,6 +69,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Menu Bar
 ###############################################################################
 
+# auto-hide the menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
 # enable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
 
