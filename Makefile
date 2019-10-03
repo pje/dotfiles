@@ -28,9 +28,9 @@ $(HOME)/.irbrc: $(CURDIR)/.irbrc
 	ln -sf $< $@
 
 $(HOME)/.lein: $(CURDIR)/.lein
-	mkdir -p $<
+	mkdir -p $@
 
-$(HOME)/.lein/profiles.clj: $(CURDIR)/.lein/profiles.clj
+$(HOME)/.lein/profiles.clj: $(HOME)/.lein $(CURDIR)/.lein/profiles.clj
 	ln -sf $< $@
 
 $(HOME)/.profile: $(CURDIR)/.profile
@@ -49,21 +49,23 @@ $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
 $(HOME)/.atom: $(CURDIR)/.atom
-	mkdir -p $<
+	mkdir -p $@
 
-$(HOME)/.atom/config.cson: $(CURDIR)/.atom/config.cson
+$(HOME)/.atom/config.cson: $(HOME)/.atom $(CURDIR)/.atom/config.cson
 	ln -sf $< $@
 
-$(HOME)/.atom/keymap.cson: $(CURDIR)/.atom/keymap.cson
+$(HOME)/.atom/keymap.cson: $(HOME)/.atom $(CURDIR)/.atom/keymap.cson
 	ln -sf $< $@
 
-$(HOME)/.atom/styles.less: $(CURDIR)/.atom/styles.less
+$(HOME)/.atom/styles.less: $(HOME)/.atom $(CURDIR)/.atom/styles.less
 	ln -sf $< $@
 
 $(HOME)/Library/Application\ Support/Code/User/settings.json: $(CURDIR)/vscode/settings.json
+	mkdir -p $(HOME)/Library/Application\ Support/Code/User/
 	ln -sf "$<" "$@"
 
 $(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/vscode/keybindings.json
+	mkdir -p $(HOME)/Library/Application\ Support/Code/User/
 	ln -sf "$<" "$@"
 
 link-dotfiles: \
@@ -91,7 +93,7 @@ link-dotfiles: \
 	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
 brew-packages:
-	which brew || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	which brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
 	brew tap Homebrew/bundle
 	brew bundle check || brew bundle
 
