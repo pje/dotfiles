@@ -113,7 +113,7 @@ vscode-packages:
 	find $(HOME)/.vscode/extensions -name 'esbenp.prettier-vscode*' | xargs cd && yarn add --dev prettier @prettier/plugin-ruby && cd -
 	code --install-extension karunamurti.haml
 	code --install-extension kumar-harsh.graphql-for-vscode
-	code --install-extension lehni.vscode-titlebar-less-macos
+	code --install-extension iocave.customize-ui
 	code --install-extension miguel-savignano.ruby-symbols
 	code --install-extension mikestead.dotenv
 	code --install-extension ms-vscode.atom-keybindings
