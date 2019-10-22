@@ -41,10 +41,10 @@
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
-  "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Dark (Medium)"
+  "workbench.statusBar.visible": false
 }
