@@ -3,8 +3,12 @@
     "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
     "editor.formatOnPaste": false
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "atomKeymap.promptV3Features": true,
   "breadcrumbs.enabled": false,
+  "customizeUI.titleBar": "inline",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
   "editor.fontFamily": "Consolas",
@@ -15,10 +19,7 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
@@ -34,17 +35,16 @@
   "files.trimTrailingWhitespace": true,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
-  "ruby.intellisense": "rubyLocate",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.nativeFullScreen": false,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.colorTheme": "Gruvbox Dark (Medium)"
 }
