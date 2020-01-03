@@ -110,7 +110,7 @@ vscode-packages:
 	code --install-extension alexdima.copy-relative-path
 	code --install-extension eg2.tslint
 	code --install-extension esbenp.prettier-vscode
-	find $(HOME)/.vscode/extensions -name 'esbenp.prettier-vscode*' | xargs cd && yarn add --dev prettier @prettier/plugin-ruby && cd -
+	yarn add --dev prettier @prettier/plugin-ruby --cwd `find $(HOME)/.vscode/extensions -name 'esbenp.prettier-vscode*'`
 	code --install-extension karunamurti.haml
 	code --install-extension kumar-harsh.graphql-for-vscode
 	code --install-extension iocave.customize-ui
