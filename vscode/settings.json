@@ -3,6 +3,10 @@
     "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
     "editor.formatOnPaste": false
   },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -19,7 +23,10 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
@@ -38,7 +45,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.nativeFullScreen": false,
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "native",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Gruvbox Dark (Medium)",
@@ -46,5 +53,12 @@
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.useExperimentalGridLayout": true,
+  "gitlens.mode.active": "zen",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.packageManager": "yarn",
+  "workbench.startupEditor": "newUntitledFile"
 }
