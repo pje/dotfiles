@@ -449,6 +449,7 @@ lein
 lock
 make
 profile
+py
 rake
 rb
 ru
