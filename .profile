@@ -19,3 +19,7 @@ alias g="git"
 alias be="bundle exec"
 alias idea="/Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS/idea"
 alias ccat='pygmentize -g'
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
+
