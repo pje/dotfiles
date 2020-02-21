@@ -112,6 +112,10 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+# Disable automatic OS update nag notifications
+defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool FALSE
+defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool FALSE
+
 ###############################################################################
 # Trackpad, Mouse
 ###############################################################################
