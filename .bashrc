@@ -71,9 +71,9 @@ function make_prompt {
   PS1="\u@\h \w\$(git-radar --bash --fetch | sed 's/git://' | sed 's/30m/33m/g' | sed 's/1;/0;/g')\n"
 
   if [ $EXIT == 0 ]; then
-    PS1+="${FG_BROWN}↪${FG_RESET} "
+    PS1+="${FG_BROWN}❍${FG_RESET} "
   else
-    PS1+="${FG_RED}↪${FG_RESET} "
+    PS1+="${FG_RED}❍${FG_RESET} "
   fi
 
   # side-effect to set the title in iterm2
@@ -87,3 +87,5 @@ function make_prompt {
 }
 
 if [ -e ~/.ksr.rc ]; then source ~/.ksr.rc; fi # Provisioned by ksr laptop script
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
