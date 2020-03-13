@@ -1,13 +1,21 @@
 {
-  "[ruby]": {
-    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
-    "editor.formatOnPaste": false
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
     "editor.tabSize": 4
   },
-  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"],
+  "[ruby]": {
+    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
+    "editor.formatOnPaste": false
+  },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "atomKeymap.promptV3Features": true,
@@ -42,6 +50,9 @@
   "files.trimTrailingWhitespace": true,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
+  "python.linting.pylintArgs": [
+    "--extension-pkg-whitelist=cv2"
+  ],
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.nativeFullScreen": false,
@@ -54,11 +65,7 @@
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
   "workbench.statusBar.visible": false,
-  "workbench.useExperimentalGridLayout": true,
-  "gitlens.mode.active": "zen",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "prettier.resolveGlobalModules": true,
   "prettier.packageManager": "yarn",
   "workbench.startupEditor": "newUntitledFile"
 }

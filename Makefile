@@ -120,7 +120,6 @@ vscode-packages:
 	code --install-extension rebornix.ruby
 	code --install-extension tomphilbin.gruvbox-themes
 	code --install-extension wmaurer.change-case
-	code --install-extension wwm.better-align
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
