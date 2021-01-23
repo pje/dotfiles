@@ -12,6 +12,10 @@
     "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
     "editor.formatOnPaste": false
   },
+  "[c/c++]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -26,7 +30,6 @@
   "editor.fontFamily": "Consolas",
   "editor.fontSize": 13,
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
@@ -45,7 +48,8 @@
     "*.rake": "ruby",
     "*.rbi": "ruby",
     "Brewfile": "ruby",
-    "Capfile": "ruby"
+    "Capfile": "ruby",
+    "*.ino": "cpp"
   },
   "files.trimTrailingWhitespace": true,
   "merge-conflict.codeLens.enabled": false,
@@ -53,6 +57,10 @@
   "python.linting.pylintArgs": [
     "--extension-pkg-whitelist=cv2"
   ],
+  "sorbet.devExtraArgs": ["--enable-all-experimental-lsp-features"],
+  "sorbet.devSorbetPath": "~/bin/sorbet",
+  "sorbet.intellisenseProvider": "sorbet",
+  "sorbet.useDevelopmentSorbet": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.nativeTabs": false,
   "window.nativeFullScreen": false,
@@ -67,5 +75,9 @@
   "workbench.statusBar.visible": false,
   "prettier.resolveGlobalModules": true,
   "prettier.packageManager": "yarn",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "clangd.path": "/Users/pje/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
