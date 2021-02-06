@@ -1,5 +1,16 @@
 {
+  "[c/c++]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
@@ -9,12 +20,9 @@
     "editor.tabSize": 4
   },
   "[ruby]": {
-    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
-    "editor.formatOnPaste": false
-  },
-  "[c/c++]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true, // ruby-prettier isn't yet stable enough to be anything but opt-in
+    "editor.formatOnPaste": false,
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -24,9 +32,12 @@
   },
   "atomKeymap.promptV3Features": true,
   "breadcrumbs.enabled": false,
+  "clangd.onConfigChanged": "restart",
+  "clangd.path": "/Users/pje/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
   "customizeUI.titleBar": "inline",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Consolas",
   "editor.fontSize": 13,
   "editor.formatOnPaste": false,
@@ -34,10 +45,7 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
@@ -47,16 +55,17 @@
   "files.associations": {
     "*.rake": "ruby",
     "*.rbi": "ruby",
+    "*.rbs": "ruby",
     "Brewfile": "ruby",
     "Capfile": "ruby",
+    "Gemfile": "ruby",
     "*.ino": "cpp"
   },
   "files.trimTrailingWhitespace": true,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
-  "python.linting.pylintArgs": [
-    "--extension-pkg-whitelist=cv2"
-  ],
+  "prettier.resolveGlobalModules": true,
+  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"],
   "sorbet.devExtraArgs": ["--enable-all-experimental-lsp-features"],
   "sorbet.devSorbetPath": "~/bin/sorbet",
   "sorbet.intellisenseProvider": "sorbet",
@@ -73,11 +82,5 @@
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
   "workbench.statusBar.visible": false,
-  "prettier.resolveGlobalModules": true,
-  "prettier.packageManager": "yarn",
   "workbench.startupEditor": "newUntitledFile",
-  "clangd.path": "/Users/pje/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
 }
