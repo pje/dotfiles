@@ -107,19 +107,19 @@ node-packages:
 	yarn global add diff-so-fancy --prefix /usr/local
 
 vscode-packages:
-	code --install-extension alexdima.copy-relative-path
-	code --install-extension eg2.tslint
-	code --install-extension esbenp.prettier-vscode
-	yarn add --dev prettier @prettier/plugin-ruby --cwd `find $(HOME)/.vscode/extensions -name 'esbenp.prettier-vscode*'`
-	code --install-extension karunamurti.haml
-	code --install-extension kumar-harsh.graphql-for-vscode
-	code --install-extension iocave.customize-ui
-	code --install-extension miguel-savignano.ruby-symbols
-	code --install-extension mikestead.dotenv
-	code --install-extension ms-vscode.atom-keybindings
-	code --install-extension rebornix.ruby
-	code --install-extension tomphilbin.gruvbox-themes
-	code --install-extension wmaurer.change-case
+	yarn add --dev prettier @prettier/plugin-ruby
+	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
+	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
+	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
+	code --list-extensions | grep karunamurti.haml               || code --install-extension karunamurti.haml
+	code --list-extensions | grep kumar-harsh.graphql-for-vscode || code --install-extension kumar-harsh.graphql-for-vscode
+	code --list-extensions | grep iocave.customize-ui            || code --install-extension iocave.customize-ui
+	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
+	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
+	code --list-extensions | grep ms-vscode.atom-keybindings     || code --install-extension ms-vscode.atom-keybindings
+	code --list-extensions | grep rebornix.ruby                  || code --install-extension rebornix.ruby
+	code --list-extensions | grep tomphilbin.gruvbox-themes      || code --install-extension tomphilbin.gruvbox-themes
+	code --list-extensions | grep wmaurer.change-case            || code --install-extension wmaurer.change-case
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
