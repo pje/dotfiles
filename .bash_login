@@ -1,3 +1,4 @@
 reset # literally just to avoid seeing the "last login at" MOTD thing that always appears in a new terminal window
 
 source ~/.bashrc
+source "$HOME/.cargo/env"
