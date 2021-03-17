@@ -19,7 +19,9 @@ alias g="git"
 alias be="bundle exec"
 alias idea="/Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS/idea"
 alias ccat='pygmentize -g'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
+source "$HOME/.cargo/env"
