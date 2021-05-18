@@ -96,7 +96,8 @@ brew-packages:
 	which brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
 	brew tap Homebrew/bundle
 	brew bundle check || brew bundle
-	$(brew --prefix)/opt/fzf/install
+	which fzf || $(shell brew --prefix)/opt/fzf/install
+	which cargo || rustup-init
 
 macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh
