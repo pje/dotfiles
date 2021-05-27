@@ -93,7 +93,7 @@ link-dotfiles: \
 	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
 brew-packages:
-	which brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
+	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
 	brew bundle check || brew bundle
 	which fzf || $(shell brew --prefix)/opt/fzf/install
