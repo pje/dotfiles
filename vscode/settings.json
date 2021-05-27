@@ -81,6 +81,9 @@
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
-  "workbench.statusBar.visible": false,
   "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.statusBar.visible": false
 }
