@@ -97,7 +97,6 @@ link-dotfiles: \
 system-packages: $(HOME)/fzf rustup-init.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
 	./rustup-init.sh -y --no-modify-path
-	which cargo || rustup-init
 
 brew-packages:
 	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
