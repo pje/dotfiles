@@ -1,4 +1,4 @@
-all: brew-packages link-dotfiles node-packages vim-packages vscode-packages macos
+all: link-dotfiles brew-packages node-packages vim-packages vscode-packages macos
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
