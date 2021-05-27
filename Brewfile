@@ -68,7 +68,6 @@ brew 'reaver'
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'ruby', link: true
-brew 'rustup-init'
 brew 'sbt'
 brew 'scala'
 brew 'sox'

@@ -1,4 +1,6 @@
-all: link-dotfiles brew-packages node-packages vim-packages vscode-packages macos
+all: link-dotfiles system-packages node-packages vim-packages vscode-packages macos
+
+UNAME_S := $(shell uname -s)
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
@@ -92,12 +94,25 @@ link-dotfiles: \
 	$(HOME)/Library/Application\ Support/Code/User/settings.json \
 	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
+system-packages: $(HOME)/fzf rustup-init.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
+	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
+	./rustup-init.sh -y --no-modify-path
+	which cargo || rustup-init
+
 brew-packages:
 	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
 	brew bundle check || brew bundle
-	which fzf || $(shell brew --prefix)/opt/fzf/install
-	which cargo || rustup-init
+
+linux-packages:
+	@echo "nothing"
+
+$(HOME)/fzf:
+	git clone --depth 1 https://github.com/junegunn/fzf.git $(HOME)/fzf
+
+rustup-init.sh:
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-init.sh
+	chmod +x rustup-init.sh
 
 macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh
@@ -146,5 +161,5 @@ $(VIM_BUNDLE_DIR)/gruvbox:
 $(VIM_BUNDLE_DIR)/vim-clojure-static:
 	git clone git@github.com:guns/vim-clojure-static.git $@
 
-.PHONY: all brew-packages link-dotfiles macos node-packages vim-packages vscode-packages
+.PHONY: all brew-packages link-dotfiles macos node-packages system-packages linux-packages vim-packages vscode-packages
 .DEFAULT: all
