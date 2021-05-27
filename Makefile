@@ -125,10 +125,10 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
-	yarn global add diff-so-fancy --prefix /usr/local
+	$(HOME)/.yarn/bin/yarn global add diff-so-fancy --prefix /usr/local
 
 vscode-packages:
-	yarn add --dev prettier @prettier/plugin-ruby
+	$(HOME)/.yarn/bin/yarn add --dev prettier @prettier/plugin-ruby
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
 	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
 	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
