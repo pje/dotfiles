@@ -94,9 +94,10 @@ link-dotfiles: \
 	$(HOME)/Library/Application\ Support/Code/User/settings.json \
 	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
 
-system-packages: $(HOME)/fzf rustup-init.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
+system-packages: $(HOME)/fzf rustup-init.sh yarn_install.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
-	./rustup-init.sh -y --no-modify-path
+	which cargo || ./rustup-init.sh -y --no-modify-path
+	which yarn || ./yarn_install.sh
 
 brew-packages:
 	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -112,6 +113,10 @@ $(HOME)/fzf:
 rustup-init.sh:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-init.sh
 	chmod +x rustup-init.sh
+
+yarn_install.sh:
+	curl -o- -L https://yarnpkg.com/install.sh > yarn_install.sh
+	chmod +x yarn_install.sh
 
 macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh

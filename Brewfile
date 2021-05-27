@@ -81,7 +81,6 @@ brew 'vim'
 brew 'waon'
 brew 'watch'
 brew 'wget'
-brew 'yarn'
 brew 'youtube-dl'
 
 cask '1password'
