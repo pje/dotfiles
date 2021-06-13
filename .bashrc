@@ -68,8 +68,7 @@ export PROMPT_COMMAND=make_prompt
 
 function make_prompt {
   local EXIT="$?"
-  PS1="\u@\h \w\$(git-radar --bash --fetch | sed 's/git://' | sed 's/30m/33m/g' | sed 's/1;/0;/g')\n"
-
+  PS1="\u@\h \w \$(/usr/local/bin/githud bash)\n"
   if [ $EXIT == 0 ]; then
     PS1+="${FG_BROWN}❍${FG_RESET} "
   else
@@ -78,15 +77,19 @@ function make_prompt {
 
   # side-effect to set the title in iterm2
   if [ $ITERM_SESSION_ID ]; then
-    local h=`uname -n | tr -d '.local'`
+    local h=`uname -n | sed 's/.local//'`
     local u=`whoami`
     local p=${PWD/#$HOME/'~'} # replace "/Users/pje" with "~"
 
-    echo -ne "\033];$u@$h:$p\007"
+    echo -ne "\033];$USER@$h:$p\007"
   fi
 }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
