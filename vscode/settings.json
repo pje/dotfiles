@@ -21,8 +21,8 @@
   },
   "[ruby]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true, // ruby-prettier isn't yet stable enough to be anything but opt-in
-    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
+    "editor.formatOnPaste": false
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
