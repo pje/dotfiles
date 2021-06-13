@@ -10,8 +10,6 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 
-[[ -x /usr/libexec/java_home ]] && export JAVA_HOME="`/usr/libexec/java_home`"
-
 export EDITOR=vim
 export GOPATH=~/go
 
@@ -23,5 +21,12 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
+
+if [ -n "$(pgrep gpg-agent)" ]; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+else
+  eval $(gpg-agent --daemon)
+fi
 
 source "$HOME/.cargo/env"
