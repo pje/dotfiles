@@ -4,6 +4,9 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": false
   },
+  "[go]": {
+    "editor.tabSize": 8
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -87,5 +90,6 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.editor.untitled.hint": "hidden",
   "terminal.integrated.tabs.enabled": true,
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.sideBar.location": "right"
 }
