@@ -91,5 +91,6 @@
   "workbench.editor.untitled.hint": "hidden",
   "terminal.integrated.tabs.enabled": true,
   "workbench.statusBar.visible": false,
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "redhat.telemetry.enabled": false
 }
