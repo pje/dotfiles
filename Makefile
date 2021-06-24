@@ -2,6 +2,12 @@ all: link-dotfiles system-packages node-packages vim-packages vscode-packages ma
 
 UNAME_S := $(shell uname -s)
 
+ifeq ($(UNAME_S), Darwin)
+	VSCODE_SETTINGS_DIR=$(HOME)/Library/Application\ Support/Code/User
+else
+	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
+endif
+
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
 
@@ -59,12 +65,12 @@ $(HOME)/.atom/keymap.cson: $(HOME)/.atom $(CURDIR)/.atom/keymap.cson
 $(HOME)/.atom/styles.less: $(HOME)/.atom $(CURDIR)/.atom/styles.less
 	ln -sf $< $@
 
-$(HOME)/Library/Application\ Support/Code/User/settings.json: $(CURDIR)/vscode/settings.json
-	mkdir -p $(HOME)/Library/Application\ Support/Code/User/
+$(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
+	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
 
-$(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/vscode/keybindings.json
-	mkdir -p $(HOME)/Library/Application\ Support/Code/User/
+$(VSCODE_SETTINGS_DIR)/settings.json: $(CURDIR)/vscode/settings.json
+	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
 
 link-dotfiles: \
@@ -87,8 +93,8 @@ link-dotfiles: \
 	$(HOME)/.atom/config.cson \
 	$(HOME)/.atom/keymap.cson \
 	$(HOME)/.atom/styles.less \
-	$(HOME)/Library/Application\ Support/Code/User/settings.json \
-	$(HOME)/Library/Application\ Support/Code/User/keybindings.json
+	$(VSCODE_SETTINGS_DIR)/keybindings.json \
+	$(VSCODE_SETTINGS_DIR)/settings.json
 
 system-packages: $(HOME)/fzf rustup-init.sh yarn_install.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
