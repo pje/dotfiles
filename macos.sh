@@ -112,10 +112,6 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Disable automatic OS update nag notifications
-defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool FALSE
-defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool FALSE
-
 ###############################################################################
 # Trackpad, Mouse
 ###############################################################################
@@ -479,6 +475,6 @@ for e in "$extensions"; do duti -s com.microsoft.VSCode "$e" all ; done
 ###############################################################################
 apps=("Activity Monitor" AppleSpell cfprefsd "Disk Utility" Dock Finder SystemUIServer TextEdit Transmission)
 
-for app in "${apps[@]}"; do killall "$app" || true; done
+for app in "${apps[@]}"; do (pgrep "$app" && killall "$app") || true; done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
