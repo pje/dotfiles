@@ -361,6 +361,13 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
+# iTunes
+###############################################################################
+
+# Don't launch iTunes when connecting an iPhone
+defaults write com.apple.iTunesHelper ignore-devices 1
+
+###############################################################################
 # Mac App Store
 ###############################################################################
 
