@@ -101,6 +101,8 @@ system-packages: $(HOME)/fzf rustup-init.sh yarn_install.sh $(ifeq $(UNAME_S Dar
 	which cargo || ./rustup-init.sh -y --no-modify-path
 	which yarn || ./yarn_install.sh
 
+system-scripts: $(ifeq $(UNAME_S Darwin),macos,linux)
+
 brew-packages:
 	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
@@ -108,6 +110,12 @@ brew-packages:
 
 linux-packages:
 	@echo "nothing"
+
+linux:
+	@echo "nothing"
+
+macos: $(HOME)/Library/Fonts/Consolas.ttf
+	./macos.sh
 
 $(HOME)/fzf:
 	git clone --depth 1 https://github.com/junegunn/fzf.git $(HOME)/fzf
@@ -120,17 +128,14 @@ yarn_install.sh:
 	curl -o- -L https://yarnpkg.com/install.sh > yarn_install.sh
 	chmod +x yarn_install.sh
 
-macos: $(HOME)/Library/Fonts/Consolas.ttf
-	./macos.sh
-
 $(HOME)/Library/Fonts/Consolas.ttf:
+	mkdir -p $(HOME)/Library/Fonts
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
-	$(HOME)/.yarn/bin/yarn global add diff-so-fancy --prefix /usr/local
+	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix /usr/local
 
-vscode-packages:
-	$(HOME)/.yarn/bin/yarn add --dev prettier @prettier/plugin-ruby
+vscode-packages: node-packages
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
 	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
 	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
@@ -167,5 +172,5 @@ $(VIM_BUNDLE_DIR)/gruvbox:
 $(VIM_BUNDLE_DIR)/vim-clojure-static:
 	git clone git@github.com:guns/vim-clojure-static.git $@
 
-.PHONY: all brew-packages link-dotfiles macos node-packages system-packages linux-packages vim-packages vscode-packages
+.PHONY: all brew-packages link-dotfiles macos node-packages system-packages system-scripts linux linux-packages vim-packages vscode-packages
 .DEFAULT: all
