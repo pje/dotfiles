@@ -83,6 +83,10 @@ brew 'watch'
 brew 'wget'
 brew 'youtube-dl'
 
+tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask'
+
 cask '1password'
 cask 'calibre'
 cask 'flux'
@@ -113,7 +117,3 @@ cask 'vlc'
 cask 'webpquicklook'
 cask 'xld'
 cask 'xquartz'
-
-tap 'homebrew/bundle'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask'
