@@ -1,12 +1,34 @@
-source ~/.profile
+# sourced and executed once on login
+
+export PATH=/usr/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/heroku/bin:$PATH
+export PATH=~/.yarn/bin:$PATH
+export PATH=~/.config/yarn/global/node_modules/.bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$PATH
+export PATH=~/bin:$PATH
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+
+export EDITOR=vim
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+export GOPATH=~/go
+export NVM_DIR="$HOME/.nvm"
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
+
+alias g="git"
+alias be="bundle exec"
+alias ccat='pygmentize -g'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+[ -n "$(pgrep gpg-agent)" ] || eval $(gpg-agent --daemon)
 
 # in bash versions >= 4, this enabled zsh-like recursive globbing
 shopt -s globstar
-
-source $(brew --prefix)/etc/bash_completion
-source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-
-export PATH="$HOME/.git-radar:$PATH"
 
 HISTSIZE=100000
 HISTFILESIZE=100000
@@ -64,6 +86,13 @@ FG_RESET="\[\e[0m\]"
 export LSCOLORS=gxfxcxdxfxegedabagacad
 export CLICOLOR=1
 
+source "$HOME/.cargo/env"
+source $(brew --prefix)/etc/bash_completion
+source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 export PROMPT_COMMAND=make_prompt
 
 function make_prompt {
@@ -84,14 +113,3 @@ function make_prompt {
     echo -ne "\033];$USER@$h:$p\007"
   fi
 }
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-source "$HOME/.cargo/env"
-
-export PATH="$GOPATH/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash

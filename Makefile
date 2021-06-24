@@ -5,10 +5,7 @@ UNAME_S := $(shell uname -s)
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
 	ln -sf $< $@
 
-$(HOME)/.bash_login: $(CURDIR)/.bash_login
-	ln -sf $< $@
-
-$(HOME)/.bashrc: $(CURDIR)/.bashrc
+$(HOME)/.bash_profile: $(CURDIR)/.bash_profile
 	ln -sf $< $@
 
 $(HOME)/.ctags: $(CURDIR)/.ctags
@@ -23,6 +20,9 @@ $(HOME)/.gitconfig: $(CURDIR)/.gitconfig
 $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
+$(HOME)/.hushlogin: $(CURDIR)/.hushlogin
+	ln -sf $< $@
+
 $(HOME)/.inputrc: $(CURDIR)/.inputrc
 	ln -sf $< $@
 
@@ -33,9 +33,6 @@ $(HOME)/.lein: $(CURDIR)/.lein
 	mkdir -p $@
 
 $(HOME)/.lein/profiles.clj: $(HOME)/.lein $(CURDIR)/.lein/profiles.clj
-	ln -sf $< $@
-
-$(HOME)/.profile: $(CURDIR)/.profile
 	ln -sf $< $@
 
 $(HOME)/.pryrc: $(CURDIR)/.pryrc
@@ -73,17 +70,16 @@ $(HOME)/Library/Application\ Support/Code/User/keybindings.json: $(CURDIR)/vscod
 link-dotfiles: \
 	$(HOME)/com.googlecode.iterm2.plist \
 	$(HOME)/.ackrc \
-	$(HOME)/.bash_login \
-	$(HOME)/.bashrc \
+	$(HOME)/.bash_profile \
 	$(HOME)/.ctags \
 	$(HOME)/.ghci \
 	$(HOME)/.gitconfig \
 	$(HOME)/.gitignore \
+	$(HOME)/.hushlogin \
 	$(HOME)/.inputrc \
 	$(HOME)/.irbrc\
 	$(HOME)/.lein \
 	$(HOME)/.lein/profiles.clj \
-	$(HOME)/.profile \
 	$(HOME)/.pryrc \
 	$(HOME)/.slate \
 	$(HOME)/.vimrc \
