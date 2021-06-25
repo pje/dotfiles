@@ -133,7 +133,7 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
-	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix /usr/local
+	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME) # this will put binaries in ~/bin/
 
 vscode-packages: node-packages
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
@@ -150,7 +150,7 @@ vscode-packages: node-packages
 	code --list-extensions | grep wmaurer.change-case            || code --install-extension wmaurer.change-case
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
-THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=/usr/local/opt/ruby/bin/ruby
+THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=$(shell brew --prefix)/opt/ruby/bin/ruby
 
 vim-packages: \
 	$(VIM_BUNDLE_DIR) \
