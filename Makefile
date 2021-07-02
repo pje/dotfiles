@@ -53,18 +53,6 @@ $(HOME)/.vimrc: $(CURDIR)/.vimrc
 $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
-$(HOME)/.atom: $(CURDIR)/.atom
-	mkdir -p $@
-
-$(HOME)/.atom/config.cson: $(HOME)/.atom $(CURDIR)/.atom/config.cson
-	ln -sf $< $@
-
-$(HOME)/.atom/keymap.cson: $(HOME)/.atom $(CURDIR)/.atom/keymap.cson
-	ln -sf $< $@
-
-$(HOME)/.atom/styles.less: $(HOME)/.atom $(CURDIR)/.atom/styles.less
-	ln -sf $< $@
-
 $(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
@@ -89,10 +77,6 @@ link-dotfiles: \
 	$(HOME)/.pryrc \
 	$(HOME)/.slate \
 	$(HOME)/.vimrc \
-	$(HOME)/.atom \
-	$(HOME)/.atom/config.cson \
-	$(HOME)/.atom/keymap.cson \
-	$(HOME)/.atom/styles.less \
 	$(VSCODE_SETTINGS_DIR)/keybindings.json \
 	$(VSCODE_SETTINGS_DIR)/settings.json
 
@@ -144,17 +128,6 @@ vscode-packages: node-packages
 	code --list-extensions | grep iocave.customize-ui            || code --install-extension iocave.customize-ui
 	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
-	code --list-extensions | grep ms-vscode.atom-keybindings     || code --install-extension ms-vscode.atom-keybindings
-	code --list-extensions | grep rebornix.ruby                  || code --install-extension rebornix.ruby
-	code --list-extensions | grep tomphilbin.gruvbox-themes      || code --install-extension tomphilbin.gruvbox-themes
-	code --list-extensions | grep wmaurer.change-case            || code --install-extension wmaurer.change-case
-
-VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
-THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=$(shell brew --prefix)/opt/ruby/bin/ruby
-
-vim-packages: \
-	$(VIM_BUNDLE_DIR) \
-	$(VIM_BUNDLE_DIR)/command-t \
 	$(VIM_BUNDLE_DIR)/gruvbox \
 	$(VIM_BUNDLE_DIR)/vim-clojure-static
 
