@@ -23,6 +23,9 @@ $(HOME)/.ghci: $(CURDIR)/.ghci
 $(HOME)/.gitconfig: $(CURDIR)/.gitconfig
 	ln -sf $< $@
 
+$(HOME)/.githudrc: $(CURDIR)/.githudrc
+	ln -sf $< $@
+
 $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
@@ -68,6 +71,7 @@ link-dotfiles: \
 	$(HOME)/.ctags \
 	$(HOME)/.ghci \
 	$(HOME)/.gitconfig \
+	$(HOME)/.githudrc \
 	$(HOME)/.gitignore \
 	$(HOME)/.hushlogin \
 	$(HOME)/.inputrc \
