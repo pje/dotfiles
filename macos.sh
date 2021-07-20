@@ -423,7 +423,7 @@ defaults write com.generalarcade.flycut "store" -dict-add "rememberNum" -int 100
 # set default editor app for common extensions
 ###############################################################################
 
-extensions="
+extensions="\
 ackrc
 bash_login
 bashrc
@@ -467,8 +467,8 @@ tsx
 txt
 vimrc
 yaml
-yml
-"
+yml"
+
 for e in "$extensions"; do duti -s com.microsoft.VSCode "$e" all ; done
 
 ###############################################################################
