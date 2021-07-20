@@ -464,6 +464,7 @@ sql
 tags
 ts
 tsx
+txt
 vimrc
 yaml
 yml
