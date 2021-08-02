@@ -1,5 +1,7 @@
 # sourced and executed once on login
 
+export GOPATH=~/go
+
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
@@ -16,7 +18,6 @@ export PATH="$GOPATH/bin:$PATH"
 
 export EDITOR=vim
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
-export GOPATH=~/go
 export NVM_DIR="$HOME/.nvm"
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
