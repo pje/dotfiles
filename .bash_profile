@@ -99,7 +99,7 @@ export PROMPT_COMMAND=make_prompt
 function make_prompt {
   local EXIT="$?"
   local githud_path=$(brew --prefix)/bin/githud
-  PS1="\u@\h \w \$($githud_path) bash\n"
+  PS1="\u@\h \w \$($githud_path bash)\n"
   if [ $EXIT == 0 ]; then
     PS1+="${FG_BROWN}❍${FG_RESET} "
   else
