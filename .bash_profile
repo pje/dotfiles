@@ -15,6 +15,7 @@ export PATH=~/bin:$PATH
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH=~/.krew/bin:"$PATH"
 
 export EDITOR=vim
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
@@ -86,6 +87,15 @@ FG_RESET="\[\e[0m\]"
 #               v v v v v v v v v v v
 export LSCOLORS=gxfxcxdxfxegedabagacad
 export CLICOLOR=1
+
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if [[ `uname` = "Linux" ]]; then
+  test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+  echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+fi
 
 source "$HOME/.cargo/env"
 source $(brew --prefix)/etc/bash_completion
