@@ -1,4 +1,9 @@
-all: link-dotfiles system-packages node-packages vim-packages vscode-packages macos
+all: \
+		link-dotfiles \
+		node-packages \
+		system-packages \
+		vim-packages \
+		vscode-packages macos
 
 UNAME_S := $(shell uname -s)
 
@@ -65,42 +70,55 @@ $(VSCODE_SETTINGS_DIR)/settings.json: $(CURDIR)/vscode/settings.json
 	ln -sf "$<" "$@"
 
 link-dotfiles: \
-	$(HOME)/com.googlecode.iterm2.plist \
-	$(HOME)/.ackrc \
-	$(HOME)/.bash_profile \
-	$(HOME)/.ctags \
-	$(HOME)/.ghci \
-	$(HOME)/.gitconfig \
-	$(HOME)/.githudrc \
-	$(HOME)/.gitignore \
-	$(HOME)/.hushlogin \
-	$(HOME)/.inputrc \
-	$(HOME)/.irbrc\
-	$(HOME)/.lein \
-	$(HOME)/.lein/profiles.clj \
-	$(HOME)/.pryrc \
-	$(HOME)/.slate \
-	$(HOME)/.vimrc \
-	$(VSCODE_SETTINGS_DIR)/keybindings.json \
-	$(VSCODE_SETTINGS_DIR)/settings.json
+		$(HOME)/com.googlecode.iterm2.plist \
+		$(HOME)/.ackrc \
+		$(HOME)/.bash_profile \
+		$(HOME)/.ctags \
+		$(HOME)/.ghci \
+		$(HOME)/.gitconfig \
+		$(HOME)/.githudrc \
+		$(HOME)/.gitignore \
+		$(HOME)/.hushlogin \
+		$(HOME)/.inputrc \
+		$(HOME)/.irbrc\
+		$(HOME)/.lein \
+		$(HOME)/.lein/profiles.clj \
+		$(HOME)/.pryrc \
+		$(HOME)/.slate \
+		$(HOME)/.vimrc \
+		$(VSCODE_SETTINGS_DIR)/keybindings.json \
+		$(VSCODE_SETTINGS_DIR)/settings.json
 
-system-packages: $(HOME)/fzf rustup-init.sh yarn_install.sh $(ifeq $(UNAME_S Darwin),brew-packages,linux-packages)
+system-packages: \
+		$(HOME)/fzf \
+		rustup-init.sh \
+		yarn_install.sh \
+		brew-packages $(ifeq $(UNAME_S Darwin),mac-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
 	which cargo || ./rustup-init.sh -y --no-modify-path
 	which yarn || ./yarn_install.sh
 
 system-scripts: $(ifeq $(UNAME_S Darwin),macos,linux)
 
+mac-packages: vscode-packages iterm-scripts
+
+iterm-scripts: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py
+
+$(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch
+
+$(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
+	mkdir -p $@
+
 brew-packages:
 	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew tap Homebrew/bundle
+	brew bundle check || brew tap Homebrew/bundle
 	brew bundle check || brew bundle
 
 linux-packages:
-	@echo "nothing"
+	@echo "noop"
 
 linux:
-	@echo "nothing"
+	@echo "noop"
 
 macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh
@@ -121,7 +139,7 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
-	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME) # this will put binaries in ~/bin/
+	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME)
 
 vscode-packages: node-packages
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
@@ -132,22 +150,39 @@ vscode-packages: node-packages
 	code --list-extensions | grep iocave.customize-ui            || code --install-extension iocave.customize-ui
 	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
-	$(VIM_BUNDLE_DIR)/gruvbox \
-	$(VIM_BUNDLE_DIR)/vim-clojure-static
+
+vim_packages:	\
+		$(VIM_BUNDLE_DIR)/command-t \
+		$(VIM_BUNDLE_DIR)/gruvbox \
+		$(VIM_BUNDLE_DIR)/vim-clojure-static
 
 $(VIM_BUNDLE_DIR):
 	mkdir -p $@
 
-$(VIM_BUNDLE_DIR)/command-t:
+$(VIM_BUNDLE_DIR)/command-t: $(VIM_BUNDLE_DIR)
 	git clone git://git.wincent.com/command-t.git $@
 	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) ext/command-t/extconf.rb && make
 	cd $@ && rake make
 
-$(VIM_BUNDLE_DIR)/gruvbox:
+$(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
 	git clone git@github.com:morhetz/gruvbox.git $@
 
-$(VIM_BUNDLE_DIR)/vim-clojure-static:
+$(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 	git clone git@github.com:guns/vim-clojure-static.git $@
 
-.PHONY: all brew-packages link-dotfiles macos node-packages system-packages system-scripts linux linux-packages vim-packages vscode-packages
+.PHONY: \
+		all \
+		brew-packages \
+		iterm-scripts \
+		link-dotfiles \
+		linux \
+		linux-packages \
+		mac-packages \
+		macos \
+		node-packages \
+		system-packages \
+		system-scripts \
+		vim-packages \
+		vscode-packages
+
 .DEFAULT: all
