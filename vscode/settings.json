@@ -35,8 +35,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "atomKeymap.promptV3Features": true,
-  "autoDarkMode.darkTheme": "gruvbox-dark",
-  "autoDarkMode.lightTheme": "gruvbox-light",
+  "autoDarkMode.darkTheme": "Gruvbox Dark (Medium)",
+  "autoDarkMode.lightTheme": "Gruvbox Light (Medium)",
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "/Users/pje/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
@@ -86,7 +86,6 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "gruvbox-dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.editor.untitled.hint": "hidden",
@@ -94,5 +93,6 @@
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.colorTheme": "Gruvbox Light (Medium)",
 }
