@@ -86,7 +86,7 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Light (Medium)",
+  "workbench.colorTheme": "gruvbox-dark",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.editor.untitled.hint": "hidden",

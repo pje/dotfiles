@@ -18,8 +18,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # System-wide UI / Behavior
 ###############################################################################
 
-# Enable dark mode
-osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+# Enable auto dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to auto'
 
 # use blue icon set (instead of graphite (blue is the default))
 defaults write NSGlobalDomain AppleAquaColorVariant -int 1
