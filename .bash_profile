@@ -32,10 +32,13 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 # in bash versions >= 4, this enabled zsh-like recursive globbing
 shopt -s globstar
 
-HISTSIZE=100000
-HISTFILESIZE=100000
+# https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/
+HISTFILESIZE=-1 # No limit on the number of history lines
+HISTSIZE=-1 # No limit on the number of history lines
+HISTCONTROL=ignoredups # Do not store a duplicate of the last entered command
 shopt -s histappend # append to history instead of overwriting it
-PROMPT_COMMAND='history -a' # save history after each command instead of session exit
+shopt -s cmdhist # # Attempt to save all lines of a multiple-line command in the same entry
+# see also the additions to make_prompt which regenerate history after every command.
 
 # Black       0;30     Dark Gray     1;30
 # Red         0;31     Light Red     1;31
@@ -124,4 +127,9 @@ function make_prompt {
 
     echo -ne "\033];$USER@$h:$p\007"
   fi
+
+  # side-effects to dump the last command to bash_history (rather than only after a successful shell exit)
+  history -a # Append to the history file
+  history -c # Clear the history (of the current shell)
+  history -r # Read the history file and append its contents to the history list
 }
