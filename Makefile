@@ -141,7 +141,7 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 node-packages:
-	$(HOME)/.yarn/bin/yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME)
+	yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME)
 
 vscode-packages: node-packages
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
