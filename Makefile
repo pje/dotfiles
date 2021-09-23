@@ -92,16 +92,15 @@ link-dotfiles: \
 system-packages: \
 		$(HOME)/fzf \
 		rustup-init.sh \
-		yarn_install.sh \
 		homebrew \
-		brew-packages $(ifeq $(UNAME_S Darwin),mac-packages,linux-packages)
+		brew-packages \
+		$(ifeq $(UNAME_S Darwin),mac-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
 	which cargo || ./rustup-init.sh -y --no-modify-path
-	which yarn || ./yarn_install.sh
 
 system-scripts: $(ifeq $(UNAME_S Darwin),macos,linux)
 
-mac-packages: vscode-packages iterm-scripts
+mac-packages: vscode-packages iterm-scripts brew-macos-packages
 
 iterm-scripts: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py
 
@@ -114,8 +113,11 @@ homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew-packages: homebrew
-	brew bundle check || brew tap Homebrew/bundle
-	brew bundle check || brew bundle
+	brew bundle check --file=Brewfile || brew tap Homebrew/bundle
+	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
+
+brew-macos-packages: brew-packages
+	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
 
 linux-packages:
 	@echo "noop"
@@ -132,10 +134,6 @@ $(HOME)/fzf:
 rustup-init.sh:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-init.sh
 	chmod +x rustup-init.sh
-
-yarn_install.sh:
-	curl -o- -L https://yarnpkg.com/install.sh > yarn_install.sh
-	chmod +x yarn_install.sh
 
 $(HOME)/Library/Fonts/Consolas.ttf:
 	mkdir -p $(HOME)/Library/Fonts
@@ -176,6 +174,7 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 .PHONY: \
 		all \
 		brew-packages \
+		brew-macos-packages \
 		homebrew \
 		iterm-scripts \
 		link-dotfiles \
