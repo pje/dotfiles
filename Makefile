@@ -156,10 +156,11 @@ vscode-packages: node-packages
 	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
 
-VIM_BUNDLE_DIR=$(HOME)/.vim/pack
+VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=ruby
 
 vim-packages:	\
+		$(VIM_BUNDLE_DIR) \
 		$(VIM_BUNDLE_DIR)/command-t \
 		$(VIM_BUNDLE_DIR)/gruvbox \
 		$(VIM_BUNDLE_DIR)/vim-clojure-static
