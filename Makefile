@@ -93,6 +93,7 @@ system-packages: \
 		$(HOME)/fzf \
 		rustup-init.sh \
 		yarn_install.sh \
+		homebrew \
 		brew-packages $(ifeq $(UNAME_S Darwin),mac-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
 	which cargo || ./rustup-init.sh -y --no-modify-path
@@ -109,8 +110,10 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.p
 $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 	mkdir -p $@
 
-brew-packages:
-	which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+homebrew:
+	which brew || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew-packages: homebrew
 	brew bundle check || brew tap Homebrew/bundle
 	brew bundle check || brew bundle
 
@@ -173,6 +176,7 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 .PHONY: \
 		all \
 		brew-packages \
+		homebrew \
 		iterm-scripts \
 		link-dotfiles \
 		linux \

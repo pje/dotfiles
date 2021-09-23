@@ -1,5 +1,7 @@
 # sourced and executed once on login
 
+OS="$(uname)"
+
 export GOPATH=~/go
 
 export PATH=/usr/bin:$PATH
@@ -16,6 +18,10 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$P
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=~/.krew/bin:"$PATH"
+
+if [[ "${OS}" == "Linux" ]]; then
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+fi
 
 export EDITOR=vim
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
