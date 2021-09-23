@@ -1,7 +1,7 @@
 all: \
 		link-dotfiles \
-		node-packages \
 		system-packages \
+		node-packages \
 		vim-packages \
 		vscode-packages macos
 
