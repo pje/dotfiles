@@ -1,11 +1,12 @@
+UNAME_S := $(shell uname -s)
+
 all: \
 		link-dotfiles \
 		system-packages \
 		node-packages \
 		vim-packages \
-		vscode-packages macos
-
-UNAME_S := $(shell uname -s)
+		vscode-packages \
+		system-scripts
 
 ifeq ($(UNAME_S), Darwin)
 	VSCODE_SETTINGS_DIR=$(HOME)/Library/Application\ Support/Code/User
