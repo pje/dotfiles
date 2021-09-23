@@ -11,7 +11,7 @@ all: \
 		system-packages \
 		node-packages \
 		vim-packages \
-		$(ifeq $(UNAME_S Darwin),vscode-packages,)
+		$(ifeq $(UNAME_S Darwin),vscode-packages,) \
 		system-scripts
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
