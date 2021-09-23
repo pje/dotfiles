@@ -1,10 +1,14 @@
 # Just the CLI necesseties. Installed everywhere: linux and mac, codespaces, etc
 
+tap 'homebrew/bundle'
+tap 'gbataille/homebrew-gba'
+
 brew 'ack'
 brew 'bat'
 brew 'ccat'
 brew 'fzf'
 brew 'git'
+brew 'githud'
 brew 'gpg'
 brew 'htop'
 brew 'httpie'
@@ -17,5 +21,3 @@ brew 'tree'
 brew 'vegeta'
 brew 'vim'
 brew 'yarn'
-
-tap 'homebrew/bundle'

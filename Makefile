@@ -111,14 +111,17 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 	mkdir -p $@
 
 homebrew:
-	which brew || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
 
-brew-packages: homebrew
+brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
-brew-macos-packages: brew-packages
+brew-macos-packages: homebrew
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
+
+brew-linux-packages: homebrew
+	@echo "noop"
 
 linux-packages:
 	@echo "noop"
