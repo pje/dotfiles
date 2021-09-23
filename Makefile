@@ -11,7 +11,7 @@ all: \
 		system-packages \
 		node-packages \
 		vim-packages \
-		vscode-packages \
+		$(ifeq $(UNAME_S Darwin),vscode-packages,)
 		system-scripts
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
@@ -112,9 +112,9 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 
 homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	brew tap Homebrew/bundle
 
 brew-packages: homebrew
-	brew bundle check --file=Brewfile || brew tap Homebrew/bundle
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
 brew-macos-packages: brew-packages
