@@ -107,7 +107,7 @@ if [[ `uname` = "Linux" ]]; then
 fi
 
 source "$HOME/.cargo/env"
-source $(brew --prefix)/etc/bash_completion
+[ -s "$(brew --prefix)/etc/bash_completion" ] && source $(brew --prefix)/etc/bash_completion
 source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
