@@ -169,15 +169,15 @@ $(VIM_BUNDLE_DIR):
 	mkdir -p $@
 
 $(VIM_BUNDLE_DIR)/command-t: $(VIM_BUNDLE_DIR)
-	[[ -d "$@" ]] || git clone git://git.wincent.com/command-t.git $@
+  if [ ! -d "$@" ]; then git clone git://git.wincent.com/command-t.git $@; fi
 	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) ext/command-t/extconf.rb && make
 	cd $@ && rake make
 
 $(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
-	[[ -d "$@" ]] || git clone git@github.com:morhetz/gruvbox.git $@
+	if [ ! -d "$@" ]; then git clone git@github.com:morhetz/gruvbox.git $@; fi
 
 $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
-	[[ -d "$@" ]] || git clone git@github.com:guns/vim-clojure-static.git $@
+	if [ ! -d "$@" ]; then git clone git@github.com:guns/vim-clojure-static.git $@; fi
 
 .PHONY: \
 		all \
