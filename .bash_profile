@@ -115,10 +115,27 @@ source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
 export PROMPT_COMMAND=make_prompt
 
+function is_git_dir {
+  local path="$1"
+  git -C "$1" rev-parse 2>/dev/null
+}
+
 function make_prompt {
   local EXIT="$?"
   local githud_path=$(brew --prefix)/bin/githud
-  PS1="\u@\h \w \$($githud_path bash)\n"
+
+  PS1="\u@\h \w"
+
+  if is_git_dir `pwd`; then
+    if [[ $(basename `git rev-parse --show-toplevel`) != "github" ]]; then
+      PS1+=" \$($githud_path bash)"
+    else
+      PS1+=" ? [\$(git rev-parse --abbrev-ref HEAD)]"
+    fi
+  fi
+
+  PS1+="\n"
+
   if [ $EXIT == 0 ]; then
     PS1+="${FG_BROWN}❍${FG_RESET} "
   else
