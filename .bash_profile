@@ -54,7 +54,7 @@ shopt -s cmdhist # # Attempt to save all lines of a multiple-line command in the
 # Purple      0;35     Light Purple  1;35
 # Cyan        0;36     Light Cyan    1;36
 # Light Gray  0;37     White         1;37
-
+RESET="\[\e[0m\]"
 FG_BLACK="\[\e[0;30m\]"
 FG_RED="\[\e[0;31m\]"
 FG_GREEN="\[\e[0;32m\]"
@@ -63,7 +63,10 @@ FG_BLUE="\[\e[0;34m\]"
 FG_PURPLE="\[\e[0;35m\]"
 FG_CYAN="\[\e[0;36m\]"
 FG_GRAY="\[\e[0;37m\]"
-FG_RESET="\[\e[0m\]"
+BG_GREEN="\[\e[48;5;2m"
+BG_BLUE="\[\e[48;5;12m"
+
+# for i in {1..255}; do echo -ne "\x1b[48;5;"$i"m "$i" build@ip-10-212-3-21 \e[0m\n"; done
 
 # b     red
 # c     green
@@ -115,6 +118,19 @@ source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
 export PROMPT_COMMAND=make_prompt
 
+# return 0 iff it looks like we're in an ssh session
+function is_ssh_session {
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    return 0
+  else
+    case $(ps -o comm= -p $PPID) in
+      sshd|*/sshd) return 0;;
+    esac
+
+    return 1
+  fi
+}
+
 function is_git_dir {
   local path="$1"
   git -C "$1" rev-parse 2>/dev/null
@@ -124,7 +140,11 @@ function make_prompt {
   local EXIT="$?"
   local githud_path=$(brew --prefix)/bin/githud
 
-  PS1="\u@\h \w"
+  if is_ssh_session; then
+    PS1="\u@\h \w"
+  else
+    PS1="${BG_GREEN}\u@\h \w${RESET}"
+  fi
 
   if is_git_dir `pwd`; then
     if [[ $(basename `git rev-parse --show-toplevel`) != "github" ]]; then
@@ -137,9 +157,9 @@ function make_prompt {
   PS1+="\n"
 
   if [ $EXIT == 0 ]; then
-    PS1+="${FG_BROWN}❍${FG_RESET} "
+    PS1+="${FG_BROWN}❍${RESET} "
   else
-    PS1+="${FG_RED}❍${FG_RESET} "
+    PS1+="${FG_RED}❍${RESET} "
   fi
 
   # side-effect to set the title in iterm2
