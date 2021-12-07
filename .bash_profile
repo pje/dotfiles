@@ -141,9 +141,9 @@ function make_prompt {
   local githud_path=$(brew --prefix)/bin/githud
 
   if is_ssh_session; then
-    PS1="\u@\h \w"
-  else
     PS1="${BG_GREEN}\u@\h \w${RESET}"
+  else
+    PS1="\u@\h \w"
   fi
 
   if is_git_dir `pwd`; then
