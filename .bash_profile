@@ -35,6 +35,8 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 [ -n "$(pgrep gpg-agent)" ] || eval $(gpg-agent --daemon)
 
+export GPG_TTY=$(tty)
+
 # in bash versions >= 4, this enabled zsh-like recursive globbing
 shopt -s globstar
 
