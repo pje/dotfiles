@@ -31,3 +31,5 @@
 [gist]
   private = yes
 [commit]
+  gpgsign = true
+
