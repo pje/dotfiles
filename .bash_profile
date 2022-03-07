@@ -141,6 +141,7 @@ function is_git_dir {
 function make_prompt {
   local EXIT="$?"
   local githud_path=$(brew --prefix)/bin/githud
+  local prompt_symbol=$(is_ssh_session && echo "$" || echo "❍")
 
   if is_ssh_session; then
     PS1="${BG_GREEN}\u@\h \w${RESET}"
@@ -159,9 +160,9 @@ function make_prompt {
   PS1+="\n"
 
   if [ $EXIT == 0 ]; then
-    PS1+="${FG_BROWN}❍${RESET} "
+    PS1+="${FG_BROWN}${prompt_symbol}${RESET} "
   else
-    PS1+="${FG_RED}❍${RESET} "
+    PS1+="${FG_RED}${prompt_symbol}${RESET} "
   fi
 
   # side-effect to set the title in iterm2
