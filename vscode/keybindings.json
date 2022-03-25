@@ -1,6 +1,11 @@
 // Place your key bindings in this file to overwrite the defaults
 [
   {
+    "key": "cmd+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
     "key": "cmd+alt+down",
     "command": "editor.action.goToDeclaration",
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
@@ -23,10 +28,6 @@
     "key": "alt+up",
     "command": "editor.action.smartSelect.grow",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "shift+ctrl+c",
-    "command": "copyRelativePath"
   },
   {
     "key": "cmd+alt+up",
