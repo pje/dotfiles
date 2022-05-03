@@ -117,7 +117,7 @@ homebrew: $(HOME)/.bash_profile
 	source $(HOME)/.bash_profile && brew tap Homebrew/bundle
 
 brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
-	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
+	brew bundle check --file=Brewfile || brew bundle --file=Brewfile --verbose
 
 brew-macos-packages: homebrew
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
