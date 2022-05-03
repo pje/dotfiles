@@ -134,7 +134,7 @@ macos: $(HOME)/Library/Fonts/Consolas.ttf
 	./macos.sh
 
 $(HOME)/fzf:
-	git clone --depth 1 https://github.com/junegunn/fzf.git $(HOME)/fzf
+	git clone --depth 1 https://github.com/junegunn/fzf $(HOME)/fzf
 
 rustup-init.sh:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-init.sh
@@ -167,16 +167,16 @@ $(VIM_BUNDLE_DIR):
 	mkdir -p $@
 
 $(VIM_BUNDLE_DIR)/fzf: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone git@github.com:junegunn/fzf.git $@; fi
+	if [ ! -d "$@" ]; then git clone https://github.com/junegunn/fzf $@; fi
 
 $(VIM_BUNDLE_DIR)/fzf.vim: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone git@github.com:junegunn/fzf.vim.git $@; fi
+	if [ ! -d "$@" ]; then git clone https://github.com/junegunn/fzf.vim $@; fi
 
 $(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone git@github.com:morhetz/gruvbox.git $@; fi
+	if [ ! -d "$@" ]; then git clone https://github.com/morhetz/gruvbox $@; fi
 
 $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone git@github.com:guns/vim-clojure-static.git $@; fi
+	if [ ! -d "$@" ]; then git clone https://github.com/guns/vim-clojure-static $@; fi
 
 .PHONY: \
 		all \
