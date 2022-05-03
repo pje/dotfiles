@@ -110,7 +110,7 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.p
 $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 	mkdir -p $@
 
-homebrew:
+homebrew: $(HOME)/.bash_profile
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
 
