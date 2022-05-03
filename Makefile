@@ -112,7 +112,7 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 
 homebrew: $(HOME)/.bash_profile
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	brew tap Homebrew/bundle
+	source $(HOME)/.bash_profile && brew tap Homebrew/bundle
 
 brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
