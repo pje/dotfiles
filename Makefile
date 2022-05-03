@@ -114,16 +114,13 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-homebrew-tap-bundle:
-	brew tap homebrew/bundle
-
-brew-packages: homebrew homebrew-tap-bundle $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
+brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile --verbose
 
-brew-macos-packages: homebrew homebrew-tap-bundle
+brew-macos-packages: homebrew
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
 
-brew-linux-packages: homebrew homebrew-tap-bundle
+brew-linux-packages: homebrew
 	@echo "noop"
 
 linux-packages:
@@ -185,7 +182,6 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 		brew-packages \
 		brew-macos-packages \
 		homebrew \
-		homebrew-tap-bundle \
 		iterm-scripts \
 		link-dotfiles \
 		linux \

@@ -1,6 +1,5 @@
 # Just the CLI necesseties. Installed everywhere: linux and mac, codespaces, etc
 
-tap 'homebrew/bundle'
 tap 'gbataille/homebrew-gba'
 
 brew 'ack'
