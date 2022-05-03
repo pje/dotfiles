@@ -115,7 +115,7 @@ homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
-	brew bundle check --file=Brewfile || brew bundle --file=Brewfile --verbose
+	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
 brew-macos-packages: homebrew
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
