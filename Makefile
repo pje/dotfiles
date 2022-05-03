@@ -157,21 +157,18 @@ vscode-packages: node-packages
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
-THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH=ruby
 
 vim-packages:	\
 		$(VIM_BUNDLE_DIR) \
-		$(VIM_BUNDLE_DIR)/command-t \
+		$(VIM_BUNDLE_DIR)/fzf \
 		$(VIM_BUNDLE_DIR)/gruvbox \
 		$(VIM_BUNDLE_DIR)/vim-clojure-static
 
 $(VIM_BUNDLE_DIR):
 	mkdir -p $@
 
-$(VIM_BUNDLE_DIR)/command-t: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone git://git.wincent.com/command-t.git $@; fi
-	cd $@/ruby/command-t && $(THE_RUBY_BIN_THAT_VIM_WAS_COMPILED_WITH) ext/command-t/extconf.rb && make
-	cd $@ && rake make
+$(VIM_BUNDLE_DIR)/fzf: $(VIM_BUNDLE_DIR)
+	if [ ! -d "$@" ]; then git clone git@github.com:junegunn/fzf.git $@; fi
 
 $(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
 	if [ ! -d "$@" ]; then git clone git@github.com:morhetz/gruvbox.git $@; fi
