@@ -11,7 +11,6 @@ endif
 all: \
 		link-dotfiles \
 		system-packages \
-		node-packages \
 		vim-packages \
 		$(ifeq $(UNAME_S Darwin),vscode-packages,) \
 		system-scripts
@@ -145,10 +144,7 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	mkdir -p $(HOME)/Library/Fonts
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
-node-packages:
-	yarn global add diff-so-fancy prettier @prettier/plugin-ruby --prefix $(HOME)
-
-vscode-packages: node-packages
+vscode-packages:
 	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
 	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
 	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
@@ -193,7 +189,6 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 		linux-packages \
 		mac-packages \
 		macos \
-		node-packages \
 		system-packages \
 		system-scripts \
 		vim-packages \
