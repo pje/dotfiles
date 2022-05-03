@@ -17,7 +17,6 @@ export PATH=~/bin:$PATH
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH=~/.krew/bin:"$PATH"
 
 if [[ "${OS}" == "Linux" ]]; then
   export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
@@ -101,21 +100,14 @@ BG_BLUE="\[\e[48;5;12m"
 export LSCOLORS=gxfxcxdxfxegedabagacad
 export CLICOLOR=1
 
-[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
 
-if [[ `uname` = "Linux" ]]; then
-  test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-  echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-fi
-
-source "$HOME/.cargo/env"
-[ -s "$(brew --prefix)/etc/bash_completion" ] && source $(brew --prefix)/etc/bash_completion
-source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+[ -s ~/.cargo/env ] && source ~/.cargo/env
+[ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+[ -s "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ] && source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -s ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PROMPT_COMMAND=make_prompt
 
