@@ -111,8 +111,12 @@ let g:indent_guides_enable_on_vim_startup = 0
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
-map <Leader>t :FZF<CR>
-
+map <Leader>t :FzfPreview<CR>
 au FileType gitcommit set tw=72 " auto-wrap at 72 chars for git commits
 
+command! -bang -nargs=? -complete=dir FzfPreview
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
 set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'up': '100%' } " 'up/down/left/right' means ''fullscreen''. 'window' would mean ''in a popup window''
+

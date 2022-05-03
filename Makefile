@@ -161,6 +161,7 @@ VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 vim-packages:	\
 		$(VIM_BUNDLE_DIR) \
 		$(VIM_BUNDLE_DIR)/fzf \
+		$(VIM_BUNDLE_DIR)/fzf.vim \
 		$(VIM_BUNDLE_DIR)/gruvbox \
 		$(VIM_BUNDLE_DIR)/vim-clojure-static
 
@@ -169,6 +170,9 @@ $(VIM_BUNDLE_DIR):
 
 $(VIM_BUNDLE_DIR)/fzf: $(VIM_BUNDLE_DIR)
 	if [ ! -d "$@" ]; then git clone git@github.com:junegunn/fzf.git $@; fi
+
+$(VIM_BUNDLE_DIR)/fzf.vim: $(VIM_BUNDLE_DIR)
+	if [ ! -d "$@" ]; then git clone git@github.com:junegunn/fzf.vim.git $@; fi
 
 $(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
 	if [ ! -d "$@" ]; then git clone git@github.com:morhetz/gruvbox.git $@; fi

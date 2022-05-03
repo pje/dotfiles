@@ -24,14 +24,13 @@ if [[ "${OS}" == "Linux" ]]; then
 fi
 
 export EDITOR=vim
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 export NVM_DIR="$HOME/.nvm"
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 alias g="git"
 alias be="bundle exec"
 alias ccat='pygmentize -g'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview="fzf --preview 'bat --style=numbers --color=always {}'"
 
 [ -n "$(pgrep gpg-agent)" ] || eval $(gpg-agent --daemon)
 
@@ -120,6 +119,9 @@ source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
 export PROMPT_COMMAND=make_prompt
 
+# make fzf follow symlinks and NOT ignore .dotfiles by default
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # return 0 iff it looks like we're in an ssh session
 function is_ssh_session {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -173,9 +175,4 @@ function make_prompt {
 
     echo -ne "\033];$USER@$h:$p\007"
   fi
-
-  # side-effects to dump the last command to bash_history (rather than only after a successful shell exit)
-  history -a # Append to the history file
-  history -c # Clear the history (of the current shell)
-  history -r # Read the history file and append its contents to the history list
 }
