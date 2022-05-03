@@ -108,6 +108,8 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 0
 
+let g:netrw_banner = 0 "disable the default netrw banner
+
 map <Leader>n :nohlsearch<CR>
 map <Leader>p :set paste<CR>
 map <Leader>P :set nopaste<CR>
