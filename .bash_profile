@@ -9,6 +9,7 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/lib/ruby/gems/3.1.0/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.yarn/bin:$PATH

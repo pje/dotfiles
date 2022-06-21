@@ -475,7 +475,7 @@ vimrc
 yaml
 yml"
 
-for e in "$extensions"; do duti -s com.microsoft.VSCode "$e" editor ; done
+for e in $extensions; do duti -s com.microsoft.VSCode "$e" editor ; done
 
 ###############################################################################
 # Kill affected applications

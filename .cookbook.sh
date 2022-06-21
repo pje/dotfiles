@@ -1,3 +1,4 @@
+#!/bin/bash
 # braindump of things I can never remember
 
 # sort all directories by size
