@@ -77,8 +77,6 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
 
 cask '1password'
-cask 'calibre'
-cask 'flux'
 cask 'flycut'
 cask 'google-chrome'
 cask 'imageoptim'
