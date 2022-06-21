@@ -6,3 +6,4 @@
 .atomignore
 rustup-init.sh
 yarn_install.sh
+.vscode/
