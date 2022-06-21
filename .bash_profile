@@ -1,3 +1,4 @@
+#! /bin/bash
 # sourced and executed once on login
 
 OS="$(uname)"
@@ -31,9 +32,10 @@ alias be="bundle exec"
 alias ccat='pygmentize -g'
 alias preview="fzf --preview 'bat --style=numbers --color=always {}'"
 
-[ -n "$(pgrep gpg-agent)" ] || eval $(gpg-agent --daemon)
+[ -n "$(pgrep gpg-agent)" ] || eval "$(gpg-agent --daemon)"
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # in bash versions >= 4, this enabled zsh-like recursive globbing
 shopt -s globstar
@@ -55,16 +57,16 @@ shopt -s cmdhist # # Attempt to save all lines of a multiple-line command in the
 # Cyan        0;36     Light Cyan    1;36
 # Light Gray  0;37     White         1;37
 RESET="\[\e[0m\]"
-FG_BLACK="\[\e[0;30m\]"
+# FG_BLACK="\[\e[0;30m\]"
 FG_RED="\[\e[0;31m\]"
-FG_GREEN="\[\e[0;32m\]"
+# FG_GREEN="\[\e[0;32m\]"
 FG_BROWN="\[\e[0;33m\]"
-FG_BLUE="\[\e[0;34m\]"
-FG_PURPLE="\[\e[0;35m\]"
-FG_CYAN="\[\e[0;36m\]"
-FG_GRAY="\[\e[0;37m\]"
+# FG_BLUE="\[\e[0;34m\]"
+# FG_PURPLE="\[\e[0;35m\]"
+# FG_CYAN="\[\e[0;36m\]"
+# FG_GRAY="\[\e[0;37m\]"
 BG_GREEN="\[\e[48;5;2m"
-BG_BLUE="\[\e[48;5;12m"
+# BG_BLUE="\[\e[48;5;12m"
 
 # for i in {1..255}; do echo -ne "\x1b[48;5;"$i"m "$i" build@ip-10-212-3-21 \e[0m\n"; done
 
@@ -101,12 +103,17 @@ export LSCOLORS=gxfxcxdxfxegedabagacad
 export CLICOLOR=1
 
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
-
+# shellcheck source=/dev/null
 [ -s ~/.cargo/env ] && source ~/.cargo/env
+# shellcheck source=/dev/null
 [ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+# shellcheck source=/dev/null
 [ -s "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ] && source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+# shellcheck source=/dev/null
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+# shellcheck source=/dev/null
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+# shellcheck source=/dev/null
 [ -s ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PROMPT_COMMAND=make_prompt
@@ -129,13 +136,16 @@ function is_ssh_session {
 
 function is_git_dir {
   local path="$1"
-  git -C "$1" rev-parse 2>/dev/null
+  git -C "$path" rev-parse 2>/dev/null
 }
 
 function make_prompt {
-  local EXIT="$?"
-  local githud_path=$(brew --prefix)/bin/githud
-  local prompt_symbol=$(is_ssh_session && echo "$" || echo "❍")
+  local EXIT
+  local githud_path
+  local prompt_symbol
+  EXIT="$?"
+  githud_path=$(brew --prefix)/bin/githud
+  prompt_symbol=$(is_ssh_session && echo "$" || echo "❍")
 
   if is_ssh_session; then
     PS1="${BG_GREEN}\u@\h \w${RESET}"
@@ -143,8 +153,8 @@ function make_prompt {
     PS1="\u@\h \w"
   fi
 
-  if is_git_dir `pwd`; then
-    if [[ $(basename `git rev-parse --show-toplevel`) != "github" ]]; then
+  if is_git_dir "$(pwd)"; then
+    if [[ $(basename "$(git rev-parse --show-toplevel)") != "github" ]]; then
       PS1+=" \$($githud_path bash)"
     else
       PS1+=" ? [\$(git rev-parse --abbrev-ref HEAD)]"
@@ -160,11 +170,14 @@ function make_prompt {
   fi
 
   # side-effect to set the title in iterm2
-  if [ $ITERM_SESSION_ID ]; then
-    local h=`uname -n | sed 's/.local//'`
-    local u=`whoami`
-    local p=${PWD/#$HOME/'~'} # replace "/Users/pje" with "~"
+  if [ "$ITERM_SESSION_ID" ]; then
+    local h
+    local u
+    local p
+    h="$(uname -n | sed 's/.local//')"
+    u="$(whoami)"
+    p=${PWD/#$HOME/'~'} # replace "/Users/pje" with "~"
 
-    echo -ne "\033];$USER@$h:$p\007"
+    echo -ne "\033];$u@$h:$p\007"
   fi
 }
