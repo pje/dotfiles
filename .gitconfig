@@ -30,8 +30,6 @@
   ui = true
 [github]
   user = pje
-[credential]
-  helper = osxkeychain
 [gist]
   private = yes
 [commit]
