@@ -1,9 +1,10 @@
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-.tags*
-.tags_sorted_by_file
-.atomignore
-rustup-init.sh
-yarn_install.sh
-.vscode/
+/*.sublime-project
+/*.sublime-workspace
+/.tags*
+/.tags_sorted_by_file
+/.atomignore
+/rustup-init.sh
+/yarn_install.sh
+# /.vscode/
+
