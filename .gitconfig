@@ -1,12 +1,10 @@
-[user]
-  email = patrick.j.ellis@gmail.com
-  name = Patrick Ellis
-[core]
-  excludesfile = ~/.gitignore
-  whitespace=fix,trailing-space,cr-at-eol
-  pager = diff-so-fancy | less --tabs=4 -RFX
-[push]
-  default = current
+[alias]
+  st = status
+  co = checkout
+  fx = !sh -c 'git commit --fixup=$1' -
+  sha = !sh -c 'git rev-parse --short HEAD'
+  dfc = diff --cached
+  changes-since = !sh -c 'git log --left-right --graph --cherry-pick --oneline $1...HEAD' -
 [branch]
   autosetuprebase = always
 [branch "main"]
@@ -17,23 +15,24 @@
   remote = origin
   merge = refs/heads/master
   rebase = true
-[rerere]
-  enabled = true
-[alias]
-  st = status
-  co = checkout
-  fx = !sh -c 'git commit --fixup=$1' -
-  sha = !sh -c 'git rev-parse --short HEAD'
-  dfc = diff --cached
-  changes-since = !sh -c 'git log --left-right --graph --cherry-pick --oneline $1...HEAD' -
 [color]
   ui = true
-[github]
-  user = pje
-[gist]
-  private = yes
 [commit]
   gpgsign = true
+[core]
+  excludesfile = ~/.gitignore
+  whitespace=fix,trailing-space,cr-at-eol
+  pager = diff-so-fancy | less --tabs=4 -RFX
+[gist]
+  private = yes
+[github]
+  user = pje
 [init]
   defaultBranch = main
-
+[push]
+  default = current
+[rerere]
+  enabled = true
+[user]
+  email = patrick.j.ellis@gmail.com
+  name = Patrick Ellis
