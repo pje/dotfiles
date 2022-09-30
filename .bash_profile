@@ -33,11 +33,6 @@ alias be="bundle exec"
 alias ccat='pygmentize -g'
 alias preview="fzf --preview 'bat --style=numbers --color=always {}'"
 
-[ -n "$(pgrep gpg-agent)" ] || eval "$(gpg-agent --daemon)"
-
-GPG_TTY=$(tty)
-export GPG_TTY
-
 # in bash versions >= 4, this enabled zsh-like recursive globbing
 shopt -s globstar
 
