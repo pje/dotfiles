@@ -7,4 +7,5 @@
 /rustup-init.sh
 /yarn_install.sh
 /.vscode/
-
+/Brewfile.lock.json
+/Brewfile_mac.lock.json

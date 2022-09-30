@@ -1,8 +1,7 @@
 SHELL := /usr/bin/env bash
 
-UNAME_S := $(shell uname -s)
-
-ifeq ($(UNAME_S), Darwin)
+ifeq ($(shell uname -s), Darwin)
+	MAC=true
 	VSCODE_SETTINGS_DIR=$(HOME)/Library/Application\ Support/Code/User
 else
 	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
@@ -12,7 +11,7 @@ all: \
 		link-dotfiles \
 		system-packages \
 		vim-packages \
-		$(ifeq $(UNAME_S Darwin),vscode-packages,) \
+		$(if $(MAC),vscode-packages) \
 		system-scripts
 
 $(HOME)/.ackrc: $(CURDIR)/.ackrc
@@ -94,15 +93,11 @@ link-dotfiles: \
 system-packages: \
 		$(HOME)/fzf \
 		rustup-init.sh \
-		homebrew \
-		brew-packages \
-		$(ifeq $(UNAME_S Darwin),mac-packages,linux-packages)
+		$(if $(MAC),mac-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
 	which cargo || ./rustup-init.sh -y --no-modify-path
 
-system-scripts: $(ifeq $(UNAME_S Darwin),macos,linux)
-
-mac-packages: vscode-packages iterm-scripts brew-macos-packages
+mac-packages: brew-macos-packages iterm-scripts vscode-packages
 
 iterm-scripts: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py
 
@@ -114,17 +109,19 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew-packages: homebrew $(ifeq $(UNAME_S Darwin),brew-macos-packages,brew-linux-packages)
+brew-packages: homebrew
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
-brew-macos-packages: homebrew
+brew-macos-packages: homebrew brew-packages
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
 
-brew-linux-packages: homebrew
+brew-linux-packages: homebrew brew-packages
 	@echo "noop"
 
 linux-packages:
 	@echo "noop"
+
+system-scripts: $(if $(MAC),macos,linux)
 
 linux:
 	@echo "noop"
@@ -180,6 +177,7 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 .PHONY: \
 		all \
 		brew-packages \
+		brew-linux-packages \
 		brew-macos-packages \
 		homebrew \
 		iterm-scripts \
