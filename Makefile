@@ -35,6 +35,12 @@ $(HOME)/.githudrc: $(CURDIR)/.githudrc
 $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
+$(HOME)/.hammerspoon: $(CURDIR)/.hammerspoon
+	mkdir -p $@
+
+$(HOME)/.hammerspoon/init.lua: $(CURDIR)/.hammerspoon/init.lua
+	ln -sf $< $@
+
 $(HOME)/.hushlogin: $(CURDIR)/.hushlogin
 	ln -sf $< $@
 
@@ -51,9 +57,6 @@ $(HOME)/.lein/profiles.clj: $(HOME)/.lein $(CURDIR)/.lein/profiles.clj
 	ln -sf $< $@
 
 $(HOME)/.pryrc: $(CURDIR)/.pryrc
-	ln -sf $< $@
-
-$(HOME)/.slate: $(CURDIR)/.slate
 	ln -sf $< $@
 
 $(HOME)/.vimrc: $(CURDIR)/.vimrc
@@ -79,13 +82,14 @@ link-dotfiles: \
 		$(HOME)/.gitconfig \
 		$(HOME)/.githudrc \
 		$(HOME)/.gitignore \
+		$(HOME)/.hammerspoon \
+		$(HOME)/.hammerspoon/init.lua \
 		$(HOME)/.hushlogin \
 		$(HOME)/.inputrc \
 		$(HOME)/.irbrc\
 		$(HOME)/.lein \
 		$(HOME)/.lein/profiles.clj \
 		$(HOME)/.pryrc \
-		$(HOME)/.slate \
 		$(HOME)/.vimrc \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
 		$(VSCODE_SETTINGS_DIR)/settings.json
