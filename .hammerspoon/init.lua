@@ -8,6 +8,9 @@ dimensions = {
   maximum       = { x = 0.00, y = 0.00, w = 1.00, h = 1.00 }
 }
 
+prevFrame = nil
+prevWindowId = nil
+
 function leftHalf()
   hs.window.focusedWindow():move(dimensions.left50)
 end
@@ -50,7 +53,7 @@ function handleLeftHotkey()
   local screenDims = getScreenDimensions()
   local windowFrame = window:frame()
 
-  if windowFrame.x == 0 and windowFrame.w >= (screenDims.w / 3) and windowFrame.w <= (screenDims.w / 2) then
+  if windowFrame.x == 0 and windowFrame.w > (screenDims.w / 3) and windowFrame.w <= (screenDims.w / 2) then
     leftThird()
   else
     leftHalf()
@@ -66,8 +69,22 @@ function handleLeftHotkey()
   -- end
 end
 
+function isMaximized(window)
+  return hs.window.focusedWindow():screen():frame().size == window:size()
+end
+
 function maximize()
-  hs.window.focusedWindow():maximize()
+  local window = hs.window.focusedWindow()
+  local stashedFrame = window:frame()
+
+  if isMaximized(window) and prevWindowId == window:id() then
+    hs.window.focusedWindow():move(prevFrame)
+  else
+    hs.window.focusedWindow():maximize()
+  end
+
+  prevFrame = stashedFrame
+  prevWindowId = window:id()
 end
 
 function getScreenDimensions()
