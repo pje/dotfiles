@@ -11,20 +11,20 @@ dimensions = {
 prevFrame = nil
 prevWindowId = nil
 
-function leftHalf()
-  hs.window.focusedWindow():move(dimensions.left50)
+function leftHalf(window)
+  window:move(dimensions.left50)
 end
 
-function leftThird()
-  hs.window.focusedWindow():move(dimensions.left33)
+function leftThird(window)
+  window:move(dimensions.left33)
 end
 
-function rightHalf()
-  hs.window.focusedWindow():move(dimensions.right50)
+function rightHalf(window)
+  window:move(dimensions.right50)
 end
 
-function rightThird()
-  hs.window.focusedWindow():move(dimensions.right33)
+function rightThird(window)
+  window:move(dimensions.right33)
 end
 
 function handleRightHotkey()
@@ -33,18 +33,18 @@ function handleRightHotkey()
   local windowFrame = window:frame()
 
   if (windowFrame.x + windowFrame.w) == screenDims.w and windowFrame.x >= (screenDims.w / 2) and windowFrame.x < (screenDims.w * (2/3)) then
-    rightThird()
+    rightThird(window)
   else
-    rightHalf()
+    rightHalf(window)
   end
 
   -- local screenRight50 = hs.geometry.rect(dimensions.right50):fromUnitRect(screenDims)
   -- local screenRight33 = hs.geometry.rect(dimensions.right33):fromUnitRect(screenDims)
 
   -- if windowFrame:inside(screenRight50) and not windowFrame:inside(screenRight33) then
-  --   rightThird()
+  --   rightThird(window)
   -- else
-  --   rightHalf()
+  --   rightHalf(window)
   -- end
 end
 
@@ -54,26 +54,26 @@ function handleLeftHotkey()
   local windowFrame = window:frame()
 
   if windowFrame.x == 0 and windowFrame.w > (screenDims.w / 3) and windowFrame.w <= (screenDims.w / 2) then
-    leftThird()
+    leftThird(window)
   else
-    leftHalf()
+    leftHalf(window)
   end
 
   -- local screenLeft50 = hs.geometry.rect(dimensions.left50):fromUnitRect(screenDims)
   -- local screenLeft33 = hs.geometry.rect(dimensions.left33):fromUnitRect(screenDims)
 
   -- if windowFrame:inside(screenLeft50) and not windowFrame:inside(screenLeft33) then
-  --   leftThird()
+  --   leftThird(window)
   -- else
-  --   leftHalf()
+  --   leftHalf(window)
   -- end
 end
 
 function isMaximized(window)
-  return hs.window.focusedWindow():screen():frame().size == window:size()
+  return window:screen():frame().size == window:size()
 end
 
-function maximize()
+function handleMaximizeHotkey()
   local window = hs.window.focusedWindow()
   local stashedFrame = window:frame()
 
@@ -95,4 +95,4 @@ hs.window.animationDuration = 0
 
 hs.hotkey.bind({"alt", "ctrl"}, "Left", handleLeftHotkey)
 hs.hotkey.bind({"alt", "ctrl"}, "Right", handleRightHotkey)
-hs.hotkey.bind({"alt", "ctrl"}, "Return", maximize)
+hs.hotkey.bind({"alt", "ctrl"}, "Return", handleMaximizeHotkey)
