@@ -112,11 +112,6 @@ export CLICOLOR=1
 # shellcheck source=/dev/null
 [ -s ~/.fzf.bash ] && source ~/.fzf.bash
 
-export PROMPT_COMMAND=make_prompt
-
-# make fzf follow symlinks and NOT ignore .dotfiles by default
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
 # return 0 iff it looks like we're in an ssh session
 function is_ssh_session {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -177,3 +172,8 @@ function make_prompt {
     echo -ne "\033];$u@$h:$p\007"
   fi
 }
+
+export PROMPT_COMMAND=make_prompt
+
+# make fzf follow symlinks and NOT ignore .dotfiles by default
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
