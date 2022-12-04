@@ -36,9 +36,6 @@ $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
 $(HOME)/.hammerspoon: $(CURDIR)/.hammerspoon
-	mkdir -p $@
-
-$(HOME)/.hammerspoon/init.lua: $(CURDIR)/.hammerspoon/init.lua
 	ln -sf $< $@
 
 $(HOME)/.hushlogin: $(CURDIR)/.hushlogin
@@ -83,7 +80,6 @@ link-dotfiles: \
 		$(HOME)/.githudrc \
 		$(HOME)/.gitignore \
 		$(HOME)/.hammerspoon \
-		$(HOME)/.hammerspoon/init.lua \
 		$(HOME)/.hushlogin \
 		$(HOME)/.inputrc \
 		$(HOME)/.irbrc\
