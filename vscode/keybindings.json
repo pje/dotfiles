@@ -53,5 +53,16 @@
     "key": "shift+cmd+\\",
     "command": "workbench.files.action.showActiveFileInExplorer",
     "when": "editorTextFocus"
+  },
+  // Keep this keybinding at very bottom of file to ensure terminal clearing.
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus",
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus",
   }
 ]

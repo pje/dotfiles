@@ -7,7 +7,7 @@
   "[go]": {
     "editor.tabSize": 8,
     "editor.defaultFormatter": "golang.go",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -43,7 +43,7 @@
   "autoDarkMode.lightTheme": "Gruvbox Light (Medium)",
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
-  "clangd.path": "/Users/pje/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
+  "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
   "customizeUI.titleBar": "inline",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
@@ -56,7 +56,12 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelScrollSensitivity": 1.5,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "#ebdbb2",
+    }
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
@@ -74,6 +79,16 @@
     "*.ino": "cpp"
   },
   "files.trimTrailingWhitespace": true,
+  "gitlens.codeLens.scopes": [
+    "document" // At the top of the file
+    // "containers" // At the start of modules, classes, interfaces, etc
+    // "blocks" // At the start of functions, methods, etc
+  ],
+  "go.useLanguageServer": true,
+  "gopls": {
+    // "formatting.gofumpt": true,
+  },
+  "Lua.telemetry.enable": false,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
   "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0-145",
@@ -87,8 +102,8 @@
   "window.nativeFullScreen": false,
   "window.nativeTabs": false,
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
+  "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.editor.untitled.hint": "hidden",
@@ -97,9 +112,10 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Dark (Medium)",
-  "[sql]": {
-    "editor.defaultFormatter": "ms-ossdata.vscode-postgresql"
-  },
-  "gitweblinks.linkType": "defaultBranch"
+  "workbench.colorTheme": "Gruvbox Light (Medium)",
+  "cSpell.enabled": false,
+  "go.toolsManagement.autoUpdate": true,
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-show-information-expiration": "2023-05-17T18:56:20.680Z"
+  }
 }
