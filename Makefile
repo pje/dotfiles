@@ -56,6 +56,9 @@ $(HOME)/.lein/profiles.clj: $(HOME)/.lein $(CURDIR)/.lein/profiles.clj
 $(HOME)/.pryrc: $(CURDIR)/.pryrc
 	ln -sf $< $@
 
+$(HOME)/.usergitconfig: $(CURDIR)/.usergitconfig
+	ln -sf $< $@
+
 $(HOME)/.vimrc: $(CURDIR)/.vimrc
 	ln -sf $< $@
 
@@ -86,6 +89,7 @@ link-dotfiles: \
 		$(HOME)/.lein \
 		$(HOME)/.lein/profiles.clj \
 		$(HOME)/.pryrc \
+		$(if $(MAC),$(HOME)/.usergitconfig) \
 		$(HOME)/.vimrc \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
 		$(VSCODE_SETTINGS_DIR)/settings.json
@@ -98,6 +102,7 @@ system-packages: \
 	which cargo || ./rustup-init.sh -y --no-modify-path
 
 mac-packages: brew-macos-packages iterm-scripts vscode-packages
+linux-packages: brew-linux-packages
 
 iterm-scripts: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py
 
@@ -116,17 +121,13 @@ brew-macos-packages: homebrew brew-packages
 	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
 
 brew-linux-packages: homebrew brew-packages
-	@echo "noop"
-
-linux-packages:
-	@echo "noop"
 
 system-scripts: $(if $(MAC),macos,linux)
 
 linux:
 	@echo "noop"
 
-macos: $(HOME)/Library/Fonts/Consolas.ttf
+macos: $(HOME)/Library/Fonts/Consolas.ttf $(HOME)/.usergitconfig
 	./macos.sh
 
 $(HOME)/fzf:
