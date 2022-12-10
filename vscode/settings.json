@@ -5,9 +5,9 @@
     "editor.formatOnSave": false
   },
   "[go]": {
-    "editor.tabSize": 8,
     "editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": true,
+    "editor.tabSize": 8
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -59,7 +59,7 @@
   "editor.rulers": [
     {
       "column": 80,
-      "color": "#ebdbb2",
+      "color": "#ebdbb2"
     }
   ],
   "editor.scrollBeyondLastLine": false,
@@ -70,13 +70,13 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "filesFirst",
   "files.associations": {
+    "*.ino": "cpp",
     "*.rake": "ruby",
     "*.rbi": "ruby",
     "*.rbs": "ruby",
     "Brewfile": "ruby",
     "Capfile": "ruby",
-    "Gemfile": "ruby",
-    "*.ino": "cpp"
+    "Gemfile": "ruby"
   },
   "files.trimTrailingWhitespace": true,
   "gitlens.codeLens.scopes": [
@@ -86,8 +86,9 @@
   ],
   "go.useLanguageServer": true,
   "gopls": {
-    // "formatting.gofumpt": true,
+    // "formatting.gofumpt": true
   },
+  "go.toolsManagement.autoUpdate": true,
   "Lua.telemetry.enable": false,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
@@ -99,10 +100,15 @@
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.tabs.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "manual",
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-show-information-expiration": "2023-05-17T18:56:20.680Z"
+  },
   "window.nativeFullScreen": false,
   "window.nativeTabs": false,
   "window.titleBarStyle": "native",
   "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Gruvbox Light (Medium)",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
@@ -111,12 +117,5 @@
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Light (Medium)",
-  "cSpell.enabled": false,
-  "go.toolsManagement.autoUpdate": true,
-  "update.mode": "manual",
-  "vs-kubernetes": {
-    "vs-kubernetes.minikube-show-information-expiration": "2023-05-17T18:56:20.680Z"
-  }
+  "workbench.statusBar.visible": false
 }
