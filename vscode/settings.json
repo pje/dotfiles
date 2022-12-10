@@ -115,6 +115,7 @@
   "workbench.colorTheme": "Gruvbox Light (Medium)",
   "cSpell.enabled": false,
   "go.toolsManagement.autoUpdate": true,
+  "update.mode": "manual",
   "vs-kubernetes": {
     "vs-kubernetes.minikube-show-information-expiration": "2023-05-17T18:56:20.680Z"
   }
