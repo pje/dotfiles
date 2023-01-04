@@ -17,12 +17,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "[jsonc]": {
+  "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
   },
   "[python]": {
@@ -30,8 +30,8 @@
   },
   "[ruby]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false, // ruby-prettier isn't yet stable enough to be anything but opt-in
-    "editor.formatOnPaste": false
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false // ruby-prettier isn't yet stable enough to be anything but opt-in
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -41,7 +41,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "atomKeymap.promptV3Features": true,
   "autoDarkMode.darkTheme": "Gruvbox Dark (Medium)",
   "autoDarkMode.lightTheme": "Gruvbox Light (Medium)",
   "breadcrumbs.enabled": false,
@@ -61,8 +60,8 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.rulers": [
     {
-      "column": 80,
-      "color": "#ebdbb2"
+      "color": "#ebdbb2",
+      "column": 80
     }
   ],
   "editor.scrollBeyondLastLine": false,
@@ -87,26 +86,21 @@
     // "containers" // At the start of modules, classes, interfaces, etc
     // "blocks" // At the start of functions, methods, etc
   ],
+  "go.testTimeout": "10s",
+  "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "gopls": {
     // "formatting.gofumpt": true
   },
-  "go.toolsManagement.autoUpdate": true,
   "Lua.telemetry.enable": false,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
-  "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0-145",
-  "omnisharp.path": "latest",
-  "omnisharp.useGlobalMono": "always",
   "redhat.telemetry.enabled": false,
   "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.1.0/bin/",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.tabs.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "manual",
-  "vs-kubernetes": {
-    "vs-kubernetes.minikube-show-information-expiration": "2023-05-17T18:56:20.680Z"
-  },
   "window.nativeFullScreen": false,
   "window.nativeTabs": false,
   "window.titleBarStyle": "native",
