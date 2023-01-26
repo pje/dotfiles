@@ -128,7 +128,7 @@ $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch:
 homebrew:
 	which brew || NONINTERACTIVE=1 /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew-packages: homebrew
+mac-packages: homebrew
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
 system-scripts: $(if $(MAC),macos,linux)

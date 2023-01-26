@@ -98,8 +98,6 @@ export CLICOLOR=1
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 if [ "$(which brew)" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
-
   # shellcheck source=/dev/null
   [ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
 
