@@ -97,17 +97,24 @@ export CLICOLOR=1
 # make fzf follow symlinks and NOT ignore .dotfiles by default
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
+if [ "$(which brew)" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
+
+  # shellcheck source=/dev/null
+  [ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+
+  # shellcheck source=/dev/null
+  [ -s "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ] && source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+
+  # shellcheck source=/dev/null
+  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+
+  # shellcheck source=/dev/null
+  [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+fi
+
 # shellcheck source=/dev/null
 [ -s ~/.cargo/env ] && source ~/.cargo/env
-# shellcheck source=/dev/null
-[ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
-# shellcheck source=/dev/null
-[ -s "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ] && source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
-# shellcheck source=/dev/null
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
-# shellcheck source=/dev/null
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 # shellcheck source=/dev/null
 [ -s ~/.fzf.bash ] && source ~/.fzf.bash
 
