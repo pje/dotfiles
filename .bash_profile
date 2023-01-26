@@ -20,10 +20,6 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$P
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-if [[ "${OS}" == "Linux" ]]; then
-  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-fi
-
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
@@ -98,6 +94,9 @@ BG_GREEN="\[\e[48;5;2m"
 export LSCOLORS=gxfxcxdxfxegedabagacad
 export CLICOLOR=1
 
+# make fzf follow symlinks and NOT ignore .dotfiles by default
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" # Make the `brew` command available
 # shellcheck source=/dev/null
 [ -s ~/.cargo/env ] && source ~/.cargo/env
@@ -132,10 +131,8 @@ function is_git_dir {
 
 function make_prompt {
   local EXIT
-  local githud_path
   local prompt_symbol
   EXIT="$?"
-  githud_path=$(brew --prefix)/bin/githud
   prompt_symbol=$(is_ssh_session && echo "$" || echo "❍")
 
   if is_ssh_session; then
@@ -146,7 +143,8 @@ function make_prompt {
 
   if is_git_dir "$(pwd)"; then
     if [[ $(basename "$(git rev-parse --show-toplevel)") != "github" ]]; then
-      PS1+=" \$($githud_path bash)"
+      gitstatus_prompt_update
+      PS1+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'    # git status (requires promptvars option)
     else
       PS1+=" ? [\$(git rev-parse --abbrev-ref HEAD)]"
     fi
@@ -173,7 +171,15 @@ function make_prompt {
   fi
 }
 
-export PROMPT_COMMAND=make_prompt
+# git status prompt
+source ~/git_status_prompt.sh
 
-# make fzf follow symlinks and NOT ignore .dotfiles by default
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# Start gitstatusd in the background.
+gitstatus_stop && gitstatus_start -s -1 -u -1 -c -1 -d -1
+
+# Enable promptvars so that ${GITSTATUS_PROMPT} in PS1 is expanded.
+shopt -s promptvars
+
+# On every prompt, fetch git status and set GITSTATUS_PROMPT.
+export PROMPT_COMMAND=make_prompt
+export PROMPT_DIRTRIM=3

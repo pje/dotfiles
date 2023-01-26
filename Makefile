@@ -29,9 +29,6 @@ $(HOME)/.ghci: $(CURDIR)/.ghci
 $(HOME)/.gitconfig: $(CURDIR)/.gitconfig
 	ln -sf $< $@
 
-$(HOME)/.githudrc: $(CURDIR)/.githudrc
-	ln -sf $< $@
-
 $(HOME)/.gitignore: $(CURDIR)/.gitignore
 	ln -sf $< $@
 
@@ -65,6 +62,9 @@ $(HOME)/.vimrc: $(CURDIR)/.vimrc
 $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 	ln -sf $< $@
 
+$(HOME)/git_status_prompt.sh: $(CURDIR)/git_status_prompt.sh
+	ln -sf $< $@
+
 $(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
@@ -80,7 +80,6 @@ link-dotfiles: \
 		$(HOME)/.ctags \
 		$(HOME)/.ghci \
 		$(HOME)/.gitconfig \
-		$(HOME)/.githudrc \
 		$(HOME)/.gitignore \
 		$(HOME)/.hammerspoon \
 		$(HOME)/.hushlogin \
@@ -91,18 +90,33 @@ link-dotfiles: \
 		$(HOME)/.pryrc \
 		$(if $(MAC),$(HOME)/.usergitconfig) \
 		$(HOME)/.vimrc \
+		$(HOME)/git_status_prompt.sh \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
 		$(VSCODE_SETTINGS_DIR)/settings.json
 
 system-packages: \
 		$(HOME)/fzf \
-		rustup-init.sh \
+		$(HOME)/gitstatus \
 		$(if $(MAC),mac-packages,linux-packages)
 	which fzf || ~/fzf/install --key-bindings --completion --no-update-rc
-	which cargo || ./rustup-init.sh -y --no-modify-path
 
-mac-packages: brew-macos-packages iterm-scripts vscode-packages
-linux-packages: brew-linux-packages
+linux-packages:
+	wget https://github.com/dandavison/delta/releases/download/0.15.1/git-delta-musl_0.15.1_amd64.deb && sudo dpkg -i git-delta-musl_0.15.1_amd64.deb
+	sudo apt-get install --yes \
+		ack \
+		bat \
+		fd-find \
+		fzf \
+		htop \
+		httpie \
+		jq \
+		parallel \
+		pdsh \
+		ripgrep \
+		tmux \
+		tree \
+		vim \
+		yarn
 
 iterm-scripts: $(HOME)/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_switch_theme.py
 
@@ -117,11 +131,6 @@ homebrew:
 brew-packages: homebrew
 	brew bundle check --file=Brewfile || brew bundle --file=Brewfile
 
-brew-macos-packages: homebrew brew-packages
-	brew bundle check --file=Brewfile_mac || brew bundle --file=Brewfile_mac
-
-brew-linux-packages: homebrew brew-packages
-
 system-scripts: $(if $(MAC),macos,linux)
 
 linux:
@@ -133,9 +142,8 @@ macos: $(HOME)/Library/Fonts/Consolas.ttf $(HOME)/.usergitconfig
 $(HOME)/fzf:
 	git clone --depth 1 https://github.com/junegunn/fzf $(HOME)/fzf
 
-rustup-init.sh:
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-init.sh
-	chmod +x rustup-init.sh
+$(HOME)/gitstatus:
+	git clone --depth=1 https://github.com/romkatv/gitstatus.git $(HOME)/gitstatus
 
 $(HOME)/Library/Fonts/Consolas.ttf:
 	mkdir -p $(HOME)/Library/Fonts
@@ -177,8 +185,7 @@ $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 
 .PHONY: \
 		all \
-		brew-packages \
-		brew-linux-packages \
+		brew-pack \
 		brew-macos-packages \
 		homebrew \
 		iterm-scripts \
