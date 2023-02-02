@@ -26,10 +26,10 @@ function gitstatus_prompt_update() {
   [[ "$VCS_STATUS_RESULT" == ok-sync ]] || return 0  # not a git repo
 
   local      reset=$'\001\e[0m\002'         # no color
-  local      clean=$'\001\e[38;5;076m\002'  # green foreground
-  local  untracked=$'\001\e[38;5;014m\002'  # teal foreground
-  local   modified=$'\001\e[38;5;011m\002'  # yellow foreground
-  local conflicted=$'\001\e[38;5;196m\002'  # red foreground
+  local      clean=$'\001\e[38;5;002m\002'  # light green background
+  local  untracked=$'\001\e[38;5;004m\002'  # teal foreground
+  local   modified=$'\001\e[38;5;003m\002'  # yellow foreground
+  local conflicted=$'\001\e[38;5;001m\002'  # red foreground
 
   local p
 

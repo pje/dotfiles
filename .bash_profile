@@ -137,14 +137,20 @@ function is_git_dir {
 function make_prompt {
   local EXIT
   local prompt_symbol
+  local user
+  local host
+  local path
   EXIT="$?"
-  prompt_symbol=$(is_ssh_session && echo "$" || echo "❍")
+  prompt_symbol="❍"
+  host="$(uname -n | sed 's/.local//')"
+  user="$(whoami)"
+  path=${PWD/#$HOME/'~'} # replace e.g. "/Users/pje" with "~"
 
-  if is_ssh_session; then
-    PS1="${BG_GREEN}\u@\h \w${RESET}"
-  else
-    PS1="\u@\h \w"
+  if [ -n "$CODESPACES" ]; then
+    host="$(echo "$CODESPACE_NAME" | sed 's/^\w\+-//' | sed 's/-[a-z0-9]\+$//')"
   fi
+
+  PS1="$user@$host $path"
 
   if is_git_dir "$(pwd)"; then
     if [[ $(basename "$(git rev-parse --show-toplevel)") != "github" ]]; then
@@ -165,14 +171,7 @@ function make_prompt {
 
   # side-effect to set the title in iterm2
   if [ "$ITERM_SESSION_ID" ]; then
-    local h
-    local u
-    local p
-    h="$(uname -n | sed 's/.local//')"
-    u="$(whoami)"
-    p=${PWD/#$HOME/'~'} # replace "/Users/pje" with "~"
-
-    echo -ne "\033];$u@$h:$p\007"
+    echo -ne "\033];$user@$host:$path\007"
   fi
 }
 
