@@ -25,6 +25,9 @@
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
   },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
   "[python]": {
     "editor.tabSize": 4
   },
@@ -86,10 +89,16 @@
     // "containers" // At the start of modules, classes, interfaces, etc
     // "blocks" // At the start of functions, methods, etc
   ],
-  "go.testTimeout": "10s",
+  "go.coverOnSingleTest": true,
+  "go.coverOnSingleTestFile": true,
+  "go.coverOnTestPackage": true,
+  "go.testTimeout": "20s",
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "gopls": {
+    "build.env": {
+      "GOPRIVATE": "github.com/github" // gets rid of irrelevant "X on pkg.go.dev" link on hover for our internal code
+    }
     // "formatting.gofumpt": true
   },
   "Lua.telemetry.enable": false,
