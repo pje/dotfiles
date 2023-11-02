@@ -111,6 +111,11 @@ if [ "$(which brew)" ]; then
   [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 fi
 
+if [ -n "$CODESPACES" ]; then
+  # shellcheck source=/dev/null
+  [ -s /usr/share/bash-completion/completions/git ] && source /usr/share/bash-completion/completions/git
+fi
+
 # shellcheck source=/dev/null
 [ -s ~/.cargo/env ] && source ~/.cargo/env
 # shellcheck source=/dev/null
