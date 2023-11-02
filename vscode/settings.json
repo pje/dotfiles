@@ -4,6 +4,9 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": false
   },
+  "[csharp]": {
+    "editor.tabSize": 4
+  },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": true,
