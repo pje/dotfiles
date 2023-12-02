@@ -155,7 +155,7 @@ vscode-packages:
 	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
 	code --list-extensions | grep karunamurti.haml               || code --install-extension karunamurti.haml
 	code --list-extensions | grep kumar-harsh.graphql-for-vscode || code --install-extension kumar-harsh.graphql-for-vscode
-	code --list-extensions | grep iocave.customize-ui            || code --install-extension iocave.customize-ui
+	code --list-extensions | grep drcika.apc-extension           || code --install-extension drcika.apc-extension
 	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
 
