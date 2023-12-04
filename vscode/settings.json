@@ -47,15 +47,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  // for APC you have to run: sudo chown -R $(whoami) /Applications/Visual\ Studio\ Code.app/Contents/Resources/app
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset"
+  },
   "autoDarkMode.darkTheme": "Gruvbox Dark (Medium)",
   "autoDarkMode.lightTheme": "Gruvbox Light (Medium)",
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
-  // for APC you have to run: sudo chown -R $(whoami) /Applications/Visual\ Studio\ Code.app/Contents/Resources/app
-  "apc.electron": {
-    "titleBarStyle": "hiddenInset"
-  },
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -119,15 +119,15 @@
   "window.nativeFullScreen": false,
   "window.nativeTabs": false,
   "window.titleBarStyle": "native",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "Gruvbox Light (Medium)",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.showTabs": true,
-  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.showTabs": "multiple",
   "workbench.iconTheme": null,
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
 }
