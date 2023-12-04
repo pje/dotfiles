@@ -58,11 +58,11 @@
   {
     "key": "cmd+k",
     "command": "workbench.action.terminal.clear",
-    "when": "terminalFocus",
+    "when": "terminalFocus"
   },
   {
     "key": "ctrl+l",
     "command": "workbench.action.terminal.clear",
-    "when": "terminalFocus",
+    "when": "terminalFocus"
   }
 ]
