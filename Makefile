@@ -150,12 +150,11 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 vscode-packages:
-	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
-	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
-	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
-	code --list-extensions | grep karunamurti.haml               || code --install-extension karunamurti.haml
-	code --list-extensions | grep kumar-harsh.graphql-for-vscode || code --install-extension kumar-harsh.graphql-for-vscode
 	code --list-extensions | grep drcika.apc-extension           || code --install-extension drcika.apc-extension
+	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
+	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
+	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
+	code --list-extensions | grep kumar-harsh.graphql-for-vscode || code --install-extension kumar-harsh.graphql-for-vscode
 	code --list-extensions | grep miguel-savignano.ruby-symbols  || code --install-extension miguel-savignano.ruby-symbols
 	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
 
