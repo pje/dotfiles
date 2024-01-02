@@ -56,6 +56,7 @@
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
+  "deno.path": "/usr/local/bin/deno",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -129,5 +130,5 @@
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false,
+  "workbench.statusBar.visible": false
 }
