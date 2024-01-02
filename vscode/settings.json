@@ -59,7 +59,6 @@
   "deno.path": "/usr/local/bin/deno",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Consolas",
   "editor.fontSize": 13,
   "editor.formatOnPaste": false,
