@@ -21,7 +21,7 @@
     "editor.formatOnSave": true
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
   },
   "[jsonc]": {
@@ -114,6 +114,7 @@
   "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.1.0/bin/",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "manual",
   "window.nativeFullScreen": false,
