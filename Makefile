@@ -7,7 +7,7 @@ else
 	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
 endif
 
-KARABINER_SETTINGS_DIR=$(HOME)/karabiner/karabiner.json
+KARABINER_SETTINGS_DIR=$(HOME)/karabiner
 
 all: \
 		link-dotfiles \
