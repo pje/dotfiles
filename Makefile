@@ -7,6 +7,8 @@ else
 	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
 endif
 
+KARABINER_SETTINGS_DIR=$(HOME)/karabiner/karabiner.json
+
 all: \
 		link-dotfiles \
 		system-packages \
@@ -73,6 +75,10 @@ $(VSCODE_SETTINGS_DIR)/settings.json: $(CURDIR)/vscode/settings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
 
+$(KARABINER_SETTINGS_DIR)/karabiner.json: $(CURDIR)/karabiner/karabiner.json
+	mkdir -p $(KARABINER_SETTINGS_DIR)
+	ln -sf "$<" "$@"
+
 link-dotfiles: \
 		$(HOME)/com.googlecode.iterm2.plist \
 		$(HOME)/.ackrc \
@@ -92,7 +98,8 @@ link-dotfiles: \
 		$(HOME)/.vimrc \
 		$(HOME)/git_status_prompt.sh \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
-		$(VSCODE_SETTINGS_DIR)/settings.json
+		$(VSCODE_SETTINGS_DIR)/settings.json \
+		$(KARABINER_SETTINGS_DIR)/karabiner.json
 
 system-packages: \
 		$(HOME)/fzf \
