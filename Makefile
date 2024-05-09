@@ -7,7 +7,8 @@ else
 	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
 endif
 
-KARABINER_SETTINGS_DIR=$(HOME)/.config/karabiner
+KARABINER_SETTINGS_DIR_PARENT=$(HOME)/.config
+KARABINER_SETTINGS_DIR=$(KARABINER_SETTINGS_DIR_PARENT)/karabiner
 
 all: \
 		link-dotfiles \
@@ -75,9 +76,12 @@ $(VSCODE_SETTINGS_DIR)/settings.json: $(CURDIR)/vscode/settings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
 
+# karabiner wants us to symlink only the containing directory, not just karabiner.json (won't work)
 $(KARABINER_SETTINGS_DIR)/karabiner.json: $(CURDIR)/karabiner/karabiner.json
-	mkdir -p $(KARABINER_SETTINGS_DIR)
-	ln -sf "$<" "$@"
+	mkdir -p $(KARABINER_SETTINGS_DIR_PARENT)
+	([ -d $(KARABINER_SETTINGS_DIR) ] && rm -r $(KARABINER_SETTINGS_DIR)) || true
+	ln -s $(CURDIR)/karabiner $(KARABINER_SETTINGS_DIR_PARENT)
+	([[ $(MAC) == 'true' ]] && launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server) || true
 
 link-dotfiles: \
 		$(HOME)/com.googlecode.iterm2.plist \
