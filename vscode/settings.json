@@ -133,5 +133,9 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
   "dotnet.server.useOmnisharp": true,
-  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+  "window.zoomLevel": 1,
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "github.copilot.editor.enableAutoCompletions": false
 }
