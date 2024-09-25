@@ -192,3 +192,6 @@ shopt -s promptvars
 # On every prompt, fetch git status and set GITSTATUS_PROMPT.
 export PROMPT_COMMAND=make_prompt
 export PROMPT_DIRTRIM=3
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
