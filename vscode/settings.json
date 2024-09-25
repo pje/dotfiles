@@ -13,7 +13,7 @@
     "editor.tabSize": 8
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.html-language-features",
     "editor.formatOnSave": true
   },
   "[javascript]": {
@@ -40,7 +40,7 @@
     "editor.formatOnSave": false // ruby-prettier isn't yet stable enough to be anything but opt-in
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": true
   },
   "[typescriptreact]": {
@@ -122,7 +122,7 @@
   "window.nativeTabs": false,
   "window.titleBarStyle": "native",
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "Gruvbox Light (Medium)",
+  "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -137,5 +137,6 @@
   "window.zoomLevel": 1,
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
-  "github.copilot.editor.enableAutoCompletions": false
+  "github.copilot.editor.enableAutoCompletions": false,
+  "remote.autoForwardPortsSource": "hybrid"
 }
