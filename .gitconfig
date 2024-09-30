@@ -47,5 +47,4 @@
 [rerere]
   enabled = true
 [user]
-  email=patrick.j.ellis@gmail.com
   name=Patrick Ellis
