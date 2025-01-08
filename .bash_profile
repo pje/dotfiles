@@ -147,7 +147,7 @@ function make_prompt {
   local path
   EXIT="$?"
   prompt_symbol="❍"
-  host="$(uname -n | sed 's/.local//')"
+  host="$(which scutil > /dev/null && scutil --get ComputerName || uname -n | sed 's/.local//')"
   user="$(whoami)"
   path=${PWD/#$HOME/'~'} # replace e.g. "/Users/pje" with "~"
 

@@ -18,6 +18,8 @@ set nofoldenable
 set sidescroll=5
 set grepprg=ack\ -a\ -G\ '[^.6]$'
 
+autocmd Filetype go setlocal expandtab tabstop=8 shiftwidth=8 softtabstop=8
+
 :set et sw=2 ts=2 sts=2
 :highlight ExtraWhitespace ctermfg=15 ctermbg=4 guifg=#CF6A4C guibg=#420E09
 :match ExtraWhitespace /\s\+$\| \+\ze\t/
