@@ -6,4 +6,6 @@ macos-icon-frame = plastic
 macos-icon-ghost-color = b8bb26
 macos-icon-screen-color = ebdbb2
 macos-titlebar-style = hidden
+mouse-scroll-multiplier = 2
+shell-integration-features = true
 theme = light:GruvboxLight,dark:GruvboxDark
