@@ -1,0 +1,9 @@
+cursor-style-blink = false
+font-family = Consolas
+font-size = 13
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = b8bb26
+macos-icon-screen-color = ebdbb2
+macos-titlebar-style = hidden
+theme = light:GruvboxLight,dark:GruvboxDark

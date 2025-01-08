@@ -7,6 +7,8 @@ else
 	VSCODE_SETTINGS_DIR=$(HOME)/.config/Code/User
 endif
 
+XDG_CONFIG=$(HOME)/.config
+
 all: \
 		link-dotfiles \
 		system-packages \
@@ -65,6 +67,10 @@ $(HOME)/com.googlecode.iterm2.plist: $(CURDIR)/com.googlecode.iterm2.plist
 $(HOME)/git_status_prompt.sh: $(CURDIR)/git_status_prompt.sh
 	ln -sf $< $@
 
+$(XDG_CONFIG)/ghostty/config: $(CURDIR)/ghostty/config
+	mkdir -p $(XDG_CONFIG)/ghostty
+	ln -sf $< $@
+
 $(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
@@ -91,6 +97,7 @@ link-dotfiles: \
 		$(if $(MAC),$(HOME)/.usergitconfig) \
 		$(HOME)/.vimrc \
 		$(HOME)/git_status_prompt.sh \
+		$(XDG_CONFIG)/ghostty/config \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
 		$(VSCODE_SETTINGS_DIR)/settings.json
 
