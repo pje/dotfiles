@@ -1,8 +1,8 @@
 adjust-cell-width = -1
-background-opacity = .925
-background-blur-radius = 20
 auto-update = download
 auto-update-channel = stable
+background-blur-radius = 20
+background-opacity = .925
 cursor-style-blink = false
 font-family = Consolas
 font-size = 13
