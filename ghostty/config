@@ -1,3 +1,4 @@
+adjust-cell-width = -1
 auto-update = download
 auto-update-channel = stable
 cursor-style-blink = false
