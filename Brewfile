@@ -74,6 +74,7 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
 
 cask 'flycut'
+cask 'ghostty'
 cask 'google-chrome'
 cask 'hammerspoon'
 cask 'imageoptim'
