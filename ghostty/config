@@ -12,3 +12,5 @@ mouse-scroll-multiplier = 2
 shell-integration = detect
 shell-integration-features = true
 theme = light:GruvboxLight,dark:GruvboxDark
+window-colorspace = display-p3
+window-padding-balance = true
