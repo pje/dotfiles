@@ -1,4 +1,6 @@
 adjust-cell-width = -1
+background-opacity = .925
+background-blur-radius = 20
 auto-update = download
 auto-update-channel = stable
 cursor-style-blink = false
@@ -13,5 +15,6 @@ mouse-scroll-multiplier = 2
 shell-integration = detect
 shell-integration-features = true
 theme = light:GruvboxLight,dark:GruvboxDark
+unfocused-split-opacity = 0.5
 window-colorspace = display-p3
 window-padding-balance = true
