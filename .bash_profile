@@ -114,6 +114,9 @@ fi
 if [ -n "$CODESPACES" ]; then
   # shellcheck source=/dev/null
   [ -s /usr/share/bash-completion/completions/git ] && source /usr/share/bash-completion/completions/git
+
+  # workaround for `xterm-ghostty` not being recognized by codespaces yet: https://ghostty.org/docs/help/terminfo
+  export TERM=xterm-256color
 fi
 
 # shellcheck source=/dev/null
