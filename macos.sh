@@ -17,6 +17,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # System-wide UI / Behavior
 ###############################################################################
+# add login items
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Karabiner-Elements.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Nightfall.app", hidden:false}'
 
 # Enable auto dark mode
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to auto'

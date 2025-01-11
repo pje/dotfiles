@@ -71,6 +71,10 @@ $(XDG_CONFIG)/ghostty/config: $(CURDIR)/ghostty/config
 	mkdir -p $(XDG_CONFIG)/ghostty
 	ln -sf $< $@
 
+$(XDG_CONFIG)/karabiner: $(CURDIR)/karabiner
+	mkdir -p $(XDG_CONFIG)
+	ln -s $< $@
+
 $(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)
 	ln -sf "$<" "$@"
@@ -98,6 +102,7 @@ link-dotfiles: \
 		$(HOME)/.vimrc \
 		$(HOME)/git_status_prompt.sh \
 		$(XDG_CONFIG)/ghostty/config \
+		$(XDG_CONFIG)/karabiner \
 		$(VSCODE_SETTINGS_DIR)/keybindings.json \
 		$(VSCODE_SETTINGS_DIR)/settings.json
 
