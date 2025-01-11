@@ -47,17 +47,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  // for APC you have to run: sudo chown -R $(whoami) /Applications/Visual\ Studio\ Code.app/Contents/Resources/app
-  "apc.electron": {
-    "titleBarStyle": "hiddenInset"
-  },
-  "autoDarkMode.darkTheme": "Gruvbox Dark (Medium)",
-  "autoDarkMode.lightTheme": "Gruvbox Light (Medium)",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Gruvbox Light (Medium)",
+  "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
   "dotnet.codeLens.enableReferencesCodeLens": false,
-  "deno.path": "/usr/local/bin/deno",
   "editor.cursorStyle": "line-thin",
   "editor.cursorWidth": 0,
   "editor.fontFamily": "Consolas",
@@ -115,14 +111,12 @@
   "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.1.0/bin/",
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.tabs.enabled": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "manual",
   "window.nativeFullScreen": false,
   "window.nativeTabs": false,
-  "window.titleBarStyle": "native",
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "Gruvbox Light (Medium)",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -138,5 +132,122 @@
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
   "github.copilot.editor.enableAutoCompletions": false,
-  "remote.autoForwardPortsSource": "hybrid"
+  "remote.autoForwardPortsSource": "hybrid",
+  "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "never",
+  "custom-ui-style.electron": {
+    "titleBarStyle": "hiddenInset"
+  },
+  "custom-ui-style.stylesheet": {
+    ".monaco-workbench": {
+      "--activitybar-width": "78px",
+      "--titlebar-height": "37px",
+      // Titlebar
+      ".part.sidebar.left .composite.title": {
+        "&, .title-actions, .global-actions, .monaco-toolbar": {
+          "height": "var(--titlebar-height)"
+        },
+        ".title-label": {
+          "line-height": "var(--titlebar-height)"
+        }
+      },
+      // Tabs
+      ".title.tabs": {
+        "--editor-group-tab-height": "var(--titlebar-height) !important",
+      },
+      // Wide activity bar
+      ".split-view-view:has(> .part.activitybar.left)": {
+        "&, .part.activitybar.left, .content": {
+          "min-width": "var(--activitybar-width)",
+        },
+        // Make the split-view after the wide activity bar smaller.
+        // Also handle the situation where the sidebar is hidden,
+        // in which case the editor itself needs to shrink / auto-size.
+        "& + .split-view-view.visible, & + .split-view-view:not(.visible) + .split-view-view.visible": {
+          "--offset": "calc(var(--activitybar-width) - 48px)",
+          "margin-left": "var(--offset)",
+          "> *:first-child": {
+            "width": "auto",
+            "margin-right": "var(--offset)",
+            // Auto-size the editor when the sidebar is hidden.
+            ".content": {
+              "&, .split-view-view": {
+                "&, .monaco-editor": {
+                  "&, .overflow-guard, .overlayWidgets": {
+                    "&, .monaco-scrollable-element, .sticky-widget": {
+                      "width": "unset !important",
+                      "left": "0",
+                      "right": "0"
+                    },
+                    ".sticky-widget": {
+                      "right": "14px !important"
+                    }
+                  }
+                }
+              }
+            }
+          },
+        }
+      },
+      ".monaco-sash.vertical.minimum": {
+        // TODO: Improve collapsing of the sidebar.
+        "left": "calc(var(--activitybar-width) - var(--vscode-sash-size) / 2) !important"
+      },
+      ".part.activitybar.left": {
+        ".monaco-action-bar": {
+          ".action-label": {
+            "width": "var(--activitybar-width)"
+          }
+        }
+      },
+      "&:not(.fullscreen)": {
+        // Make room for traffic lights.
+        ".part.activitybar.left > .content": {
+          "padding-top": "var(--titlebar-height)"
+        },
+        // Move editor title when side-bar is hidden, when side-bar is on the
+        // right or when activity-bar is hidden and side-bar is not on the right
+        "&:has(.sidebar.right)": {
+          ".monaco-split-view2.horizontal .split-view-view:not(.visible) + .split-view-view.visible .editor .title .tabs-and-actions-container": {
+            "padding-left": "var(--activitybar-width)"
+          },
+          ".auxiliarybar.left .composite.title": {
+            "padding-left": "var(--activitybar-width)"
+          }
+        },
+        // Allow dragging on the activity-bar, status-bar, tabs-container, side-bar title...
+        ".activitybar, .statusbar, .tabs-container, .sidebar .composite.title": {
+          "-webkit-app-region": "drag",
+          // ...but still allow to click actions and items without dragging.
+          ".content .monaco-action-bar, .statusbar-item, .tab, .title .title-actions .action-label": {
+            "-webkit-app-region": "no-drag"
+          }
+        }
+      },
+      ".statusbar": {
+        // Don't indent the statusbar items.
+        "> .items-container > .statusbar-item.left.first-visible-item": {
+          "padding-left": "0"
+        },
+        // Show the host button again, and make it as wide as the .activitybar.
+        "#status\\.host": {
+          "&": {
+            "display": "block !important",
+            "width": "calc(var(--activitybar-width) - 1px)"
+          },
+          ".codicon": {
+            "margin": "0 auto"
+          }
+        }
+      }
+    },
+    // Make line numbers a bit smaller.
+    ".editor .margin-view-overlays .line-numbers": {
+      "font-size": "85%"
+    },
+    // Show search inputs and results in monospaced font.
+    ".search-widget textarea, .find-widget textarea, .search-view .results .match": {
+      "font-family": "var(--cus-monospace-font) !important"
+    }
+  }
 }
