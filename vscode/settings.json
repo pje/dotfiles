@@ -47,94 +47,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "window.autoDetectColorScheme": true,
-  "workbench.preferredLightColorTheme": "Gruvbox Light (Medium)",
-  "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
   "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
-  "dotnet.codeLens.enableReferencesCodeLens": false,
-  "editor.cursorStyle": "line-thin",
-  "editor.cursorWidth": 0,
-  "editor.fontFamily": "Consolas",
-  "editor.fontSize": 13,
-  "editor.formatOnPaste": false,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.minimap.enabled": false,
-  "editor.mouseWheelScrollSensitivity": 1.5,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [
-    {
-      "color": "#ebdbb2",
-      "column": 80
-    }
-  ],
-  "editor.scrollBeyondLastLine": false,
-  "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  "explorer.autoReveal": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.sortOrder": "filesFirst",
-  "files.associations": {
-    "*.ino": "cpp",
-    "*.rake": "ruby",
-    "*.rbi": "ruby",
-    "*.rbs": "ruby",
-    "Brewfile": "ruby",
-    "Capfile": "ruby",
-    "Gemfile": "ruby"
-  },
-  "files.trimTrailingWhitespace": true,
-  "gitlens.codeLens.scopes": [
-    "document" // At the top of the file
-    // "containers" // At the start of modules, classes, interfaces, etc
-    // "blocks" // At the start of functions, methods, etc
-  ],
-  "go.coverOnSingleTest": true,
-  "go.coverOnSingleTestFile": true,
-  "go.coverOnTestPackage": true,
-  "go.testTimeout": "20s",
-  "go.toolsManagement.autoUpdate": true,
-  "go.useLanguageServer": true,
-  "gopls": {
-    "build.env": {
-      "GOPRIVATE": "github.com/github" // gets rid of irrelevant "X on pkg.go.dev" link on hover for our internal code
-    }
-    // "formatting.gofumpt": true
-  },
-  "Lua.telemetry.enable": false,
-  "merge-conflict.codeLens.enabled": false,
-  "merge-conflict.decorators.enabled": false,
-  "redhat.telemetry.enabled": false,
-  "ruby.rubocop.executePath": "/usr/local/lib/ruby/gems/3.1.0/bin/",
-  "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.tabs.enabled": true,
-  "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "update.mode": "manual",
-  "window.nativeFullScreen": false,
-  "window.nativeTabs": false,
-  "workbench.activityBar.location": "hidden",
-  "workbench.editor.empty.hint": "hidden",
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.showTabs": "multiple",
-  "workbench.iconTheme": null,
-  "workbench.settings.editor": "json",
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": false,
-  "dotnet.server.useOmnisharp": true,
-  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-  "window.zoomLevel": 1,
-  "workbench.layoutControl.enabled": false,
-  "window.commandCenter": false,
-  "github.copilot.editor.enableAutoCompletions": false,
-  "remote.autoForwardPortsSource": "hybrid",
-  "window.titleBarStyle": "native",
-  "window.customTitleBarVisibility": "never",
   "custom-ui-style.electron": {
     "titleBarStyle": "hiddenInset"
   },
@@ -249,5 +164,90 @@
     ".search-widget textarea, .find-widget textarea, .search-view .results .match": {
       "font-family": "var(--cus-monospace-font) !important"
     }
-  }
+  },
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+  "dotnet.codeLens.enableReferencesCodeLens": false,
+  "dotnet.server.useOmnisharp": true,
+  "editor.cursorStyle": "line-thin",
+  "editor.cursorWidth": 0,
+  "editor.fontFamily": "Consolas",
+  "editor.fontSize": 13,
+  "editor.formatOnPaste": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelScrollSensitivity": 1.5,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.rulers": [
+    {
+      "color": "#ebdbb2",
+      "column": 80
+    }
+  ],
+  "editor.scrollBeyondLastLine": false,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "explorer.autoReveal": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "filesFirst",
+  "files.associations": {
+    "*.ino": "cpp",
+    "*.rake": "ruby",
+    "*.rbi": "ruby",
+    "*.rbs": "ruby",
+    "Brewfile": "ruby",
+    "Capfile": "ruby",
+    "Gemfile": "ruby"
+  },
+  "files.trimTrailingWhitespace": true,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "gitlens.codeLens.scopes": [
+    "document" // At the top of the file
+    // "containers" // At the start of modules, classes, interfaces, etc
+    // "blocks" // At the start of functions, methods, etc
+  ],
+  "go.coverOnSingleTest": true,
+  "go.coverOnSingleTestFile": true,
+  "go.coverOnTestPackage": true,
+  "go.testTimeout": "20s",
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    "build.env": {
+      "GOPRIVATE": "github.com/github" // gets rid of irrelevant "X on pkg.go.dev" link on hover for our internal code
+    }
+    // "formatting.gofumpt": true
+  },
+  "Lua.telemetry.enable": false,
+  "merge-conflict.codeLens.enabled": false,
+  "merge-conflict.decorators.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "remote.autoForwardPortsSource": "hybrid",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "manual",
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": false,
+  "window.customTitleBarVisibility": "never",
+  "window.nativeFullScreen": false,
+  "window.nativeTabs": false,
+  "window.titleBarStyle": "native", // need to set 'native' here for some reason, it's overriden by custom-ui-style extension
+  "window.zoomLevel": 1,
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Gruvbox Light Medium",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.showTabs": "multiple",
+  "workbench.iconTheme": null,
+  "workbench.layoutControl.enabled": false,
+  "workbench.preferredLightColorTheme": "Gruvbox Light Medium",
+  "workbench.preferredDarkColorTheme": "Gruvbox Dark Medium",
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": false,
 }

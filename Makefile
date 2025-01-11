@@ -162,20 +162,21 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
 
 vscode-packages:
-	code --list-extensions | grep alexdima.copy-relative-path    || code --install-extension alexdima.copy-relative-path
-	code --list-extensions | grep denoland.vscode-deno           || code --install-extension denoland.vscode-deno
-	code --list-extensions | grep eg2.tslint                     || code --install-extension eg2.tslint
-	code --list-extensions | grep esbenp.prettier-vscode         || code --install-extension esbenp.prettier-vscode
-	code --list-extensions | grep github.codespaces              || code --install-extension github.codespaces
-	code --list-extensions | grep golang.Go                      || code --install-extension golang.Go
-	code --list-extensions | grep kaiwood.endwise                || code --install-extension kaiwood.endwise
-	code --list-extensions | grep mikestead.dotenv               || code --install-extension mikestead.dotenv
-	code --list-extensions | grep ms-vscode.atom-keybindings     || code --install-extension ms-vscode.atom-keybindings
-	code --list-extensions | grep ms-vscode.makefile-tools       || code --install-extension ms-vscode.makefile-tools
-	code --list-extensions | grep mskelton.npm-outdated          || code --install-extension mskelton.npm-outdated
-	code --list-extensions | grep subframe7536.custom-ui-style   || code --install-extension subframe7536.custom-ui-style
-	code --list-extensions | grep tomphilbin.gruvbox-themes      || code --install-extension tomphilbin.gruvbox-themes
-	code --list-extensions | grep wmaurer.change-case            || code --install-extension wmaurer.change-case
+	code --list-extensions | grep alexdima.copy-relative-path     	|| code --install-extension alexdima.copy-relative-path
+	code --list-extensions | grep denoland.vscode-deno            	|| code --install-extension denoland.vscode-deno
+	code --list-extensions | grep eg2.tslint                      	|| code --install-extension eg2.tslint
+	code --list-extensions | grep esbenp.prettier-vscode          	|| code --install-extension esbenp.prettier-vscode
+	code --list-extensions | grep github.codespaces               	|| code --install-extension github.codespaces
+	code --list-extensions | grep golang.Go                       	|| code --install-extension golang.Go
+	code --list-extensions | grep jdinhlife.gruvbox               	|| code --install-extension jdinhlife.gruvbox
+	code --list-extensions | grep kaiwood.endwise                 	|| code --install-extension kaiwood.endwise
+	code --list-extensions | grep mikestead.dotenv                	|| code --install-extension mikestead.dotenv
+	code --list-extensions | grep ms-vscode.atom-keybindings      	|| code --install-extension ms-vscode.atom-keybindings
+	code --list-extensions | grep ms-vscode.makefile-tools        	|| code --install-extension ms-vscode.makefile-tools
+	code --list-extensions | grep mskelton.npm-outdated           	|| code --install-extension mskelton.npm-outdated
+	code --list-extensions | grep subframe7536.custom-ui-style    	|| code --install-extension subframe7536.custom-ui-style
+	code --list-extensions | grep tomoki1207.vscode-input-sequence	|| code --install-extension tomoki1207.vscode-input-sequence
+	code --list-extensions | grep wmaurer.change-case             	|| code --install-extension wmaurer.change-case
 
 VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
 
