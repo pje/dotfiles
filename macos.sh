@@ -17,9 +17,29 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # System-wide UI / Behavior
 ###############################################################################
+
+# default shell to homebrew bash, not zsh
+brew_bash="$(brew --prefix)/bin/bash"
+if [[ $(echo "$SHELL") != /opt/homebrew/bin/bash ]]; then
+  which "$brew_bash" || exit 1
+  grep "$brew_bash" /etc/shells || sudo sh -c "$brew_bash" >> /etc/shells
+  chsh -s "$brew_bash"
+fi
+
 # add login items
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Flycut.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Hammerspoon.app", hidden:false}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Karabiner-Elements.app", hidden:false}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Nightfall.app", hidden:false}'
+
+# disable siri
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false
+
+# Remove siri icon from status menu
+defaults write com.apple.Siri StatusMenuVisible -bool false
+
+# disable stage manager (dock recent items)
+defaults write com.apple.WindowManager GloballyEnabled -bool false
 
 # Enable auto dark mode
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to auto'
@@ -321,6 +341,42 @@ defaults write com.apple.dock showhidden -bool true
 
 # Make Dock more transparent
 defaults write com.apple.dock hide-mirror -bool true
+
+# Don't show recent items in the dock
+defaults write com.apple.dock show-recents -bool false
+
+# Delete all the default bloat from the dock
+dockutil --remove "App Store"
+dockutil --remove Calendar
+dockutil --remove Contacts
+dockutil --remove Downloads
+dockutil --remove FaceTime
+dockutil --remove Freeform
+dockutil --remove Keynote
+dockutil --remove Launchpad
+dockutil --remove Mail
+dockutil --remove Maps
+dockutil --remove News
+dockutil --remove Notes
+dockutil --remove Numbers
+dockutil --remove Pages
+dockutil --remove Photos
+dockutil --remove Reminders
+dockutil --remove Safari
+dockutil --remove TV
+
+# Add apps to the dock
+dockutil --find "System Settings"                   || dockutil --add "/System/Applications/System Settings.app"
+dockutil --find "Google Chrome"                     || dockutil --add "/Applications/Google Chrome.app"
+dockutil --find "Chromium"                          || dockutil --add "/Applications/Chromium.app"
+dockutil --find "Music"                             || dockutil --add "/Applications/Music.app"
+dockutil --find "Spotify"                           || dockutil --add "/Applications/Spotify.app"
+dockutil --find "Slack"                             || dockutil --add "/Applications/Slack.app"
+dockutil --find "Signal"                            || dockutil --add "/Applications/Signal.app"
+dockutil --find "Messages"                          || dockutil --add "/System/Applications/Messages.app"
+dockutil --find "Visual Studio Code"                || dockutil --add "/Applications/Visual Studio Code.app"
+dockutil --find "Ghostty"                           || dockutil --add "/Applications/Ghostty.app"
+dockutil --find "/Users/pje/gifs-etc"               || dockutil --add "/Users/pje/gifs-etc"
 
 ###############################################################################
 # TextEdit
