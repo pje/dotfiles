@@ -185,7 +185,8 @@ vim-packages:	\
 		$(VIM_BUNDLE_DIR)/fzf \
 		$(VIM_BUNDLE_DIR)/fzf.vim \
 		$(VIM_BUNDLE_DIR)/gruvbox \
-		$(VIM_BUNDLE_DIR)/vim-clojure-static
+		$(VIM_BUNDLE_DIR)/vim-clojure-static \
+		$(VIM_BUNDLE_DIR)/vim-lumen
 
 $(VIM_BUNDLE_DIR):
 	mkdir -p $@
@@ -202,9 +203,11 @@ $(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
 $(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
 	if [ ! -d "$@" ]; then git clone https://github.com/guns/vim-clojure-static $@; fi
 
+$(VIM_BUNDLE_DIR)/vim-lumen: $(VIM_BUNDLE_DIR)
+	if [ ! -d "$@" ]; then git clone https://github.com/vimpostor/vim-lumen $@; fi
+
 .PHONY: \
 		all \
-		brew-pack \
 		brew-macos-packages \
 		homebrew \
 		iterm-scripts \
