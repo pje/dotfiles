@@ -10,6 +10,7 @@ macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = b8bb26
 macos-icon-screen-color = ebdbb2
+macos-non-native-fullscreen = true
 macos-titlebar-style = hidden
 mouse-scroll-multiplier = 2
 shell-integration = detect
@@ -18,6 +19,7 @@ theme = light:GruvboxLight,dark:GruvboxDark
 unfocused-split-opacity = 0.5
 window-colorspace = display-p3
 window-padding-balance = true
+window-save-state = always
 
 # cmd+delete to delete whole line
 keybind = super+backspace=text:\x15
