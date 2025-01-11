@@ -15,6 +15,7 @@ brew 'dbus'
 brew 'dockutil'
 brew 'duti'
 brew 'exiftool'
+brew 'fd'
 brew 'ffmpeg', args: ['with-fontconfig', 'with-libass']
 brew 'flac'
 brew 'fontconfig'

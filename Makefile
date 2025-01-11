@@ -12,7 +12,6 @@ XDG_CONFIG=$(HOME)/.config
 all: \
 		link-dotfiles \
 		system-packages \
-		vim-packages \
 		$(if $(MAC),vscode-packages) \
 		system-scripts
 
@@ -172,39 +171,11 @@ vscode-packages:
 	code --list-extensions | grep kaiwood.endwise                 	|| code --install-extension kaiwood.endwise
 	code --list-extensions | grep mikestead.dotenv                	|| code --install-extension mikestead.dotenv
 	code --list-extensions | grep ms-vscode.atom-keybindings      	|| code --install-extension ms-vscode.atom-keybindings
-	code --list-extensions | grep ms-vscode.makefile-tools        	|| code --install-extension ms-vscode.makefile-tools
 	code --list-extensions | grep mskelton.npm-outdated           	|| code --install-extension mskelton.npm-outdated
 	code --list-extensions | grep subframe7536.custom-ui-style    	|| code --install-extension subframe7536.custom-ui-style
 	code --list-extensions | grep tomoki1207.vscode-input-sequence	|| code --install-extension tomoki1207.vscode-input-sequence
 	code --list-extensions | grep wmaurer.change-case             	|| code --install-extension wmaurer.change-case
-
-VIM_BUNDLE_DIR=$(HOME)/.vim/pack/default/start
-
-vim-packages:	\
-		$(VIM_BUNDLE_DIR) \
-		$(VIM_BUNDLE_DIR)/fzf \
-		$(VIM_BUNDLE_DIR)/fzf.vim \
-		$(VIM_BUNDLE_DIR)/gruvbox \
-		$(VIM_BUNDLE_DIR)/vim-clojure-static \
-		$(VIM_BUNDLE_DIR)/vim-lumen
-
-$(VIM_BUNDLE_DIR):
-	mkdir -p $@
-
-$(VIM_BUNDLE_DIR)/fzf: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone https://github.com/junegunn/fzf $@; fi
-
-$(VIM_BUNDLE_DIR)/fzf.vim: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone https://github.com/junegunn/fzf.vim $@; fi
-
-$(VIM_BUNDLE_DIR)/gruvbox: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone https://github.com/morhetz/gruvbox $@; fi
-
-$(VIM_BUNDLE_DIR)/vim-clojure-static: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone https://github.com/guns/vim-clojure-static $@; fi
-
-$(VIM_BUNDLE_DIR)/vim-lumen: $(VIM_BUNDLE_DIR)
-	if [ ! -d "$@" ]; then git clone https://github.com/vimpostor/vim-lumen $@; fi
+	code --list-extensions | grep XadillaX.viml                    	|| code --install-extension XadillaX.viml
 
 .PHONY: \
 		all \
@@ -218,7 +189,6 @@ $(VIM_BUNDLE_DIR)/vim-lumen: $(VIM_BUNDLE_DIR)
 		macos \
 		system-packages \
 		system-scripts \
-		vim-packages \
 		vscode-packages
 
 .DEFAULT: all

@@ -4,6 +4,26 @@ let g:mapleader=","
 let maplocalleader=","
 let g:maplocalleader=","
 
+" auto-install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" install vim-plug plugins
+call plug#begin()
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'guns/vim-clojure-static'
+  Plug 'vimpostor/vim-lumen'
+call plug#end()
+
+" TODO: this doesn't seem to work in ghostty
+au User LumenLight echom 'Entered light mode'
+au User LumenDark echom 'Entered dark mode'
+
 set nocompatible
 
 set formatoptions+=t
@@ -62,7 +82,7 @@ set suffixes=.bak,~,.swp,.o,.6,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx
 
 autocmd BufEnter *.js  set sts=4 sw=4
 autocmd BufEnter *.c   set sts=4 sw=4
-autocmd BufEnter *.go  set ts=2 sw=2 noet nolist ai
+autocmd BufEnter *.go  set ts=8 sw=8 noet nolist ai
 
 filetype on
 filetype plugin on
@@ -71,7 +91,7 @@ filetype indent on
 set encoding=utf-8
 
 if $TERM == "rxvt-unicode"
- set t_Co=256
+  set t_Co=256
 endif
 
 fun! <SID>StripTrailingWhitespaces()
@@ -83,22 +103,12 @@ endfun
 
 autocmd BufWritePre *.h :call <SID>StripTrailingWhitespaces()
 
-colorscheme gruvbox
-set background=light
-
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+let g:gruvbox_contrast_light = 'medium'
 if (has("termguicolors"))
   set termguicolors
 endif
 
-" override gruvbox background color to be darker (same as iterm bg)
-" augroup vimrc
-"  autocmd!
-"  autocmd ColorScheme * highlight Normal guibg=#141414
-" augroup END
+colorscheme gruvbox
 
 syntax enable
 syntax on
