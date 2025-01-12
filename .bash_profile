@@ -1,19 +1,21 @@
 #! /bin/bash
 # sourced and executed once on login
 
-OS="$(uname)"
-
-if [ "$(uname -m)" == arm64 ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ "$(uname -s)" == "Darwin" ]; then
+  if [ "$(uname -m)" == arm64 ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 else
-  eval "$(/usr/local/bin/brew shellenv)"
+  eval "$(~/.linuxbrew/bin/brew shellenv)"
 fi
 
 export GOPATH=~/go
 
 export PATH=/usr/bin:$PATH
-export PATH=$(brew --prefix)/bin:$PATH
-export PATH=$(brew --prefix)/sbin:$PATH
+export PATH="$HOMEBREW_PREFIX"/bin:$PATH
+export PATH="$HOMEBREW_PREFIX"/sbin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=/usr/local/lib/ruby/gems/3.1.0/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -104,16 +106,16 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 if [ "$(which brew)" ]; then
   # shellcheck source=/dev/null
-  [ -s "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+  [ -s "$HOMEBREW_PREFIX/etc/bash_completion" ] && source "$HOMEBREW_PREFIX/etc/bash_completion"
 
   # shellcheck source=/dev/null
-  [ -s "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ] && source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+  [ -s "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh" ] && source "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
 
   # shellcheck source=/dev/null
-  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && source "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+  [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
 
   # shellcheck source=/dev/null
-  [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && source "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+  [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 fi
 
 if [ -n "$CODESPACES" ]; then
