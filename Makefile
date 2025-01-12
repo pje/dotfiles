@@ -166,16 +166,17 @@ vscode-packages:
 	code --list-extensions | grep eg2.tslint                      	|| code --install-extension eg2.tslint
 	code --list-extensions | grep esbenp.prettier-vscode          	|| code --install-extension esbenp.prettier-vscode
 	code --list-extensions | grep github.codespaces               	|| code --install-extension github.codespaces
-	code --list-extensions | grep golang.Go                       	|| code --install-extension golang.Go
+	code --list-extensions | grep golang.go                       	|| code --install-extension golang.go
 	code --list-extensions | grep jdinhlife.gruvbox               	|| code --install-extension jdinhlife.gruvbox
 	code --list-extensions | grep kaiwood.endwise                 	|| code --install-extension kaiwood.endwise
 	code --list-extensions | grep mikestead.dotenv                	|| code --install-extension mikestead.dotenv
 	code --list-extensions | grep ms-vscode.atom-keybindings      	|| code --install-extension ms-vscode.atom-keybindings
 	code --list-extensions | grep mskelton.npm-outdated           	|| code --install-extension mskelton.npm-outdated
 	code --list-extensions | grep subframe7536.custom-ui-style    	|| code --install-extension subframe7536.custom-ui-style
+	code --list-extensions | grep timonwong.shellcheck              || code --install-extension timonwong.shellcheck
 	code --list-extensions | grep tomoki1207.vscode-input-sequence	|| code --install-extension tomoki1207.vscode-input-sequence
 	code --list-extensions | grep wmaurer.change-case             	|| code --install-extension wmaurer.change-case
-	code --list-extensions | grep XadillaX.viml                    	|| code --install-extension XadillaX.viml
+	code --list-extensions | grep xadillax.viml                    	|| code --install-extension xadillax.viml
 
 .PHONY: \
 		all \

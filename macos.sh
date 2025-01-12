@@ -346,37 +346,37 @@ defaults write com.apple.dock hide-mirror -bool true
 defaults write com.apple.dock show-recents -bool false
 
 # Delete all the default bloat from the dock
-dockutil --remove "App Store"
-dockutil --remove Calendar
-dockutil --remove Contacts
-dockutil --remove Downloads
-dockutil --remove FaceTime
-dockutil --remove Freeform
-dockutil --remove Keynote
-dockutil --remove Launchpad
-dockutil --remove Mail
-dockutil --remove Maps
-dockutil --remove News
-dockutil --remove Notes
-dockutil --remove Numbers
-dockutil --remove Pages
-dockutil --remove Photos
-dockutil --remove Reminders
-dockutil --remove Safari
-dockutil --remove TV
+if dockutil --find "App Store" >/dev/null 2>/dev/null; then dockutil --remove "App Store"; fi
+if dockutil --find Calendar    >/dev/null 2>/dev/null; then dockutil --remove Calendar; fi
+if dockutil --find Contacts    >/dev/null 2>/dev/null; then dockutil --remove Contacts; fi
+if dockutil --find Downloads   >/dev/null 2>/dev/null; then dockutil --remove Downloads; fi
+if dockutil --find FaceTime    >/dev/null 2>/dev/null; then dockutil --remove FaceTime; fi
+if dockutil --find Freeform    >/dev/null 2>/dev/null; then dockutil --remove Freeform; fi
+if dockutil --find Keynote     >/dev/null 2>/dev/null; then dockutil --remove Keynote; fi
+if dockutil --find Launchpad   >/dev/null 2>/dev/null; then dockutil --remove Launchpad; fi
+if dockutil --find Mail        >/dev/null 2>/dev/null; then dockutil --remove Mail; fi
+if dockutil --find Maps        >/dev/null 2>/dev/null; then dockutil --remove Maps; fi
+if dockutil --find News        >/dev/null 2>/dev/null; then dockutil --remove News; fi
+if dockutil --find Notes       >/dev/null 2>/dev/null; then dockutil --remove Notes; fi
+if dockutil --find Numbers     >/dev/null 2>/dev/null; then dockutil --remove Numbers; fi
+if dockutil --find Pages       >/dev/null 2>/dev/null; then dockutil --remove Pages; fi
+if dockutil --find Photos      >/dev/null 2>/dev/null; then dockutil --remove Photos; fi
+if dockutil --find Reminders   >/dev/null 2>/dev/null; then dockutil --remove Reminders; fi
+if dockutil --find Safari      >/dev/null 2>/dev/null; then dockutil --remove Safari; fi
+if dockutil --find TV          >/dev/null 2>/dev/null; then dockutil --remove TV; fi
 
-# Add apps to the dock
-dockutil --find "System Settings"                   || dockutil --add "/System/Applications/System Settings.app"
-dockutil --find "Google Chrome"                     || dockutil --add "/Applications/Google Chrome.app"
-dockutil --find "Chromium"                          || dockutil --add "/Applications/Chromium.app"
-dockutil --find "Music"                             || dockutil --add "/Applications/Music.app"
-dockutil --find "Spotify"                           || dockutil --add "/Applications/Spotify.app"
-dockutil --find "Slack"                             || dockutil --add "/Applications/Slack.app"
-dockutil --find "Signal"                            || dockutil --add "/Applications/Signal.app"
-dockutil --find "Messages"                          || dockutil --add "/System/Applications/Messages.app"
-dockutil --find "Visual Studio Code"                || dockutil --add "/Applications/Visual Studio Code.app"
-dockutil --find "Ghostty"                           || dockutil --add "/Applications/Ghostty.app"
-dockutil --find "/Users/pje/gifs-etc"               || dockutil --add "/Users/pje/gifs-etc"
+# Add apps to the dock — `dockutil --add` will fail if the app is already in the dock, and we just silence those error messages and move on
+dockutil --add "/System/Applications/System Settings.app" >/dev/null 2>/dev/null
+dockutil --add "/Applications/Google Chrome.app"          >/dev/null 2>/dev/null
+dockutil --add "/Applications/Chromium.app"               >/dev/null 2>/dev/null
+dockutil --add "/Applications/Music.app"                  >/dev/null 2>/dev/null
+dockutil --add "/Applications/Spotify.app"                >/dev/null 2>/dev/null
+dockutil --add "/Applications/Slack.app"                  >/dev/null 2>/dev/null
+dockutil --add "/Applications/Signal.app"                 >/dev/null 2>/dev/null
+dockutil --add "/System/Applications/Messages.app"        >/dev/null 2>/dev/null
+dockutil --add "/Applications/Visual Studio Code.app"     >/dev/null 2>/dev/null
+dockutil --add "/Applications/Ghostty.app"                >/dev/null 2>/dev/null
+dockutil --add "/Users/pje/gifs-etc"                      >/dev/null 2>/dev/null
 
 ###############################################################################
 # TextEdit
