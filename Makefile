@@ -162,6 +162,7 @@ $(HOME)/Library/Fonts/Consolas.ttf:
 
 vscode-packages:
 	code --list-extensions | grep alexdima.copy-relative-path     	|| code --install-extension alexdima.copy-relative-path
+	code --list-extensions | grep chouzz.vscode-better-align     	  || code --install-extension chouzz.vscode-better-align
 	code --list-extensions | grep denoland.vscode-deno            	|| code --install-extension denoland.vscode-deno
 	code --list-extensions | grep eg2.tslint                      	|| code --install-extension eg2.tslint
 	code --list-extensions | grep esbenp.prettier-vscode          	|| code --install-extension esbenp.prettier-vscode

@@ -16,7 +16,7 @@
   },
   {
     "key": "ctrl+cmd+a",
-    "command": "wwm.aligncode",
+    "command": "chouzz.vscode-better-align.Align",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
