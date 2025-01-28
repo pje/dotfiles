@@ -1,7 +1,24 @@
 {
   "name": "Keychron K11 Max ANSI White Knob",
   "vendorProductId": 875825849,
-  "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  "macros": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "layers": [
     [
       "KC_ESC",
@@ -75,7 +92,7 @@
       "KC_NO",
       "KC_SPC",
       "MO(2)",
-      "MO(2)",
+      "MO(4)",
       "KC_NO",
       "KC_SPC",
       "KC_NO",
@@ -348,21 +365,7 @@
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_NO",
+      "KC_TAB",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -378,9 +381,23 @@
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
+      "KC_GRV",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
+      "KC_NO",
       "KC_TRNS",
+      "KC_LSFT",
       "KC_NO",
       "KC_TRNS",
       "KC_TRNS",
@@ -394,21 +411,21 @@
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
+      "KC_RSFT",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
+      "KC_LCTL",
+      "CUSTOM(0)",
+      "CUSTOM(2)",
+      "KC_NO",
+      "KC_NO",
+      "KC_SPC",
       "KC_TRNS",
       "KC_TRNS",
       "KC_NO",
-      "KC_NO",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_NO",
-      "KC_TRNS",
+      "KC_SPC",
       "KC_NO",
       "KC_NO",
-      "KC_TRNS",
+      "CUSTOM(3)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS"
@@ -416,11 +433,26 @@
   ],
   "encoders": [
     [
-      ["KC_VOLD", "KC_VOLU"],
-      ["KC_VOLD", "KC_VOLU"],
-      ["BL_DEC", "BL_INC"],
-      ["BL_DEC", "BL_INC"],
-      ["KC_TRNS", "KC_TRNS"]
+      [
+        "KC_VOLD",
+        "KC_VOLU"
+      ],
+      [
+        "KC_VOLD",
+        "KC_VOLU"
+      ],
+      [
+        "BL_DEC",
+        "BL_INC"
+      ],
+      [
+        "BL_DEC",
+        "BL_INC"
+      ],
+      [
+        "KC_TRNS",
+        "KC_TRNS"
+      ]
     ]
   ]
 }
