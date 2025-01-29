@@ -11,6 +11,11 @@
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
   },
   {
+    "key": "ctrl+alt+down",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
     "key": "cmd+k right",
     "command": "workbench.action.splitEditor"
   },
