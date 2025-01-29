@@ -14,6 +14,11 @@ fi
 
 export GOPATH=~/go
 
+export GOPROXY=https://goproxy.githubapp.com/mod,https://proxy.golang.org/,direct
+export GOPRIVATE=
+export GONOPROXY=
+export GONOSUMDB=github.com/github/*
+
 export PATH=/usr/bin:$PATH
 export PATH="$HOMEBREW_PREFIX"/bin:$PATH
 export PATH="$HOMEBREW_PREFIX"/sbin:$PATH
