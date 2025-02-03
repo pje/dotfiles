@@ -139,6 +139,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Trackpad, Mouse
 ###############################################################################
 
+# disable force click everywhere
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool false
+
 # enable tap-to-click everywhere
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -148,6 +151,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
+# enable three-finger swipe gesture ("navigate back" and "navigate forward")
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
