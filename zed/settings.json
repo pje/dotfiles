@@ -1,0 +1,47 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "base_keymap": "Atom",
+  "buffer_font_family": "Consolas",
+  "buffer_font_size": 14,
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "languages": {
+    "CSS": {},
+    "Go": {},
+    "HTML": {},
+    "JavaScript": {},
+    "JSON": {},
+    "JSONC": {},
+    "Ruby": {},
+    "Shell Script": {},
+    "TypeScript": {},
+    "TSX": {}
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "remove_trailing_whitespace_on_save": true,
+  "scroll_beyond_last_line": "off",
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "theme": {
+    "dark": "Gruvbox Dark",
+    "light": "Gruvbox Light",
+    "mode": "system"
+  },
+  "ui_font_family": "Consolas",
+  "ui_font_size": 15
+}
