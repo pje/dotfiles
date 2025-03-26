@@ -220,6 +220,7 @@
     // "formatting.gofumpt": true
   },
   "Lua.telemetry.enable": false,
+  "Lua.completion.enable": false,
   "merge-conflict.codeLens.enabled": false,
   "merge-conflict.decorators.enabled": false,
   "redhat.telemetry.enabled": false,
