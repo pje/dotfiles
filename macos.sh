@@ -518,6 +518,7 @@ lein
 lock
 make
 Makefile
+md
 profile
 py
 rake
@@ -536,7 +537,7 @@ vimrc
 yaml
 yml"
 
-for e in $extensions; do duti -s com.microsoft.VSCode "$e" editor ; done
+for e in $extensions; do infat set "Visual Studio Code" --file-type "$e" ; done
 
 ###############################################################################
 # Kill affected applications
