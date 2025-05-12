@@ -47,4 +47,6 @@
 [rerere]
   enabled = true
 [user]
-  name=Patrick Ellis
+  name=pje
+  email=319655+pje@users.noreply.github.com
+
