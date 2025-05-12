@@ -251,4 +251,11 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": false,
+  "telemetry.telemetryLevel": "off",
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  }
 }
