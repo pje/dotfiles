@@ -537,7 +537,7 @@ vimrc
 yaml
 yml"
 
-for e in $extensions; do infat set "Visual Studio Code" --file-type "$e" ; done
+for e in $extensions; do infat set "Visual Studio Code" --ext "$e" ; done
 
 ###############################################################################
 # Kill affected applications
