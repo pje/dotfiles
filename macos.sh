@@ -539,6 +539,8 @@ yml"
 
 for e in $extensions; do infat set "Visual Studio Code" --ext "$e" ; done
 
+infat set "Keka" --ext "rar"
+
 ###############################################################################
 # Kill affected applications
 ###############################################################################
