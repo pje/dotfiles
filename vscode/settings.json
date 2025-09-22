@@ -213,12 +213,6 @@
   "go.testTimeout": "20s",
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
-  "gopls": {
-    "build.env": {
-      "GOPRIVATE": "github.com/github" // gets rid of irrelevant "X on pkg.go.dev" link on hover for our internal code
-    }
-    // "formatting.gofumpt": true
-  },
   "Lua.telemetry.enable": false,
   "Lua.completion.enable": false,
   "merge-conflict.codeLens.enabled": false,
