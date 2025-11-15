@@ -152,8 +152,15 @@ system-scripts: $(if $(MAC),macos,linux)
 linux:
 	@echo "noop"
 
-macos: $(HOME)/Library/Fonts/Consolas.ttf $(HOME)/.usergitconfig
+macos: $(HOME)/.usergitconfig mac-fonts
 	./macos.sh
+
+mac-fonts: \
+	$(HOME)/Library/Fonts/Consolas.ttf \
+	$(HOME)/Library/Fonts/Consolasligaturizedv3-Bold.ttf \
+	$(HOME)/Library/Fonts/Consolasligaturizedv3-BoldItalic.ttf \
+	$(HOME)/Library/Fonts/Consolasligaturizedv3-Italic.ttf \
+	$(HOME)/Library/Fonts/Consolasligaturizedv3.ttf
 
 $(HOME)/fzf:
 	git clone --depth 1 https://github.com/junegunn/fzf $(HOME)/fzf
@@ -161,9 +168,23 @@ $(HOME)/fzf:
 $(HOME)/gitstatus:
 	git clone --depth=1 https://github.com/romkatv/gitstatus.git $(HOME)/gitstatus
 
-$(HOME)/Library/Fonts/Consolas.ttf:
-	mkdir -p $(HOME)/Library/Fonts
-	curl https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $(HOME)/Library/Fonts/Consolas.ttf
+$(HOME)/Library/Fonts:
+	mkdir -p $@
+
+$(HOME)/Library/Fonts/Consolas.ttf: $(HOME)/Library/Fonts
+	curl --location --fail-with-body https://raw.githubusercontent.com/pje/Consolas.ttf/master/Consolas.ttf --output $@
+
+$(HOME)/Library/Fonts/Consolasligaturizedv3-Bold.ttf: $(HOME)/Library/Fonts
+	curl --location --fail-with-body https://github.com/somq/consolas-ligaturized/raw/93a2ece/Consolasligaturizedv3-Bold.ttf --output $@
+
+$(HOME)/Library/Fonts/Consolasligaturizedv3-BoldItalic.ttf: $(HOME)/Library/Fonts
+	curl --location --fail-with-body https://github.com/somq/consolas-ligaturized/raw/93a2ece/Consolasligaturizedv3-BoldItalic.ttf --output $@
+
+$(HOME)/Library/Fonts/Consolasligaturizedv3-Italic.ttf: $(HOME)/Library/Fonts
+	curl --location --fail-with-body https://github.com/somq/consolas-ligaturized/raw/93a2ece/Consolasligaturizedv3-Italic.ttf --output $@
+
+$(HOME)/Library/Fonts/Consolasligaturizedv3.ttf: $(HOME)/Library/Fonts
+	curl --location --fail-with-body https://github.com/somq/consolas-ligaturized/raw/93a2ece/Consolasligaturizedv3.ttf --output $@
 
 vscode-packages:
 	code --list-extensions | grep alexdima.copy-relative-path     	|| code --install-extension alexdima.copy-relative-path
