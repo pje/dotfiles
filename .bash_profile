@@ -27,6 +27,7 @@ export PATH=~/bin:$PATH
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
@@ -210,3 +211,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 export PATH="$PATH:/Users/pje/.local/bin"
 
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
