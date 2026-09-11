@@ -75,8 +75,8 @@ $(XDG_CONFIG)/karabiner: $(CURDIR)/karabiner
 	ln -s $< $@
 
 $(XDG_CONFIG)/zed: $(CURDIR)/zed
-	mkdir -p $(XDG_CONFIG)/zed
-	ln -s $< $@
+	mkdir -p $(XDG_CONFIG)
+	ln -sf $< $@
 
 $(VSCODE_SETTINGS_DIR)/keybindings.json: $(CURDIR)/vscode/keybindings.json
 	mkdir -p $(VSCODE_SETTINGS_DIR)

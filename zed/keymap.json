@@ -1,0 +1,39 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-alt-down": "editor::GoToDefinition",
+      "ctrl-alt-down": "editor::GoToImplementation",
+      "alt-up": "editor::SelectLargerSyntaxNode",
+      "alt-down": "editor::SelectSmallerSyntaxNode",
+      "cmd-k cmd-c": "editor::ConvertToLowerCamelCase",
+      "cmd-k cmd-p": "editor::ConvertToUpperCamelCase",
+      "cmd-k cmd-s": "editor::ConvertToSnakeCase"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-shift-\\": "pane::RevealInProjectPanel"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-alt-up": "pane::GoBack"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-l": "terminal::Clear"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "backspace": ["project_panel::Trash", { "skip_prompt": true }],
+      "delete": ["project_panel::Trash", { "skip_prompt": true }]
+    }
+  }
+]

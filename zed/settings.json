@@ -8,40 +8,90 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "base_keymap": "Atom",
-  "buffer_font_family": "Consolas",
-  "buffer_font_size": 14,
-  "format_on_save": "on",
-  "formatter": "language_server",
-  "languages": {
-    "CSS": {},
-    "Go": {},
-    "HTML": {},
-    "JavaScript": {},
-    "JSON": {},
-    "JSONC": {},
-    "Ruby": {},
-    "Shell Script": {},
-    "TypeScript": {},
-    "TSX": {}
-  },
-  "project_panel": {
-    "dock": "right"
-  },
-  "remove_trailing_whitespace_on_save": true,
+
+  // -- Fonts / cursor
+  "buffer_font_family": "Consolas ligaturized v3",
+  "buffer_font_size": 13,
+  "ui_font_family": "Consolas ligaturized v3",
+  "ui_font_size": 15,
+  "cursor_shape": "bar",
+  "multi_cursor_modifier": "cmd",
+
+  // -- Editing behavior --
+  "tab_size": 2,
+  "hard_tabs": false,
   "scroll_beyond_last_line": "off",
+  "show_wrap_guides": true,
+  "wrap_guides": [80],
+  "remove_trailing_whitespace_on_save": true,
+  "format_on_save": "on",
+  "formatter": "auto",
+
+  "languages": {
+    "C": {
+      "format_on_save": "off",
+      "tab_size": 4
+    },
+    "C++": {
+      "format_on_save": "off",
+      "tab_size": 4
+    },
+    "CSharp": {
+      "tab_size": 4
+    },
+    "CSS": {},
+    "Go": {
+      "tab_size": 8
+    },
+    "HTML": {
+      "format_on_save": "on"
+    },
+    "JavaScript": {
+      "format_on_save": "on"
+    },
+    "JSON": {
+      "format_on_save": "on"
+    },
+    "JSONC": {
+      "format_on_save": "on"
+    },
+    "Markdown": {
+      "remove_trailing_whitespace_on_save": false
+    },
+    "Python": {
+      "tab_size": 4
+    },
+    "Ruby": {
+      "format_on_save": "off"
+    },
+    "Shell Script": {},
+    "TSX": {
+      "format_on_save": "on"
+    },
+    "TypeScript": {
+      "format_on_save": "on"
+    }
+  },
+
+  // Layout
+  "project_panel": {
+    "dock": "right",
+    "auto_reveal_entries": false
+  },
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false
   },
+
+  // Theme
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
+  },
+
   "telemetry": {
     "diagnostics": false,
     "metrics": false
-  },
-  "theme": {
-    "dark": "Gruvbox Dark",
-    "light": "Gruvbox Light",
-    "mode": "system"
-  },
-  "ui_font_family": "Consolas",
-  "ui_font_size": 15
+  }
 }
