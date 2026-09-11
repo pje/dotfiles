@@ -3,6 +3,7 @@ auto-update = download
 auto-update-channel = stable
 background-blur-radius = 20
 # background-opacity = .925 # can't do this because it breaks vim's colors for some reason?
+clipboard-paste-protection = false
 cursor-style-blink = false
 font-family = Consolas ligaturized v3
 font-size = 13
