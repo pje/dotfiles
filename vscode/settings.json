@@ -10,7 +10,10 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": true,
-    "editor.tabSize": 8
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "editor.tabSize": 8,
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features",
@@ -47,7 +50,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "breadcrumbs.enabled": false,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "~/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
   "custom-ui-style.electron": {
@@ -211,7 +213,14 @@
   "go.coverOnSingleTest": true,
   "go.coverOnSingleTestFile": true,
   "go.coverOnTestPackage": true,
-  "go.testTimeout": "20s",
+  "go.lintTool": "golangci-lint",
+  "go.lintOnSave": "package",
+  "go.testFlags": [
+    "-race",
+    "-count=1", // disable test caching
+    "-v",
+  ],
+  "go.testTimeout": "3s",
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "Lua.telemetry.enable": false,
@@ -248,9 +257,10 @@
   "workbench.statusBar.visible": false,
   "telemetry.telemetryLevel": "off",
   "workbench.editorAssociations": {
-    "git-rebase-todo": "default"
+    "git-rebase-todo": "default",
   },
   "[sql]": {
     "editor.defaultFormatter": "mtxr.sqltools"
-  }
+  },
+  "chat.disableAIFeatures": true
 }
